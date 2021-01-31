@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="../css/offcanvas.css" />
+    <link rel="stylesheet" href="../css/datatables.css" />
+
+    <title>APE - Input General Information</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+      <span class="navbar-brand mr-auto mr-lg-0" href="#"
+        ><b>A</b>ssisted <b>P</b>ricing <b>E</b>nvironment</span
+      >
+      <button
+        class="navbar-toggler p-0 border-0"
+        type="button"
+        data-toggle="offcanvas"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div
+        class="navbar-collapse offcanvas-collapse"
+        id="navbarsExampleDefault"
+      >
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item"><a class="nav-link" href="../index.html">Summary</a></li>
+          <li class="nav-item"><a class="nav-link" href="./overview.html">Detailed Variance Analysis</a></li>
+          <li class="nav-item"><a class="nav-link" href="./pricelistfinal.html">Price List Final</a></li>
+          <li class="nav-item active"><a class="nav-link" href="./GeneralInformation.html">Input - General Information<span class="sr-only">(current)</span></a></li>
+          <li class="nav-item"><a class="nav-link" href="./TEWU.html">Input - Vehicles</a></li>
+          <li class="nav-item"><a class="nav-link" href="./alloptions.html">Input - Options</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col">
+          <!-- z tego można pomyśleć czy nie zrobić <header> -->
+          <h1>Input - General Information</h1>
+          <p class="text-monospace">
+            <mark>Table creation date:</mark>
+            <time datetime="2020-05-20">20.05.2020</time>
+          </p>
+          <p class="text-monospace">
+            <mark>VOG reference date:</mark>
+            <time datetime="2020-05-10">10.05.2020</time>
+          </p>
+          <!-- </header> -->
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <form action="">
+            <div class="row">
+              <div class="form-group col-12 col-sm-6 col-md-3">
+                <!-- TODO dodać value do wszystkich selectów -->
+                <label for="country">Country</label>
+                <select class="form-control" id="country">
+                  <option>Switzerland</option>
+                  <option>Ireland</option>
+                  <option>Scotland</option>
+                  <option>Portugal</option>
+                  <option>Poland</option>
+                </select>
+              </div>
+              <div class="form-group col-12 col-sm-6 col-md-3">
+                <label for="carline">Carline</label>
+                <select class="form-control" id="carline">
+                  <option>Mokka</option>
+                  <option>Astra</option>
+                  <option>Insignia</option>
+                  <option>Corsa</option>
+                  <option>Crossland</option>
+                </select>
+              </div>
+              <div class="form-group col-12 col-sm-6 col-md-3">
+                <label for="carline">Vehicle Brand</label>
+                <select class="form-control" id="carline">
+                  <option>Opel</option>
+                  <option>Vauxhall</option>
+                </select>
+              </div>
+              <div class="form-group col-12 col-sm-6 col-md-3">
+                <label for="carline">Model Year</label>
+                <select class="form-control" id="carline">
+                  <option>21.0</option>
+                  <option>20.0</option>
+                  <option>19.0</option>
+                </select>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-submit">
+              Submit
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-auto">
+          <span class="badge badge-primary bg-info">Switzerland</span>
+        </div>
+        <div class="col-auto">
+          <span class="badge badge-primary bg-info">Mokka</span>
+        </div>
+        <div class="col-auto">
+          <span class="badge badge-primary bg-info">Opel</span>
+        </div>
+        <div class="col-auto">
+          <span class="badge badge-primary bg-info">MY21.0</span>
+        </div>
+        <div class="col-auto">
+          <span class="badge badge-primary">1,1 CHF = 1 EUR</span>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <div class="bd-callout">
+            <p>
+              <button type="button" class="btn btn-outline-primary mb-3" disabled>Edit</button>
+              <div class="row">
+                <div class="col-12 col-md-6">
+                  <span class="badge badge-primary">Input General</span>
+                  <ul class="list-group">
+                    <li
+                      class="list-group-item d-flex justify-content-between align-items-center"
+                    >
+                      Gross Sales Factor (Options) - From PDU
+                      <span class="badge badge-primary badge-pill">56%</span>
+                    </li>
+                    <li
+                      class="list-group-item d-flex justify-content-between align-items-center"
+                    >
+                      Gross Sales Factor (Vehicle) - From PDU<span
+                        class="badge badge-primary badge-pill"
+                        >52%</span
+                      >
+                    </li>
+                    <li
+                      class="list-group-item d-flex justify-content-between align-items-center yellow"
+                    >
+                      Other Taxes
+                      <span class="badge badge-primary badge-pill">0%</span>
+                    </li>
+                    <li
+                      class="list-group-item d-flex justify-content-between align-items-center yellow"
+                    >
+                      Local Currency
+                      <span class="badge badge-primary badge-pill">CHF</span>
+                    </li>
+                    <li
+                      class="list-group-item d-flex justify-content-between align-items-center yellow"
+                    >
+                      FX Rate
+                      <span class="badge badge-primary badge-pill">1.1</span>
+                    </li>
+                    <li
+                      class="list-group-item d-flex justify-content-between align-items-center yellow"
+                    >
+                      VAT
+                      <span class="badge badge-primary badge-pill">7.7%</span>
+                    </li>
+                    <li
+                      class="list-group-item d-flex justify-content-between align-items-center yellow"
+                    >
+                      Dealer Margin
+                      <span class="badge badge-primary badge-pill">10%</span>
+                    </li>
+                    <li
+                      class="list-group-item d-flex justify-content-between align-items-center yellow"
+                    >
+                      Default MSRP Type
+                      <span class="badge badge-primary badge-pill"
+                        >1. Incuding Taxes</span
+                      >
+                    </li>
+                    <li
+                      class="list-group-item d-flex justify-content-between align-items-center yellow"
+                    >
+                      Importer Margin
+                      <span class="badge badge-primary badge-pill">30%</span>
+                    </li>
+                    <li
+                      class="list-group-item d-flex justify-content-between align-items-center yellow"
+                    >
+                      Importer Margin on Options
+                      <span class="badge badge-primary badge-pill">25%</span>
+                    </li>
+                    <li
+                      class="list-group-item d-flex justify-content-between align-items-center yellow"
+                    >
+                      Sales Allowances (% of PDU)
+                      <span class="badge badge-primary badge-pill">3%</span>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-12 col-md-6">
+                  <span class="badge badge-primary">Other</span>
+                  <ul class="list-group">
+                    <li
+                      class="list-group-item d-flex justify-content-between align-items-center yellow"
+                    >
+                      GMUD / LCDV Base
+                      <span class="badge badge-primary badge-pill"
+                        >0MC76EU6</span
+                      >
+                    </li>
+                    <li
+                      class="list-group-item d-flex justify-content-between align-items-center"
+                    >
+                      MSRP Base
+                      <span class="badge badge-primary badge-pill">23.915</span>
+                    </li>
+                    <li
+                      class="list-group-item d-flex justify-content-between align-items-center"
+                    >
+                      PDU
+                      <span class="badge badge-primary badge-pill">12.340</span>
+                    </li>
+                    <li
+                      class="list-group-item d-flex justify-content-between align-items-center"
+                    >
+                      Cost
+                      <span class="badge badge-primary badge-pill">9.720</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <!-- <script src="./js/jquery-3.5.1.slim.min.js"></script> -->
+    <!-- TODO: do sprawdzenia wersje jQuery, bo coś DataTables świruje przy ładowaniu wersji jQuery Bootstrapa z dysku -->
+
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/offcanvas.js"></script>
+    <script src="../js/dataTable.jquery.js"></script>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+{
+  "data": [ {
+  "MeasureType_1" : "Details Mix",
+  "MeasureType_subcategory_2" : "TRIM 1",
+  "Mix Current" : "100%",
+  "Mix Proposed" : "100%",
+  "Mix Change": "100%"
+}, {
+  "MeasureType_1" : "Details Mix",
+  "MeasureType_subcategory_2" : "TRIM 2",
+  "Mix Current" : "100%",
+  "Mix Proposed" : "100%",
+  "Mix Change": "100%"
+}, {
+  "MeasureType_1" : "Details Mix",
+  "MeasureType_subcategory_2" : "TRIM 3",
+  "Mix Current" : "100%",
+  "Mix Proposed" : "100%",
+  "Mix Change": "100%"
+}, {
+  "MeasureType_1" : "Details Mix",
+  "MeasureType_subcategory_2" : "TRIM 4",
+  "Mix Current" : "100%",
+  "Mix Proposed" : "100%",
+  "Mix Change": "100%"
+}, {
+  "MeasureType_1" : "Details Mix",
+  "MeasureType_subcategory_2" : "TRIM 5",
+  "Mix Current" : "100%",
+  "Mix Proposed" : "100%",
+  "Mix Change": "100%"
+} ]
+}

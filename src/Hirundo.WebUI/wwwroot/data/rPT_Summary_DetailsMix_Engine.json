@@ -1,0 +1,27 @@
+{
+  "data":[ {
+  "MeasureType_1" : "Details Mix",
+  "MeasureType_subcategory_2" : "ENGINE 1",
+  "Mix Current" : "100%",
+  "Mix Proposed" : "100%",
+  "Mix Change": "100%"
+}, {
+  "MeasureType_1" : "Details Mix",
+  "MeasureType_subcategory_2" : "ENGINE 2",
+  "Mix Current" : "100%",
+  "Mix Proposed" : "100%",
+  "Mix Change": "100%"
+}, {
+  "MeasureType_1" : "Details Mix",
+  "MeasureType_subcategory_2" : "ENGINE 3",
+  "Mix Current" : "100%",
+  "Mix Proposed" : "100%",
+  "Mix Change": "100%"
+}, {
+  "MeasureType_1" : "Details Mix",
+  "MeasureType_subcategory_2" : "ENGINE 4",
+  "Mix Current" : "100%",
+  "Mix Proposed" : "100%",
+  "Mix Change": "100%"
+} ]
+}

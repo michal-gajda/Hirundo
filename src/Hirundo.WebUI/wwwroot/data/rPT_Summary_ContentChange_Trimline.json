@@ -1,0 +1,48 @@
+{
+  "data": [ {
+  "TrimlineCodeGMUD2" : "MB76",
+  "TrimlineCodeLCDV" : "",
+  "CMO_CurrentMY" : "AAA AAB AAC AAD AAE",
+  "CMO_PreviousMY" : "AAB AAC AAD 222",
+  "ChangesAdded": "AAA AAE",
+  "ChangesDroped": "222",
+  "ImpactOnPrices": "200",
+  "ImpactOnCosts": "100"
+}, {
+  "TrimlineCodeGMUD2" : "MC76",
+  "TrimlineCodeLCDV" : "",
+  "CMO_CurrentMY" : "AAA AAB AAC AAD AAE",
+  "CMO_PreviousMY" : "AAB AAC AAD 222",
+  "ChangesAdded": "AAA AAE",
+  "ChangesDroped": "222",
+  "ImpactOnPrices": "200",
+  "ImpactOnCosts": "100"
+}, {
+  "TrimlineCodeGMUD2" : "ME76",
+  "TrimlineCodeLCDV" : "",
+  "CMO_CurrentMY" : "AAA AAB AAC AAD AAE",
+  "CMO_PreviousMY" : "AAB AAC AAD 222",
+  "ChangesAdded": "AAA AAE",
+  "ChangesDroped": "222",
+  "ImpactOnPrices": "200",
+  "ImpactOnCosts": "100"
+}, {
+  "TrimlineCodeGMUD2" : "MJ76",
+  "TrimlineCodeLCDV" : "",
+  "CMO_CurrentMY" : "AAA AAB AAC AAD AAE",
+  "CMO_PreviousMY" : "AAB AAC AAD 222",
+  "ChangesAdded": "AAA AAE",
+  "ChangesDroped": "222",
+  "ImpactOnPrices": "200",
+  "ImpactOnCosts": "100"
+}, {
+  "TrimlineCodeGMUD2" : "MS76",
+  "TrimlineCodeLCDV" : "",
+  "CMO_CurrentMY" : "AAA AAB AAC AAD AAE",
+  "CMO_PreviousMY" : "AAB AAC AAD 222",
+  "ChangesAdded": "AAA AAE",
+  "ChangesDroped": "222",
+  "ImpactOnPrices": "200",
+  "ImpactOnCosts": "100"
+} ]
+}

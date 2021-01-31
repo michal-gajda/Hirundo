@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/offcanvas.css" />
+  <link rel="stylesheet" href="css/datatables.css" />
+  <link rel="stylesheet" href="css/responsive.dataTables.min.css">
+
+  <title>APE - Summary</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+    <span class="navbar-brand mr-auto mr-lg-0" href="#"><b>A</b>ssisted <b>P</b>ricing <b>E</b>nvironment</span>
+    <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="./index.html">Summary <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./sites/overview.html">Detailed Variance Analysis</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./sites/pricelistfinal.html">Price List Final</a>
+        <li class="nav-item"><a class="nav-link" href="../GeneralInformation.html">Input - General Information</a></li>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./sites/TEWU.html">Input - Vehicles</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./sites/alloptions.html">Input - Options</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col">
+        <!-- <header> ? -->
+        <h1>Summary</h1>
+        <p class="text-monospace">
+          <mark>Table creation date:</mark>
+          <time datetime="2020-05-20">20.05.2020</time>
+        </p>
+        <p class="text-monospace">
+          <mark>VOG reference date:</mark>
+          <time datetime="2020-05-10">10.05.2020</time>
+        </p>
+        <!-- </header> -->
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <form action="">
+          <div class="row">
+            <div class="form-group col-12 col-sm-6 col-md-3">
+              <!-- TODO: dodać value do wszystkich selectów -->
+              <label for="country">Country</label>
+              <select class="form-control" id="country">
+                <option>Switzerland</option>
+                <option>Ireland</option>
+                <option>Scotland</option>
+                <option>Portugal</option>
+                <option>Poland</option>
+              </select>
+            </div>
+            <div class="form-group col-12 col-sm-6 col-md-3">
+              <label for="carline">Carline</label>
+              <select class="form-control" id="carline">
+                <option>Mokka</option>
+                <option>Astra</option>
+                <option>Insignia</option>
+                <option>Corsa</option>
+                <option>Crossland</option>
+              </select>
+            </div>
+            <div class="form-group col-12 col-sm-6 col-md-3">
+              <label for="vehicleBrand">Vehicle Brand</label>
+              <select class="form-control" id="vehicleBrand">
+                <option>Opel</option>
+                <option>Vauxhall</option>
+              </select>
+            </div>
+            <div class="form-group col-12 col-sm-6 col-md-3">
+              <label for="modelYear">Model Year</label>
+              <select class="form-control" id="modelYear">
+                <option>21.0</option>
+                <option>20.0</option>
+                <option>19.0</option>
+              </select>
+            </div>
+          </div>
+          <button id="submitButton" class="btn btn-primary">
+            Submit
+          </button>
+        </form>
+      </div>
+    </div>
+    <div class="row mt-5">
+      <div class="col">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" id="summary-tab" data-toggle="tab" href="#summary" role="tab"
+              aria-controls="summary" aria-selected="false">Financial Summary</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="home-tab" data-toggle="tab" href="#mix" role="tab" aria-controls="mix"
+              aria-selected="true">Mix Changes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="variance-tab" data-toggle="tab" href="#variance" role="tab" aria-controls="variance"
+              aria-selected="false">Variance Analysis</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="contentchange-tab" data-toggle="tab" href="#contentchange" role="tab"
+              aria-controls="contentchange" aria-selected="false">Content Changes</a>
+          </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade" id="mix" role="tabpanel" aria-labelledby="mix-tab">
+            <div class="row">
+              <div class="table-responsive">
+                <div class="col mt-4">
+                  <table id="mixbodystyle" class="table table-sm table-striped table-bordered">
+                    <thead class="thead-light">
+                      <tr>
+                        <th scope="col">
+                          <div><span>Body Style Code</span></div>
+                        </th>
+                        <th scope="col">
+                          <div><span>Mix Current MY</span></div>
+                        </th>
+                        <th scope="col">
+                          <div><span>Mix Previous MY</span></div>
+                        </th>
+                        <th scope="col">
+                          <div><span>Mix Change</span></div>
+                        </th>
+                      </tr>
+                    </thead>
+                  </table>
+                </div>
+              </div>
+              <div class="table-responsive">
+                <div class="col mt-4">
+                  <table id="mixengine" class="table table-sm table-striped table-bordered">
+                    <thead class="thead-light">
+                      <tr>
+                        <th scope="col">
+                          <div><span>Engine Code</span></div>
+                        </th>
+                        <th scope="col">
+                          <div><span>Mix Current MY</span></div>
+                        </th>
+                        <th scope="col">
+                          <div><span>Mix Previous MY</span></div>
+                        </th>
+                        <th scope="col">
+                          <div><span>Mix Change</span></div>
+                        </th>
+                      </tr>
+                    </thead>
+                  </table>
+                </div>
+              </div>
+              <div class="table-responsive">
+                <div class="col mt-4">
+                  <table id="mixtrim" class="table table-sm table-striped table-bordered">
+                    <thead class="thead-light">
+                      <tr>
+                        <th scope="col">
+                          <div><span>Trimline Code</span></div>
+                        </th>
+                        <th scope="col">
+                          <div><span>Mix Current MY</span></div>
+                        </th>
+                        <th scope="col">
+                          <div><span>Mix Previous MY</span></div>
+                        </th>
+                        <th scope="col">
+                          <div><span>Mix Change</span></div>
+                        </th>
+                      </tr>
+                    </thead>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="variance" role="tabpanel" aria-labelledby="variance-tab">
+            <div class="row">
+              <div class="col">
+                <div class="bd-callout">
+                  <p class="text-monospace font-italic mb-0">
+                    <strong>RBCV incl. Policy & Warrenty</strong>
+                  </p>
+                  <div class="row">
+                    <div class="col-12 col-md-6 mt-4">
+                      <span class="badge badge-primary">RBCV incl. P&W per unit in Euro</span>
+                      <ul class="list-group mt-1">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                          Current Average (incl. Free Options)
+                          <span class="badge badge-primary badge-pill">606</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                          Previous Average (incl. Free Option)
+                          <span class="badge badge-primary badge-pill">624</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                          Variance per unit
+                          <span class="badge badge-primary badge-pill">18</span>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="col-12 col-md-6 mt-4">
+                      <span class="badge badge-primary">Volume</span>
+                      <ul class="list-group mt-1">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                          Current
+                          <span class="badge badge-primary badge-pill">5.000</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                          Previous
+                          <span class="badge badge-primary badge-pill">5.000</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                          Variance
+                          <span class="badge badge-primary badge-pill">0</span>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="col-12 col-md-6 mt-4">
+                      <span class="badge badge-primary">There of:</span>
+                      <ul class="list-group mt-1">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                          Mix
+                          <span class="badge badge-primary badge-pill">-12</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                          Equipment
+                          <span class="badge badge-primary badge-pill">296</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                          Economis
+                          <span class="badge badge-primary badge-pill">0</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                          Other Cost / GSF
+                          <span class="badge badge-primary badge-pill">-13</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                          Free Option
+                          <span class="badge badge-primary badge-pill">-254</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                          Sales Allowances
+                          <span class="badge badge-primary badge-pill">0</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                          Other Contribution Cost
+                          <span class="badge badge-primary badge-pill">0</span>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="col-12 col-md-6 mt-4">
+                      <span class="badge badge-primary">Economics</span>
+                      <ul class="list-group mt-1">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                          Mix
+                          <span class="badge badge-primary badge-pill">0,08%</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                          Equipment
+                          <span class="badge badge-primary badge-pill">1,99%</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                          Economis
+                          <span class="badge badge-primary badge-pill">0,00%</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                          Other Cost / GSF
+                          <span class="badge badge-primary badge-pill">-0,09%</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                          Free Option
+                          <span class="badge badge-primary badge-pill">-1,71%</span>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="col-12 col-md-6 mt-4">
+                      <span class="badge badge-primary">FFO</span>
+                      <ul class="list-group mt-1">
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                          FFO penetrations
+                          <span class="badge badge-primary badge-pill">20</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                          FFO prices
+                          <span class="badge badge-primary badge-pill">7</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                          FFO deletions
+                          <span class="badge badge-primary badge-pill">-92</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                          FFO introductions
+                          <span class="badge badge-primary badge-pill">55</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                          Pack penetrations
+                          <span class="badge badge-primary badge-pill">42</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                          Pack prices
+                          <span class="badge badge-primary badge-pill">-22</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                          Pack introductions
+                          <span class="badge badge-primary badge-pill">0</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                          Pack deletions
+                          <span class="badge badge-primary badge-pill">305</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                          Pack content change
+                          <span class="badge badge-primary badge-pill">28</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade show active" id="summary" role="tabpanel" aria-labelledby="summary-tab">
+            <div class="row mt-4">
+              <div class="col-auto">
+                <span class="badge badge-primary bg-info">Switzerland</span>
+              </div>
+              <div class="col-auto">
+                <span class="badge badge-primary bg-info">Mokka</span>
+              </div>
+              <div class="col-auto">
+                <span class="badge badge-primary bg-info">Opel</span>
+              </div>
+              <div class="col-auto">
+                <span class="badge badge-primary bg-info">MY21.0</span>
+              </div>
+              <div class="col-auto">
+                <span class="badge badge-primary">1,1 CHF = 1 EUR</span>
+              </div>
+              <div class="col-12">
+                <div class="row mt-2 mb-5">
+                  <div class="col">
+                    <div class="table-responsive">
+                      <!-- <div>
+                          <b>Show/Hide Column:</b>
+                          <a class="toggle-vis" data-column="1">EUR pU Proposed MY</a> -
+                          <a class="toggle-vis" data-column="2">EUR pU Budget</a> -
+                          <a class="toggle-vis" data-column="3">EUR Previous MY</a> -
+                          <a class="toggle-vis" data-column="4">Delta EUR pU Budget</a> -
+                          <a class="toggle-vis" data-column="5">Delta EUR pU Previous MY</a>
+                          <a class="toggle-vis" data-column="6">EUR pU Base Vehicle Proposed MY</a>
+                          <a class="toggle-vis" data-column="7">EUR pU FFOs Proposed MY</a>
+                          <a class="toggle-vis" data-column="8">EUR pU Base Vehicle Previous MY</a>
+                          <a class="toggle-vis" data-column="9">EURpUFFOsPreviousMY</a>
+                          <a class="toggle-vis" data-column="10">Delta EUR pU Base Vehicle Previous MY</a>
+                          <a class="toggle-vis" data-column="11">Delta EUR pU FFOs Previous MY</a>
+                        </div> -->
+                      <table id="mainTable" class="table table-sm table-striped table-bordered display"
+                        style="width: 100%">
+                        <!-- <caption class="sr-only">
+                            Summary
+                          </caption> -->
+                        <thead class="thead-light">
+                          <tr>
+                            <th colspan="1"></th>
+                            <th colspan="3">Total</th>
+                            <th colspan="2">Current MY</th>
+                            <th colspan="2">Previous MY</th>
+                          </tr>
+                          <tr>
+                            <th scope="col" class="rotate">
+                              <div><span>EUR</span></div>
+                            </th>
+                            <th scope="col" class="rotate">
+                              <div><span>Current MY</span></div>
+                            </th>
+                            <th scope="col" class="rotate">
+                              <div><span>Budget</span></div>
+                            </th>
+                            <th scope="col" class="rotate">
+                              <div><span>Previous MY</span></div>
+                            </th>
+                            <th scope="col" class="rotate">
+                              <div><span>Vehicle</span></div>
+                            </th>
+                            <th scope="col" class="rotate">
+                              <div><span>Options</span></div>
+                            </th>
+                            <th scope="col" class="rotate">
+                              <div><span>Vehicle</span></div>
+                            </th>
+                            <th scope="col" class="rotate">
+                              <div><span>Options</span></div>
+                            </th>
+                          </tr>
+                        </thead>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="contentchange" role="tabpanel" aria-labelledby="contentchange-tab">
+            <div class="row">
+              <div class="table-responsive">
+                <div class="col mt-4">
+                  <table id="contentchangetrim" class="table table-sm table-striped table-bordered">
+                    <thead class="thead-light">
+                      <tr>
+                        <th scope="col">
+                          <div><span>TrimlineCodeGMUD2</span></div>
+                        </th>
+                        <th scope="col">
+                          <div><span>TrimlineCodeLCDV</span></div>
+                        </th>
+                        <th scope="col">
+                          <div><span>CMO_CurrentMY</span></div>
+                        </th>
+                        <th scope="col">
+                          <div><span>CMO_PreviousMY</span></div>
+                        </th>
+                        <th scope="col">
+                          <div><span>ChangesAdded</span></div>
+                        </th>
+                        <th scope="col">
+                          <div><span>ChangesDroped</span></div>
+                        </th>
+                        <th scope="col">
+                          <div><span>ImpactOnPrices</span></div>
+                        </th>
+                        <th scope="col">
+                          <div><span>ImpactOnCosts</span></div>
+                        </th>
+                      </tr>
+                    </thead>
+                  </table>
+                </div>
+              </div>
+              <!-- <div class="table-responsive">
+                  <div class="col mt-4">
+                    <table
+                      id="mixengine"
+                      class="table table-sm table-striped table-bordered"
+                    >
+                      <thead class="thead-light">
+                        <tr>
+                          <th scope="col"><div><span>Engine Code</span></div></th>
+                          <th scope="col"><div><span>Mix Current MY</span></div></th>
+                          <th scope="col"><div><span>Mix Previous MY</span></div></th>
+                          <th scope="col"><div><span>Mix Change</span></div></th>
+                        </tr>
+                      </thead>
+                    </table>
+                  </div>
+                </div> -->
+              <!-- <div class="table-responsive">
+                  <div class="col mt-4">
+                    <table
+                      id="mixtrim"
+                      class="table table-sm table-striped table-bordered"
+                    >
+                      <thead class="thead-light">
+                        <tr>
+                          <th scope="col"><div><span>Trimline Code</span></div></th>
+                          <th scope="col"><div><span>Mix Current MY</span></div></th>
+                          <th scope="col"><div><span>Mix Previous MY</span></div></th>
+                          <th scope="col"><div><span>Mix Change</span></div></th>
+                        </tr>
+                      </thead>
+                    </table>
+                  </div>
+                </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Optional JavaScript; choose one of the two! -->
+
+  <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <!-- <script src="./js/jquery-3.5.1.slim.min.js"></script> -->
+  <!-- TODO: do sprawdzenia wersje jQuery, bo coś DataTables świruje przy ładowaniu wersji jQuery Bootstrapa z dysku -->
+
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/offcanvas.js"></script>
+  <script src="js/dataTable.jquery.js"></script>
+  <script src="js/dataTables.responsive.min.js"></script>
+  <script>
+    document.querySelector("#submitButton").addEventListener("click", (e) => {
+      let r =
+      {
+        country: document.querySelector("#country").value,
+        carline: document.querySelector("#carline").value,
+        vehicleBrand: document.querySelector("#vehicleBrand").value,
+        modelYear: document.querySelector("#modelYear").value
+      };
+
+      alert(JSON.stringify(r));
+
+      fetch('Summary', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(r)
+      })
+        .then(response => response.json())
+        .then(data => {
+          $('"#mainTable').dataTable().fnClearTable();
+          $('"#mainTable').dataTable().fnAddData(data);
+        }
+        );
+    });
+
+    $(document).ready(function () {
+      var table = $("#mainTable").DataTable({
+        paging: false,
+        ordering: false,
+        bInfo: false,
+        autoWidth: false,
+        ajax: {
+          "url": "Summary",
+          "type": "GET"
+        },
+        columns: [
+          { data: "MeasureType_1" },
+          { data: "EURTotalSubmission" },
+          { data: "EURTotalBudget" },
+          { data: "EURTotalPrevious" },
+          { data: "EURVehicleSubmission" },
+          { data: "EUROptionsSubmission" },
+          { data: "EURVehiclePrevious" },
+          { data: "EUROptionsPrevious" },
+        ],
+        // "fnRowCallback": function(nRow, aData, iDisplayIndex) {
+        //   if(aRow == "RBCV") {
+        //     $(aRow).addClass('bold')
+        //   }
+        // },
+        "columnDefs": [
+          {
+            "render": $.fn.dataTable.render.number('.', ','),
+            "targets": '_all'
+          },
+        ],
+      });
+
+
+
+      // $("a.toggle-vis").on("click", function (e) {
+      //   e.preventDefault();
+
+      //   // Get the column API object
+      //   var column = table.column($(this).attr("data-column"));
+
+      //   // Toggle the visibility
+      //   column.visible(!column.visible());
+      // });
+
+      $("#mixbodystyle").DataTable({
+        // responsive: true,
+        searching: false,
+        paging: false,
+        ordering: false,
+        bInfo: false,
+        autoWidth: false,
+        ajax: "./data/rPT_Summary_DetailsMix_BodyStyle.json",
+        columns: [
+          // { data: "MeasureType_1" },
+          { data: "MeasureType_subcategory_2" },
+          { data: "Mix Current" },
+          { data: "Mix Proposed" },
+          { data: "Mix Change" },
+        ],
+        // "columnDefs": [
+        //     { "render": $.fn.dataTable.render.number( '.', ','),
+        //       "targets":'_all'
+        //     },
+        // ],
+      });
+      $("#mixengine").DataTable({
+        // responsive: true,
+        paging: false,
+        searching: false,
+        ordering: false,
+        bInfo: false,
+        autoWidth: false,
+        ajax: "./data/rPT_Summary_DetailsMix_Engine.json",
+        columns: [
+          // { data: "MeasureType_1" },
+          { data: "MeasureType_subcategory_2" },
+          { data: "Mix Current" },
+          { data: "Mix Proposed" },
+          { data: "Mix Change" },
+        ],
+        // "columnDefs": [
+        //     { "render": $.fn.dataTable.render.number( '.', ','),
+        //       "targets":'_all'
+        //     },
+        // ],
+      });
+      $("#mixtrim").DataTable({
+        // responsive: true,
+        paging: false,
+        searching: false,
+        ordering: false,
+        bInfo: false,
+        autoWidth: false,
+        ajax: "./data/rPT_Summary_DetailsMix_Trimline.json",
+        columns: [
+          // { data: "MeasureType_1" },
+          { data: "MeasureType_subcategory_2" },
+          { data: "Mix Current" },
+          { data: "Mix Proposed" },
+          { data: "Mix Change" },
+        ],
+        // "columnDefs": [
+        //     { "render": $.fn.dataTable.render.number( '.', ','),
+        //       "targets":'_all'
+        //     },
+        // ],
+      });
+      $("#contentchangetrim").DataTable({
+        // responsive: true,
+        paging: false,
+        searching: false,
+        ordering: false,
+        bInfo: false,
+        autoWidth: false,
+        ajax: "./data/rPT_Summary_ContentChange_Trimline.json",
+        columns: [
+          { data: "TrimlineCodeGMUD2" },
+          { data: "TrimlineCodeLCDV" },
+          { data: "CMO_CurrentMY" },
+          { data: "CMO_PreviousMY" },
+          { data: "ChangesAdded" },
+          { data: "ChangesDroped" },
+          { data: "ImpactOnPrices" },
+          { data: "ImpactOnCosts" },
+        ],
+        // "columnDefs": [
+        //     { "render": $.fn.dataTable.render.number( '.', ','),
+        //       "targets":'_all'
+        //     },
+        // ],
+      });
+
+    });
+  </script>
+
+  <!-- Option 2: jQuery, Popper.js, and Bootstrap JS
+    <script src="js/jquery-3.5.1.slim.min.js" ></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    -->
+</body>
+
+</html>

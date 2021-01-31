@@ -1,0 +1,174 @@
+{
+  "data": [
+    {
+      "MeasureType_1": "Volume",
+      "EURTotalSubmission": 1000.0,
+      "EURTotalBudget": 1000.0,
+      "EURTotalPrevious": 1000.0,
+      "EURVehicleSubmission": 1000.0,
+      "EUROptionsSubmission": 1000.0,
+      "EURVehiclePrevious": 1000.0,
+      "EUROptionsPrevious": 1000.0
+    },
+    {
+      "MeasureType_1": "List Price Including Taxes",
+      "EURTotalSubmission": 1000.0,
+      "EURTotalBudget": 1000.0,
+      "EURTotalPrevious": 1000.0,
+      "EURVehicleSubmission": 1000.0,
+      "EUROptionsSubmission": 1000.0,
+      "EURVehiclePrevious": 1000.0,
+      "EUROptionsPrevious": 1000.0
+    },
+    {
+      "MeasureType_1": "VAT",
+      "EURTotalSubmission": 1000.0,
+      "EURTotalBudget": 1000.0,
+      "EURTotalPrevious": 1000.0,
+      "EURVehicleSubmission": 1000.0,
+      "EUROptionsSubmission": 1000.0,
+      "EURVehiclePrevious": 1000.0,
+      "EUROptionsPrevious": 1000.0
+    },
+    {
+      "MeasureType_1": "Other Taxes",
+      "EURTotalSubmission": 1000.0,
+      "EURTotalBudget": 1000.0,
+      "EURTotalPrevious": 1000.0,
+      "EURVehicleSubmission": 1000.0,
+      "EUROptionsSubmission": 1000.0,
+      "EURVehiclePrevious": 1000.0,
+      "EUROptionsPrevious": 1000.0
+    },
+    {
+      "MeasureType_1": "List Price Excluding Taxes",
+      "EURTotalSubmission": 1000.0,
+      "EURTotalBudget": 1000.0,
+      "EURTotalPrevious": 1000.0,
+      "EURVehicleSubmission": 1000.0,
+      "EUROptionsSubmission": 1000.0,
+      "EURVehiclePrevious": 1000.0,
+      "EUROptionsPrevious": 1000.0
+    },
+    {
+      "MeasureType_1": "Dealer Margin",
+      "EURTotalSubmission": 1000.0,
+      "EURTotalBudget": 1000.0,
+      "EURTotalPrevious": 1000.0,
+      "EURVehicleSubmission": 1000.0,
+      "EUROptionsSubmission": 1000.0,
+      "EURVehiclePrevious": 1000.0,
+      "EUROptionsPrevious": 1000.0
+    },
+    {
+      "MeasureType_1": "Importer Margin",
+      "EURTotalSubmission": 1000.0,
+      "EURTotalBudget": 1000.0,
+      "EURTotalPrevious": 1000.0,
+      "EURVehicleSubmission": 1000.0,
+      "EUROptionsSubmission": 1000.0,
+      "EURVehiclePrevious": 1000.0,
+      "EUROptionsPrevious": 1000.0
+    },
+    {
+      "MeasureType_1": "Gross Sales/PDU",
+      "EURTotalSubmission": 1000.0,
+      "EURTotalBudget": 1000.0,
+      "EURTotalPrevious": 1000.0,
+      "EURVehicleSubmission": 1000.0,
+      "EUROptionsSubmission": 1000.0,
+      "EURVehiclePrevious": 1000.0,
+      "EUROptionsPrevious": 1000.0
+    },
+    {
+      "MeasureType_1": "PPI",
+      "EURTotalSubmission": 1000.0,
+      "EURTotalBudget": 1000.0,
+      "EURTotalPrevious": 1000.0,
+      "EURVehicleSubmission": 1000.0,
+      "EUROptionsSubmission": 1000.0,
+      "EURVehiclePrevious": 1000.0,
+      "EUROptionsPrevious": 1000.0
+    },
+    {
+      "MeasureType_1": "Commercial Margin",
+      "EURTotalSubmission": 1000.0,
+      "EURTotalBudget": 1000.0,
+      "EURTotalPrevious": 1000.0,
+      "EURVehicleSubmission": 1000.0,
+      "EUROptionsSubmission": 1000.0,
+      "EURVehiclePrevious": 1000.0,
+      "EUROptionsPrevious": 1000.0
+    },
+    {
+      "MeasureType_1": "Opel Support (SA, EUR)",
+      "EURTotalSubmission": 1000.0,
+      "EURTotalBudget": 1000.0,
+      "EURTotalPrevious": 1000.0,
+      "EURVehicleSubmission": 1000.0,
+      "EUROptionsSubmission": 1000.0,
+      "EURVehiclePrevious": 1000.0,
+      "EUROptionsPrevious": 1000.0
+    },
+    {
+      "MeasureType_1": "RBCV",
+      "EURTotalSubmission": 1000.0,
+      "EURTotalBudget": 1000.0,
+      "EURTotalPrevious": 1000.0,
+      "EURVehicleSubmission": 1000.0,
+      "EUROptionsSubmission": 1000.0,
+      "EURVehiclePrevious": 1000.0,
+      "EUROptionsPrevious": 1000.0
+    },
+    {
+      "MeasureType_1": "Policy and Warranty",
+      "EURTotalSubmission": 1000.0,
+      "EURTotalBudget": 1000.0,
+      "EURTotalPrevious": 1000.0,
+      "EURVehicleSubmission": 1000.0,
+      "EUROptionsSubmission": 1000.0,
+      "EURVehiclePrevious": 1000.0,
+      "EUROptionsPrevious": 1000.0
+    },
+    {
+      "MeasureType_1": "Net Commercial Result",
+      "EURTotalSubmission": 1000.0,
+      "EURTotalBudget": 1000.0,
+      "EURTotalPrevious": 1000.0,
+      "EURVehicleSubmission": 1000.0,
+      "EUROptionsSubmission": 1000.0,
+      "EURVehiclePrevious": 1000.0,
+      "EUROptionsPrevious": 1000.0
+    },
+    {
+      "MeasureType_1": "Importer Gross Margin %",
+      "EURTotalSubmission": 1000.0,
+      "EURTotalBudget": 1000.0,
+      "EURTotalPrevious": 1000.0,
+      "EURVehicleSubmission": 1000.0,
+      "EUROptionsSubmission": 1000.0,
+      "EURVehiclePrevious": 1000.0,
+      "EUROptionsPrevious": 1000.0
+    },
+    {
+      "MeasureType_1": "Country Gross Margin",
+      "EURTotalSubmission": 1000.0,
+      "EURTotalBudget": 1000.0,
+      "EURTotalPrevious": 1000.0,
+      "EURVehicleSubmission": 1000.0,
+      "EUROptionsSubmission": 1000.0,
+      "EURVehiclePrevious": 1000.0,
+      "EUROptionsPrevious": 1000.0
+    },
+    {
+      "MeasureType_1": "Opel Support (SA, % Gross Sales)",
+      "EURTotalSubmission": 1000.0,
+      "EURTotalBudget": 1000.0,
+      "EURTotalPrevious": 1000.0,
+      "EURVehicleSubmission": 1000.0,
+      "EUROptionsSubmission": 1000.0,
+      "EURVehiclePrevious": 1000.0,
+      "EUROptionsPrevious": 1000.0
+    }
+  ]
+}

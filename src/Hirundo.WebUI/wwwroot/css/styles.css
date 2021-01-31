@@ -1,0 +1,77 @@
+/* NAVBAR */
+.navbar-nav {
+  margin-left: 1rem;
+}
+
+/* CALLOUT */
+/* https://github.com/ma-zal/bootstrap-callouts */
+.bd-callout {
+  padding: 1.25rem;
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+  border: 1px solid #eee;
+  border-left-width: 0.25rem;
+  border-radius: 0.25rem;
+}
+
+/* LIST-GROUP */
+.list-group-item {
+  padding: 0.5rem 0.75rem;
+}
+
+/* BADGE */
+.badge {
+  font-size: 88%;
+}
+
+/* HTML TAGS */
+mark {
+  background-color: #f7d900;
+}
+
+.navbar-dark .navbar-brand,
+.navbar-dark .navbar-brand:hover,
+.navbar-dark .navbar-nav .active > .nav-link {
+  color: #f7d900;
+}
+
+/* TABLE HEADER TEXT ROTATE */
+/* TODO FIX - source: https://css-tricks.com/rotated-table-column-headers/ */
+/* raczej nie będziemy rotate header w tabelach używać */
+
+/* FIXED COLUMNS */
+/* Ensure that the demo table scrolls */
+th, td { white-space: nowrap; }
+div.dataTables_wrapper {
+    /* width: 800px; */
+    margin: 0 auto;
+}
+
+/* SUBMIT BUTTON */
+.btn-submit {
+  display: inherit;
+  margin-left: auto;
+}
+
+/* SHOW/HIDE COLUMN DATATABLES */
+.toggle-vis {
+  cursor: pointer;
+}
+
+/* OTHERS */
+.yellow {
+  background-color: #f7d900 !important;
+}
+
+.bold {
+  font-weight: bold !important;
+}
+
+/* TABLES */
+th, th[colspan] {
+  text-align: center;
+}
+
+table, th {
+  border: 1px solid black !important;
+}

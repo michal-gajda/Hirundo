@@ -1,0 +1,2344 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="../css/offcanvas.css" />
+    <link rel="stylesheet" href="../css/datatables.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/fixedheader/3.1.7/css/fixedHeader.dataTables.min.css" />
+
+    <title>APE - Price List Final</title>
+  </head>
+  <body>
+    <nav id="navigation" class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+      <span class="navbar-brand mr-auto mr-lg-0" href="#"
+        ><b>A</b>ssisted <b>P</b>ricing <b>E</b>nvironment</span
+      >
+      <button
+        class="navbar-toggler p-0 border-0"
+        type="button"
+        data-toggle="offcanvas"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div
+        class="navbar-collapse offcanvas-collapse"
+        id="navbarsExampleDefault"
+      >
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="../index.html">Summary</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./overview.html">Detailed Variance Analysis</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="./pricelistfinal.html"
+              >Price List Final <span class="sr-only">(current)</span></a
+            >
+            <li class="nav-item"><a class="nav-link" href="./GeneralInformation.html">Input - General Information</a></li>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./TEWU.html">Input - Vehicles</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./alloptions.html">Input - Options</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col">
+          <!-- z tego można pomyśleć czy nie zrobić <header> -->
+          <h1>Price List Final</h1>
+          <p class="text-monospace">
+            <mark>Table creation date:</mark>
+            <time datetime="2020-05-20">20.05.2020</time>
+          </p>
+          <p class="text-monospace">
+            <mark>VOG reference date:</mark>
+            <time datetime="2020-05-10">10.05.2020</time>
+          </p>
+          <!-- </header> -->
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <form action="">
+            <div class="row">
+              <div class="form-group col-12 col-sm-6 col-md-3">
+                <!-- TODO dodać value do wszystkich selectów -->
+                <label for="country">Country</label>
+                <select class="form-control" id="country">
+                  <option>Switzerland</option>
+                  <option>Ireland</option>
+                  <option>Scotland</option>
+                  <option>Portugal</option>
+                  <option>Poland</option>
+                </select>
+              </div>
+              <div class="form-group col-12 col-sm-6 col-md-3">
+                <label for="carline">Carline</label>
+                <select class="form-control" id="carline">
+                  <option>Mokka</option>
+                  <option>Astra</option>
+                  <option>Insignia</option>
+                  <option>Corsa</option>
+                  <option>Crossland</option>
+                </select>
+              </div>
+              <div class="form-group col-12 col-sm-6 col-md-3">
+                <label for="carline">Vehicle Brand</label>
+                <select class="form-control" id="carline">
+                  <option>Opel</option>
+                  <option>Vauxhall</option>
+                </select>
+              </div>
+              <div class="form-group col-12 col-sm-6 col-md-3">
+                <label for="carline">Model Year</label>
+                <select class="form-control" id="carline">
+                  <option>21.0</option>
+                  <option>20.0</option>
+                  <option>19.0</option>
+                </select>
+              </div>
+            </div>
+          </form>
+          <button type="submit" class="btn btn-primary btn-submit">
+            Submit
+          </button>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-auto">
+          <span class="badge badge-primary bg-info">Switzerland</span>
+        </div>
+        <div class="col-auto">
+          <span class="badge badge-primary bg-info">Mokka</span>
+        </div>
+        <div class="col-auto">
+          <span class="badge badge-primary bg-info">Opel</span>
+        </div>
+        <div class="col-auto">
+          <span class="badge badge-primary bg-info">MY21.0</span>
+        </div>
+        <div class="col-auto">
+          <span class="badge badge-primary">1,1 CHF = 1 EUR</span>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 col-md-6">
+          <span class="badge badge-primary">Additional Information</span>
+          <ul class="list-group">
+            <li
+              class="list-group-item d-flex justify-content-between align-items-center"
+            >
+              If Price or PDU = 0: Vehicle is not available
+              <span class="badge badge-primary badge-pill"></span>
+            </li>
+            <li
+              class="list-group-item d-flex justify-content-between align-items-center"
+            >
+              LCDV Design Base
+              <span class="badge badge-primary badge-pill">NA</span>
+            </li>
+            <li
+              class="list-group-item d-flex justify-content-between align-items-center"
+            >
+              LCDV New Model Year
+              <span class="badge badge-primary badge-pill">NA</span>
+            </li>
+            <li
+              class="list-group-item d-flex justify-content-between align-items-center"
+            >
+              LCDV Old Model Year
+              <span class="badge badge-primary badge-pill">NA</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <div class="bd-callout">
+            <div class="row">
+              <div class="col">
+                <!--form class="form-inline">
+                  <label class="my-1 mr-2" for="overviewTableFor"
+                    >Choose overview table for</label
+                  >
+                  <select
+                    class="custom-select my-1 mr-sm-2"
+                    id="overviewTableFor"
+                -->
+                <!-- TODO poprawić value dla wszystkich option -->
+                <!--option selected value="0">Engines</option>
+                    <option value="1">Trims</option>
+                    <option value="2">Body style</option-->
+                <!-- <option selected value="0">
+                      Vehicle + options variance
+                    </option>
+                    <option value="1">Vehicle variance</option>
+                    <option value="2">Options variance</option>
+                    <option value="3">Vehicle + options submission</option>
+                    <option value="4">Vehicle submission</option>
+                    <option value="5">Options submission</option>
+                    <option value="6">
+                      Vehicle + options previous business case
+                    </option>
+                    <option value="7">Vehicle previous business case</option>
+                    <option value="8">Options previous business case</option> -->
+                <!--/select-->
+                <!-- TODO dodać przycisk submit -->
+                <!--/form-->
+
+                <div class="row">
+                  <div class="col-3">
+                    <div
+                      class="nav flex-column nav-pills"
+                      id="v-pills-tab"
+                      role="tablist"
+                      aria-orientation="vertical"
+                    >
+                      <a
+                        class="nav-link active"
+                        id="v-detailed-general-info-tab"
+                        data-toggle="pill"
+                        href="#v-detailed-general-info"
+                        role="tab"
+                        aria-controls="v-general-info"
+                        aria-selected="true"
+                        >List Price General Info.</a
+                      >
+                      <a
+                        class="nav-link"
+                        id="v-general-info-tab"
+                        data-toggle="pill"
+                        href="#v-general-info"
+                        role="tab"
+                        aria-controls="v-general-info"
+                        aria-selected="true"
+                        >General Information</a
+                      >
+                      <a
+                        class="nav-link"
+                        id="v-price-and-pdu-tab"
+                        data-toggle="pill"
+                        href="#v-price-and-pdu"
+                        role="tab"
+                        aria-controls="v-price-and-pdu"
+                        aria-selected="false"
+                        >Price and PDU</a
+                      >
+                      <a
+                        class="nav-link"
+                        id="v-volume-and-mix-tab"
+                        data-toggle="pill"
+                        href="#v-volume-and-mix"
+                        role="tab"
+                        aria-controls="v-volume-and-mix"
+                        aria-selected="false"
+                        >Volume and Mix</a
+                      >
+                      <a
+                        class="nav-link"
+                        id="v-different-prices-tab"
+                        data-toggle="pill"
+                        href="#v-different-prices"
+                        role="tab"
+                        aria-controls="v-different-prices"
+                        aria-selected="false"
+                        >Different Prices</a
+                      >
+                      <a
+                        class="nav-link"
+                        id="v-margin-tab"
+                        data-toggle="pill"
+                        href="#v-margin"
+                        role="tab"
+                        aria-controls="v-margin"
+                        aria-selected="false"
+                        >Margin</a
+                      >
+                      <a
+                        class="nav-link"
+                        id="v-costs-tab"
+                        data-toggle="pill"
+                        href="#v-costs"
+                        role="tab"
+                        aria-controls="v-costs"
+                        aria-selected="false"
+                        >Cost</a
+                      >
+                      <a
+                        class="nav-link"
+                        id="v-details-vat-and-taxes-tab"
+                        data-toggle="pill"
+                        href="#v-details-vat-and-taxes"
+                        role="tab"
+                        aria-controls="v-details-vat-and-taxes"
+                        aria-selected="false"
+                        >Details: VAT and Taxes</a
+                      >
+                      <a
+                        class="nav-link"
+                        id="v-details-local-costs-and-duties-tab"
+                        data-toggle="pill"
+                        href="#v-details-local-costs-and-duties"
+                        role="tab"
+                        aria-controls="v-details-local-costs-and-duties"
+                        aria-selected="false"
+                        >Details: Local Costs and Duties</a
+                      >
+                      <a
+                        class="nav-link"
+                        id="v-details-dealer-margin-tab"
+                        data-toggle="pill"
+                        href="#v-details-dealer-margin"
+                        role="tab"
+                        aria-controls="v-details-dealer-margin"
+                        aria-selected="false"
+                        >Details: Dealer Margin</a
+                      >
+                      <a
+                        class="nav-link"
+                        id="v-details-sales-allowances-tab"
+                        data-toggle="pill"
+                        href="#v-details-sales-allowances"
+                        role="tab"
+                        aria-controls="v-details-sales-allowances"
+                        aria-selected="false"
+                        >Details: Sales Allowances</a
+                      >
+                      <a
+                        class="nav-link"
+                        id="v-conf-costs-tab"
+                        data-toggle="pill"
+                        href="#v-conf-costs"
+                        role="tab"
+                        aria-controls="v-conf-costs"
+                        aria-selected="false"
+                        >CONF. Costs</a
+                      >
+                      <a
+                        class="nav-link"
+                        id="v-conf-with-pseudo-lmo-tab"
+                        data-toggle="pill"
+                        href="#v-conf-with-pseudo-lmo"
+                        role="tab"
+                        aria-controls="v-conf-with-pseudo-lmo"
+                        aria-selected="false"
+                        >CONF. With Pseudo LMO</a
+                      >
+                      <a
+                        class="nav-link"
+                        id="v-conf-cmo-tab"
+                        data-toggle="pill"
+                        href="#v-conf-cmo"
+                        role="tab"
+                        aria-controls="v-conf-cmo"
+                        aria-selected="false"
+                        >CONF. CMO</a
+                      >
+                      <a
+                        class="nav-link"
+                        id="v-conf-rbcv-and-other-tab"
+                        data-toggle="pill"
+                        href="#v-conf-rbcv-and-other"
+                        role="tab"
+                        aria-controls="v-conf-rbcv-and-other"
+                        aria-selected="false"
+                        >CONF. RBCV and Other</a
+                      >
+                      <a
+                        class="nav-link"
+                        id="v-conf-add-info-tab"
+                        data-toggle="pill"
+                        href="#v-conf-add-info"
+                        role="tab"
+                        aria-controls="v-conf-add-info"
+                        aria-selected="false"
+                        >CONF. Additional Information</a
+                      >
+                      <a
+                        class="nav-link"
+                        id="v-pdu-tab"
+                        data-toggle="pill"
+                        href="#v-pdu"
+                        role="tab"
+                        aria-controls="v-pdu"
+                        aria-selected="false"
+                        >PDU</a
+                      >
+                    </div>
+                  </div>
+                  <div class="col-9">
+                    <div class="tab-content" id="v-pills-tabContent">
+                      <div
+                        class="tab-pane fade show active"
+                        id="v-detailed-general-info"
+                        role="tabpanel"
+                        aria-labelledby="v-general-info-tab"
+                      >
+                      <div class="table-responsive">
+                        <table
+                          class="table table-sm table-striped table-bordered"
+                        >
+                        <thead class="thead-light">
+                          <tr>
+                            <th colspan="4"></td>
+                            <th colspan="3">LP incl. Taxes</td>
+                            <th colspan="3">LP excl. Taxes</td>
+                            <th colspan="3">Dealer Price</td>
+                            <th colspan="3">Dealer Price</td>
+                            <th colspan="3">Importer Gross Margin</td>
+                            <th colspan="3">Importer Gross Margin</td>
+                            <th colspan="3">Importer Costs</td>
+                            <th colspan="3">Importer Net Margin</td>
+                            <th colspan="3">Importer Net Margin</td>
+                            <th colspan="3">Gross Sales / PDU</td>
+                            <th colspan="3">Country Margin</td>
+                            <th colspan="3">Country Margin</td>
+                            <th colspan="3">PPI</td>
+                            <th colspan="3">Commercial Margin</td>
+                            <th colspan="3">Commercial Margin</td>
+                            <th colspan="3">Opel Support</td>
+                            <th colspan="3">RBCV</td>
+                          </tr>
+                          <tr>
+                            <th colspan="4"></td>
+                            <th colspan="1"><div><span>Vehicle</span></div></th>
+                            <th colspan="1"><div><span>Options</span></div></th>
+                            <th colspan="1"><div><span>Total</span></div></th>
+                            <th colspan="1"><div><span>Vehicle</span></div></th>
+                            <th colspan="1"><div><span>Options</span></div></th>
+                            <th colspan="1"><div><span>Total</span></div></th>
+                            <th colspan="1"><div><span>Vehicle</span></div></th>
+                            <th colspan="1"><div><span>Options</span></div></th>
+                            <th colspan="1"><div><span>Total</span></div></th>
+                            <th colspan="1"><div><span>Vehicle</span></div></th>
+                            <th colspan="1"><div><span>Options</span></div></th>
+                            <th colspan="1"><div><span>Total</span></div></th>
+                            <th colspan="1"><div><span>Vehicle</span></div></th>
+                            <th colspan="1"><div><span>Options</span></div></th>
+                            <th colspan="1"><div><span>Total</span></div></th>
+                            <th colspan="1"><div><span>Vehicle</span></div></th>
+                            <th colspan="1"><div><span>Options</span></div></th>
+                            <th colspan="1"><div><span>Total</span></div></th>
+                            <th colspan="1"><div><span>Vehicle</span></div></th>
+                            <th colspan="1"><div><span>Options</span></div></th>
+                            <th colspan="1"><div><span>Total</span></div></th>
+                            <th colspan="1"><div><span>Vehicle</span></div></th>
+                            <th colspan="1"><div><span>Options</span></div></th>
+                            <th colspan="1"><div><span>Total</span></div></th>
+                            <th colspan="1"><div><span>Vehicle</span></div></th>
+                            <th colspan="1"><div><span>Options</span></div></th>
+                            <th colspan="1"><div><span>Total</span></div></th>
+                            <th colspan="1"><div><span>Vehicle</span></div></th>
+                            <th colspan="1"><div><span>Options</span></div></th>
+                            <th colspan="1"><div><span>Total</span></div></th>
+                            <th colspan="1"><div><span>Vehicle</span></div></th>
+                            <th colspan="1"><div><span>Options</span></div></th>
+                            <th colspan="1"><div><span>Total</span></div></th>
+                            <th colspan="1"><div><span>Vehicle</span></div></th>
+                            <th colspan="1"><div><span>Options</span></div></th>
+                            <th colspan="1"><div><span>Total</span></div></th>
+                            <th colspan="1"><div><span>Vehicle</span></div></th>
+                            <th colspan="1"><div><span>Options</span></div></th>
+                            <th colspan="1"><div><span>Total</span></div></th>
+                            <th colspan="1"><div><span>Vehicle</span></div></th>
+                            <th colspan="1"><div><span>Options</span></div></th>
+                            <th colspan="1"><div><span>Total</span></div></th>
+                            <th colspan="1"><div><span>Vehicle</span></div></th>
+                            <th colspan="1"><div><span>Options</span></div></th>
+                            <th colspan="1"><div><span>Total</span></div></th>
+                            <th colspan="1"><div><span>Vehicle</span></div></th>
+                            <th colspan="1"><div><span>Options</span></div></th>
+                            <th colspan="1"><div><span>Total</span></div></th>
+                            <th colspan="1"><div><span>Vehicle</span></div></th>
+                            <th colspan="1"><div><span>Options</span></div></th>
+                            <th colspan="1"><div><span>Total</span></div></th>
+                          </tr>
+                          <tr>
+                            <th scope="col"><div><span>GMUD2</span></div></th>
+                            <th scope="col"><div><span>LCDV</span></div></th>
+                            <th scope="col"><div><span>Version Name</span></div></th>
+                            <th scope="col"><div><span>Final Mix %</span></div></th>
+                            <th scope="col"><div><span>LC</span></div></th>
+                            <th scope="col"><div><span>LC</span></div></th>
+                            <th scope="col"><div><span>LC</span></div></th>
+                            <th scope="col"><div><span>LC</span></div></th>
+                            <th scope="col"><div><span>LC</span></div></th>
+                            <th scope="col"><div><span>LC</span></div></th>
+                            <th scope="col"><div><span>LC</span></div></th>
+                            <th scope="col"><div><span>LC</span></div></th>
+                            <th scope="col"><div><span>LC</span></div></th>
+                            <th scope="col"><div><span>EUR</span></div></th>
+                            <th scope="col"><div><span>EUR</span></div></th>
+                            <th scope="col"><div><span>EUR</span></div></th>
+                            <th scope="col"><div><span>EUR</span></div></th>
+                            <th scope="col"><div><span>EUR</span></div></th>
+                            <th scope="col"><div><span>EUR</span></div></th>
+                            <th scope="col"><div><span>%</span></div></th>
+                            <th scope="col"><div><span>%</span></div></th>
+                            <th scope="col"><div><span>%</span></div></th>
+                            <th scope="col"><div><span>EUR</span></div></th>
+                            <th scope="col"><div><span>EUR</span></div></th>
+                            <th scope="col"><div><span>EUR</span></div></th>
+                            <th scope="col"><div><span>EUR</span></div></th>
+                            <th scope="col"><div><span>EUR</span></div></th>
+                            <th scope="col"><div><span>EUR</span></div></th>
+                            <th scope="col"><div><span>%</span></div></th>
+                            <th scope="col"><div><span>%</span></div></th>
+                            <th scope="col"><div><span>%</span></div></th>
+                            <th scope="col"><div><span>EUR</span></div></th>
+                            <th scope="col"><div><span>EUR</span></div></th>
+                            <th scope="col"><div><span>EUR</span></div></th>
+                            <th scope="col"><div><span>EUR</span></div></th>
+                            <th scope="col"><div><span>EUR</span></div></th>
+                            <th scope="col"><div><span>EUR</span></div></th>
+                            <th scope="col"><div><span>%</span></div></th>
+                            <th scope="col"><div><span>%</span></div></th>
+                            <th scope="col"><div><span>%</span></div></th>
+                            <th scope="col"><div><span>EUR</span></div></th>
+                            <th scope="col"><div><span>EUR</span></div></th>
+                            <th scope="col"><div><span>EUR</span></div></th>
+                            <th scope="col"><div><span>EUR</span></div></th>
+                            <th scope="col"><div><span>EUR</span></div></th>
+                            <th scope="col"><div><span>EUR</span></div></th>
+                            <th scope="col"><div><span>%</span></div></th>
+                            <th scope="col"><div><span>%</span></div></th>
+                            <th scope="col"><div><span>%</span></div></th>
+                            <th scope="col"><div><span>EUR</span></div></th>
+                            <th scope="col"><div><span>EUR</span></div></th>
+                            <th scope="col"><div><span>EUR</span></div></th>
+                            <th scope="col"><div><span>EUR</span></div></th>
+                            <th scope="col"><div><span>EUR</span></div></th>
+                            <th scope="col"><div><span>EUR</span></div></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td><div>0</div></td>
+                            <td><div>0</div></td>
+                            <td><div>Mokka Base Gasoline F 12XHL & MT-6 (74kW) EB2 ADTD_B 100Hp MT6 Start/Stop Europe </div></td>
+                            <td><div>25%</div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                          </tr>
+                          <tr>
+                            <td><div>0</div></td>
+                            <td><div>0</div></td>
+                            <td><div>Mokka Edition Gasoline F 12 XHT & AT-8 (96kw) EB2 ADTS 130Hp AT8 Start/Stop Europe </div></td>
+                            <td><div>25%</div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                          </tr>
+                          <tr>
+                            <td><div>0</div></td>
+                            <td><div>0</div></td>
+                            <td><div>Mokka Elegance Diesel F 15DT & MT-6 (81kW) DV5RCE 110Hp MT6 Start/Stop Europe </div></td>
+                            <td><div>50%</div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                            <td><div></div></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      </div>
+                      </div>
+                      <div
+                        class="tab-pane fade"
+                        id="v-general-info"
+                        role="tabpanel"
+                        aria-labelledby="v-general-info-tab"
+                      >
+                      <button type="button" class="btn btn-outline-primary mb-3" disabled>Edit</button>
+                        <div class="table-responsive">
+                          <table
+                            id="generalinformation"
+                            class="table table-sm table-striped table-bordered"
+                          >
+                            <!-- <caption class="sr-only">
+                              Summary
+                            </caption> -->
+                            <thead class="thead-light">
+                              <tr>
+                                <th scope="col" class="rotate">
+                                  <div><span>GMUD</span></div>
+                                </th>
+                                <th scope="col" class="rotate">
+                                  <div><span>GMUD2</span></div>
+                                </th>
+                                <th scope="col" class="rotate">
+                                  <div><span>Version</span></div>
+                                </th>
+                                <th scope="col" class="rotate">
+                                  <div><span>Family_Code</span></div>
+                                </th>
+                                <th scope="col" class="rotate">
+                                  <div><span>Trim_Code</span></div>
+                                </th>
+                                <th scope="col" class="rotate">
+                                  <div><span>Body_Style_Code</span></div>
+                                </th>
+                                <th scope="col" class="rotate">
+                                  <div><span>Engine_Code</span></div>
+                                </th>
+                                <th scope="col" class="rotate">
+                                  <div><span>Description/Extension</span></div>
+                                </th>
+                                <th scope="col" class="rotate">
+                                  <div><span>N1 / M1 code</span></div>
+                                </th>
+                                <th scope="col" class="rotate">
+                                  <div><span>N1 / M1</span></div>
+                                </th>
+                                <th scope="col" class="rotate">
+                                  <div><span>Family_Description</span></div>
+                                </th>
+                                <th scope="col" class="rotate">
+                                  <div><span>Trim_Description</span></div>
+                                </th>
+                                <th scope="col" class="rotate">
+                                  <div><span>Body_Style_Description</span></div>
+                                </th>
+                                <th scope="col" class="rotate">
+                                  <div><span>Engine_Fuel_Type</span></div>
+                                </th>
+                                <th scope="col" class="rotate">
+                                  <div><span>Engine_transmission</span></div>
+                                </th>
+                                <th scope="col" class="rotate">
+                                  <div><span>Engine_comment</span></div>
+                                </th>
+                                <th scope="col" class="rotate">
+                                  <div><span>Engine_Horsepower</span></div>
+                                </th>
+                                <th scope="col" class="rotate">
+                                  <div><span>CO2 NEDC Tire class A</span></div>
+                                </th>
+                                <th scope="col" class="rotate">
+                                  <div><span>CO2 NEDC Tire class B</span></div>
+                                </th>
+                                <th scope="col" class="rotate">
+                                  <div><span>CO2 NEDC Tire class C</span></div>
+                                </th>
+                                <th scope="col" class="rotate">
+                                  <div><span>CO2 WLTP Group</span></div>
+                                </th>
+                                <th scope="col" class="rotate">
+                                  <div><span>CO2 WLTP</span></div>
+                                </th>
+                                <th scope="col" class="rotate">
+                                  <div><span>LMO String</span></div>
+                                </th>
+                                <th scope="col" class="rotate">
+                                  <div><span>Carline LCDV</span></div>
+                                </th>
+                                <th scope="col" class="rotate">
+                                  <div><span>Body Style LCDV</span></div>
+                                </th>
+                                <th scope="col" class="rotate">
+                                  <div><span>TrimLCDV</span></div>
+                                </th>
+                                <th scope="col" class="rotate">
+                                  <div><span>Eengine LCDV</span></div>
+                                </th>
+                                <th scope="col" class="rotate">
+                                  <div>
+                                    <span>Design Base + Customer LCDV</span>
+                                  </div>
+                                </th>
+                                <th scope="col" class="rotate">
+                                  <div><span>Customer LCDV</span></div>
+                                </th>
+                                <th scope="col" class="rotate">
+                                  <div><span>LCDV</span></div>
+                                </th>
+                                <th scope="col" class="rotate">
+                                  <div><span>K0 Specific LCDV</span></div>
+                                </th>
+                                <th scope="col" class="rotate">
+                                  <div><span>Payload GMUD</span></div>
+                                </th>
+                                <th scope="col" class="rotate">
+                                  <div><span>Payload LCDV</span></div>
+                                </th>
+                                <th scope="col" class="rotate">
+                                  <div><span>Options HeadersTrim ID</span></div>
+                                </th>
+                              </tr>
+                            </thead>
+                          </table>
+                        </div>
+                      </div>
+                      <div
+                        class="tab-pane fade"
+                        id="v-price-and-pdu"
+                        role="tabpanel"
+                        aria-labelledby="v-price-and-pdu-tab"
+                      >
+                      <button type="button" class="btn btn-outline-primary mb-3" disabled>Edit</button>
+                        <div class="table-responsive">
+                          <table
+                            id="priceandpdu"
+                            class="table table-sm table-striped table-bordered"
+                          >
+                            <!-- <caption class="sr-only">
+                            Summary
+                          </caption> -->
+                            <thead class="thead-light">
+                              <tr>
+                                <th scope="col">
+                                  <div><span>GMUD</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>GMUD2</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Version</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Default MSRP</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>PDU</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Valid</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div>
+                                    <span>Manual Adjst. Default MSRP</span>
+                                  </div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Manual Adjst. PDU</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Final Default MSRP</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Final PDU</span></div>
+                                </th>
+                              </tr>
+                            </thead>
+                          </table>
+                        </div>
+                      </div>
+                      <div
+                        class="tab-pane fade"
+                        id="v-volume-and-mix"
+                        role="tabpanel"
+                        aria-labelledby="v-volume-and-mix-tab"
+                      >
+                      <button type="button" class="btn btn-outline-primary mb-3" disabled>Edit</button>
+                        <div class="table-responsive">
+                          <table
+                            id="volumeandmix"
+                            class="table table-sm table-striped table-bordered"
+                          >
+                            <!-- <caption class="sr-only">
+                            Summary
+                          </caption> -->
+                            <thead class="thead-light">
+                              <tr>
+                                <th scope="col">
+                                  <div><span>GMUD</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>GMUD2</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Version</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Final Mix</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>On Offer (1= Yes)</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Volume (Manual Input)</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Total Mix (old)</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div>
+                                    <span>Check Total Channel Mix</span>
+                                  </div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Mix Retail</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Mix Fleet</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Mix Rental</span></div>
+                                </th>
+                              </tr>
+                            </thead>
+                          </table>
+                        </div>
+                      </div>
+                      <div
+                        class="tab-pane fade"
+                        id="v-different-prices"
+                        role="tabpanel"
+                        aria-labelledby="v-different-prices-tab"
+                      >
+                      <button type="button" class="btn btn-outline-primary mb-3" disabled>Edit</button>
+                        <div class="table-responsive">
+                          <table
+                            id="differentprices"
+                            class="table table-sm table-striped table-bordered"
+                          >
+                            <!-- <caption class="sr-only">
+                            Summary
+                          </caption> -->
+                            <thead class="thead-light">
+                              <tr>
+                                <th scope="col">
+                                  <div><span>GMUD</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>GMUD2</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Version</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div>
+                                    <span
+                                      >List Price Including Taxes
+                                      (Vehicle)</span
+                                    >
+                                  </div>
+                                </th>
+                                <th scope="col">
+                                  <div>
+                                    <span>Options List Price incl. Taxes</span>
+                                  </div>
+                                </th>
+                                <th scope="col">
+                                  <div>
+                                    <span>List Price Excluding Taxes</span>
+                                  </div>
+                                </th>
+                                <th scope="col">
+                                  <div>
+                                    <span>Options List Price Excl. Taxes</span>
+                                  </div>
+                                </th>
+                                <th scope="col">
+                                  <div>
+                                    <span>List Price Excluding Taxes EUR</span>
+                                  </div>
+                                </th>
+                                <th scope="col">
+                                  <div>
+                                    <span
+                                      >Options List Price Excl. Taxes EUR</span
+                                    >
+                                  </div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Dealer Price (Vehicle)</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Dealer Price (Options)</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div>
+                                    <span>Dealer Price (Vehicle) EUR</span>
+                                  </div>
+                                </th>
+                                <th scope="col">
+                                  <div>
+                                    <span>Dealer Price (Options) EUR</span>
+                                  </div>
+                                </th>
+                                <th scope="col">
+                                  <div>
+                                    <span
+                                      >Transfer Price / Ex Works Price
+                                      (Vehicle)</span
+                                    >
+                                  </div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Option Ex Works Price</span></div>
+                                </th>
+                              </tr>
+                            </thead>
+                          </table>
+                        </div>
+                      </div>
+                      <div
+                        class="tab-pane fade"
+                        id="v-margin"
+                        role="tabpanel"
+                        aria-labelledby="v-margin-tab"
+                      >
+                      <button type="button" class="btn btn-outline-primary mb-3" disabled>Edit</button>
+                        <div class="table-responsive">
+                          <table
+                            id="margin"
+                            class="table table-sm table-striped table-bordered"
+                          >
+                            <!-- <caption class="sr-only">
+                          Summary
+                        </caption> -->
+                            <thead class="thead-light">
+                              <tr>
+                                <th scope="col">
+                                  <div><span>GMUD</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>GMUD2</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Version</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div>
+                                    <span>Dealer Margin (Vehicle)</span>
+                                  </div>
+                                </th>
+                                <th scope="col">
+                                  <div>
+                                    <span>Dealer Margin (Options)</span>
+                                  </div>
+                                </th>
+                                <th scope="col">
+                                  <div>
+                                    <span
+                                      >Importer/NSC Gross Margin Vehicle
+                                      EUR</span
+                                    >
+                                  </div>
+                                </th>
+                                <th scope="col">
+                                  <div>
+                                    <span
+                                      >Importer/NSC Gross Margin Vehicle %</span
+                                    >
+                                  </div>
+                                </th>
+                                <th scope="col">
+                                  <div>
+                                    <span
+                                      >Importer/NSC Gross Margin Options
+                                      EUR</span
+                                    >
+                                  </div>
+                                </th>
+                                <th scope="col">
+                                  <div>
+                                    <span
+                                      >Importer/NSC Gross Margin Options %</span
+                                    >
+                                  </div>
+                                </th>
+                                <th scope="col">
+                                  <div>
+                                    <span>Country Margin Vehicle (I+D)</span>
+                                  </div>
+                                </th>
+                                <th scope="col">
+                                  <div>
+                                    <span>Country Margin Vehicle (I+D) %</span>
+                                  </div>
+                                </th>
+                                <th scope="col">
+                                  <div>
+                                    <span
+                                      >Options Country Margin (i+d) EUR</span
+                                    >
+                                  </div>
+                                </th>
+                                <th scope="col">
+                                  <div>
+                                    <span>Options Country Margin (i+d) %</span>
+                                  </div>
+                                </th>
+                                <th scope="col">
+                                  <div>
+                                    <span>Total Country Margin (i+d) EUR</span>
+                                  </div>
+                                </th>
+                                <th scope="col">
+                                  <div>
+                                    <span>Total Country Margin (i+d) %</span>
+                                  </div>
+                                </th>
+                              </tr>
+                            </thead>
+                          </table>
+                        </div>
+                      </div>
+                      <div
+                        class="tab-pane fade"
+                        id="v-costs"
+                        role="tabpanel"
+                        aria-labelledby="v-costs-tab"
+                      >
+                      <button type="button" class="btn btn-outline-primary mb-3" disabled>Edit</button>
+                        <div class="table-responsive">
+                          <table
+                            id="cost"
+                            class="table table-sm table-striped table-bordered"
+                          >
+                            <!-- <caption class="sr-only">
+                            Summary
+                          </caption> -->
+                            <thead class="thead-light">
+                              <tr>
+                                <th scope="col">
+                                  <div><span>GMUD</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>GMUD2</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Version</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Total Local Costs Euro</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div>
+                                    <span
+                                      >Total Sales Allowances Importer
+                                      Euro</span
+                                    >
+                                  </div>
+                                </th>
+                                <th scope="col">
+                                  <div>
+                                    <span
+                                      >Importer Margin Vehicle + Options (Net of
+                                      Costs & SA) LC</span
+                                    >
+                                  </div>
+                                </th>
+                                <th scope="col">
+                                  <div>
+                                    <span
+                                      >Importer Margin Vehicle + Options (Net of
+                                      Costs & SA) EUR</span
+                                    >
+                                  </div>
+                                </th>
+                                <th scope="col">
+                                  <div>
+                                    <span
+                                      >Importer Margin Vehicle + Options (Net of
+                                      Costs & SA) %</span
+                                    >
+                                  </div>
+                                </th>
+                                <th scope="col">
+                                  <div>
+                                    <span
+                                      >Opel Support (% of PDU Vehicle +
+                                      Options)</span
+                                    >
+                                  </div>
+                                </th>
+                                <th scope="col">
+                                  <div>
+                                    <span
+                                      >Importer Margin Incl. All costs, SA &
+                                      Opel Support EUR</span
+                                    >
+                                  </div>
+                                </th>
+                                <th scope="col">
+                                  <div>
+                                    <span
+                                      >Importer Margin Incl. All costs, SA &
+                                      Opel Support %</span
+                                    >
+                                  </div>
+                                </th>
+                              </tr>
+                            </thead>
+                          </table>
+                        </div>
+                      </div>
+                      <div
+                        class="tab-pane fade"
+                        id="v-details-vat-and-taxes"
+                        role="tabpanel"
+                        aria-labelledby="v-details-vat-and-taxes-tab"
+                      >
+                      <button type="button" class="btn btn-outline-primary mb-3" disabled>Edit</button>
+                        <div class="table-responsive">
+                          <table
+                            id="vatandtaxes"
+                            class="table table-sm table-striped table-bordered"
+                          >
+                            <!-- <caption class="sr-only">
+                            Summary
+                          </caption> -->
+                            <thead class="thead-light">
+                              <tr>
+                                <th scope="col">
+                                  <div><span>GMUD</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>GMUD2</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Version</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>VAT%</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>VAT (Vehicle)</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Tax 1 (Vehicle)</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Tax 1 (Vehicle)_1</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Tax 1 (Vehicle)_2</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Tax 1 (Vehicle)_3</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Total Taxes (Vehicle)</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Options VAT</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Options other Taxes</span></div>
+                                </th>
+                              </tr>
+                            </thead>
+                          </table>
+                        </div>
+                      </div>
+                      <div
+                        class="tab-pane fade"
+                        id="v-details-local-costs-and-duties"
+                        role="tabpanel"
+                        aria-labelledby="v-details-local-costs-and-duties-tab"
+                      >
+                      <button type="button" class="btn btn-outline-primary mb-3" disabled>Edit</button>
+                        <div class="table-responsive">
+                          <table
+                            id="localcostsandduties"
+                            class="table table-sm table-striped table-bordered"
+                          >
+                            <!-- <caption class="sr-only">
+                            Summary
+                          </caption> -->
+                            <thead class="thead-light">
+                              <tr>
+                                <th scope="col">
+                                  <div><span>GMUD</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>GMUD2</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Version</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Freight to Dealers</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div>
+                                    <span>Freight Invoiced to Dealers</span>
+                                  </div>
+                                </th>
+                                <th scope="col">
+                                  <div>
+                                    <span
+                                      >Freight Plant to Country (Outbound)</span
+                                    >
+                                  </div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Import duties</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Other Costs 1</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Other Costs 2</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div>
+                                    <span
+                                      >Total Local Costs Local Currency</span
+                                    >
+                                  </div>
+                                </th>
+                                <th scope="col">
+                                  <div>
+                                    <span>Total Local Costs Euro_1</span>
+                                  </div>
+                                </th>
+                              </tr>
+                            </thead>
+                          </table>
+                        </div>
+                      </div>
+                      <div
+                        class="tab-pane fade"
+                        id="v-details-dealer-margin"
+                        role="tabpanel"
+                        aria-labelledby="v-details-dealer-margin-tab"
+                      >
+                      <button type="button" class="btn btn-outline-primary mb-3" disabled>Edit</button>
+                        <div class="table-responsive">
+                          <table
+                            id="dealermargin"
+                            class="table table-sm table-striped table-bordered"
+                          >
+                            <!-- <caption class="sr-only">
+                            Summary
+                          </caption> -->
+                            <thead class="thead-light">
+                              <tr>
+                                <th scope="col">
+                                  <div><span>GMUD</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>GMUD2</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Version</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div>
+                                    <span>Dealer Margin % (Vehicle)</span>
+                                  </div>
+                                </th>
+                                <th scope="col">
+                                  <div>
+                                    <span>Dealer Margin (Vehicle)_1</span>
+                                  </div>
+                                </th>
+                                <th scope="col">
+                                  <div>
+                                    <span>Dealer Margin % (Options)</span>
+                                  </div>
+                                </th>
+                                <th scope="col">
+                                  <div>
+                                    <span>Dealer Margin (Options)_1</span>
+                                  </div>
+                                </th>
+                              </tr>
+                            </thead>
+                          </table>
+                        </div>
+                      </div>
+                      <div
+                        class="tab-pane fade"
+                        id="v-details-sales-allowances"
+                        role="tabpanel"
+                        aria-labelledby="v-details-sales-allowances-tab"
+                      >
+                      <button type="button" class="btn btn-outline-primary mb-3" disabled>Edit</button>
+                        <div class="table-responsive">
+                          <table
+                            id="salesallowances"
+                            class="table table-sm table-striped table-bordered"
+                          >
+                            <!-- <caption class="sr-only">
+                            Summary
+                          </caption> -->
+                            <thead class="thead-light">
+                              <tr>
+                                <th scope="col">
+                                  <div><span>GMUD</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>GMUD2</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Version</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div>
+                                    <span>Importer Sales Allowances 1</span>
+                                  </div>
+                                </th>
+                                <th scope="col">
+                                  <div>
+                                    <span>Importer Sales Allowances 2</span>
+                                  </div>
+                                </th>
+                                <th scope="col">
+                                  <div>
+                                    <span>Importer Sales Allowances 3</span>
+                                  </div>
+                                </th>
+                                <th scope="col">
+                                  <div>
+                                    <span>Importer Sales Allowances 4</span>
+                                  </div>
+                                </th>
+                                <th scope="col">
+                                  <div>
+                                    <span
+                                      >Total Importer Sales Allowances LC</span
+                                    >
+                                  </div>
+                                </th>
+                                <th scope="col">
+                                  <div>
+                                    <span
+                                      >Total Importer Sales AllowancesEUR</span
+                                    >
+                                  </div>
+                                </th>
+                              </tr>
+                            </thead>
+                          </table>
+                        </div>
+                      </div>
+                      <div
+                        class="tab-pane fade"
+                        id="v-conf-costs"
+                        role="tabpanel"
+                        aria-labelledby="v-conf-costs-tab"
+                      >
+                      <button type="button" class="btn btn-outline-primary mb-3" disabled>Edit</button>
+                        <div class="table-responsive">
+                          <table
+                            id="confcosts"
+                            class="table table-sm table-striped table-bordered"
+                          >
+                            <!-- <caption class="sr-only">
+                            Summary
+                          </caption> -->
+                            <thead class="thead-light">
+                              <tr>
+                                <th scope="col">
+                                  <div><span>GMUD</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>GMUD2</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Version</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Cost CMO</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Cost LMO</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Material Cost</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Manufacturing Cost</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Other Vehicle Cost</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div>
+                                    <span
+                                      >Total Vehicle Cost (excluding Options,
+                                      Outbound and Policy and Warranty). By
+                                      Default: Finance Cost. Pseudo LMO
+                                      Incl.</span
+                                    >
+                                  </div>
+                                </th>
+                              </tr>
+                            </thead>
+                          </table>
+                        </div>
+                      </div>
+                      <div
+                        class="tab-pane fade"
+                        id="v-conf-with-pseudo-lmo"
+                        role="tabpanel"
+                        aria-labelledby="v-conf-with-pseudo-lmo-tab"
+                      >
+                      <button type="button" class="btn btn-outline-primary mb-3" disabled>Edit</button>
+                        <div class="table-responsive">
+                          <table
+                            id="confwithpseudolmo"
+                            class="table table-sm table-striped table-bordered"
+                          >
+                            <!-- <caption class="sr-only">
+                            Summary
+                          </caption> -->
+                            <thead class="thead-light">
+                              <tr>
+                                <th scope="col">
+                                  <div><span>GMUD</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>GMUD2</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Version</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div>
+                                    <span
+                                      >OV Commercial Margin Vehicle (Pseudo LMO
+                                      Incl.)</span
+                                    >
+                                  </div>
+                                </th>
+                                <th scope="col">
+                                  <div>
+                                    <span
+                                      >OV Commercial Margin Vehicle % (Pseudo
+                                      LMO Incl.)</span
+                                    >
+                                  </div>
+                                </th>
+                                <th scope="col">
+                                  <div>
+                                    <span>Option Cost (Pseudo LMO Excl.)</span>
+                                  </div>
+                                </th>
+                                <th scope="col">
+                                  <div>
+                                    <span
+                                      >OV Commercial Margin on Options (Pseudo
+                                      LMO. Excl.)</span
+                                    >
+                                  </div>
+                                </th>
+                                <th scope="col">
+                                  <div>
+                                    <span
+                                      >OV Commercial Margin on Options % (Pseudo
+                                      LMO. Excl.)</span
+                                    >
+                                  </div>
+                                </th>
+                              </tr>
+                            </thead>
+                          </table>
+                        </div>
+                      </div>
+                      <div
+                        class="tab-pane fade"
+                        id="v-conf-cmo"
+                        role="tabpanel"
+                        aria-labelledby="v-conf-cmo-tab"
+                      >
+                      <button type="button" class="btn btn-outline-primary mb-3" disabled>Edit</button>
+                        <div class="table-responsive">
+                          <table
+                            id="confcmo"
+                            class="table table-sm table-striped table-bordered"
+                          >
+                            <!-- <caption class="sr-only">
+                            Summary
+                          </caption> -->
+                            <thead class="thead-light">
+                              <tr>
+                                <th scope="col">
+                                  <div><span>GMUD</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>GMUD2</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Version</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div>
+                                    <span
+                                      >OV Commercial Margin Vehicle (CMO)</span
+                                    >
+                                  </div>
+                                </th>
+                                <th scope="col">
+                                  <div>
+                                    <span
+                                      >OV Commercial Margin Vehicle %
+                                      (CMO)</span
+                                    >
+                                  </div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Option Cost (CMO)</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div>
+                                    <span
+                                      >OV Commercial Margin on Options
+                                      (CMO)</span
+                                    >
+                                  </div>
+                                </th>
+                                <th scope="col">
+                                  <div>
+                                    <span
+                                      >OV Commercial Margin on Options %
+                                      (CMO)</span
+                                    >
+                                  </div>
+                                </th>
+                                <th scope="col">
+                                  <div>
+                                    <span
+                                      >OV Commercial Margin Vehicle +
+                                      Options</span
+                                    >
+                                  </div>
+                                </th>
+                                <th scope="col">
+                                  <div>
+                                    <span
+                                      >OV Commercial Margin Vehicle + Options
+                                      %</span
+                                    >
+                                  </div>
+                                </th>
+                              </tr>
+                            </thead>
+                          </table>
+                        </div>
+                      </div>
+                      <div
+                        class="tab-pane fade"
+                        id="v-conf-rbcv-and-other"
+                        role="tabpanel"
+                        aria-labelledby="v-conf-rbcv-and-other-tab"
+                      >
+                      <button type="button" class="btn btn-outline-primary mb-3" disabled>Edit</button>
+                        <div class="table-responsive">
+                          <table
+                            id="confrbcvandother"
+                            class="table table-sm table-striped table-bordered"
+                          >
+                            <!-- <caption class="sr-only">
+                            Summary
+                          </caption> -->
+                            <thead class="thead-light">
+                              <tr>
+                                <th scope="col">
+                                  <div><span>GMUD</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>GMUD2</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Version</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div>
+                                    <span
+                                      >Opel Support (% of PDU Vehicle +
+                                      Options)_1</span
+                                    >
+                                  </div>
+                                </th>
+                                <th scope="col">
+                                  <div>
+                                    <span>Opel RBCV (Vehicle + Options)</span>
+                                  </div>
+                                </th>
+                                <th scope="col">
+                                  <div>
+                                    <span>Opel RBCV (Vehicle + Options) %</span>
+                                  </div>
+                                </th>
+                                <th scope="col">
+                                  <div>
+                                    <span
+                                      >Policy and Warranty (Not in RBCF)</span
+                                    >
+                                  </div>
+                                </th>
+                                <th scope="col">
+                                  <div>
+                                    <span
+                                      >Opel NCR (Vehicle + Options * Policy and
+                                      Warranty)</span
+                                    >
+                                  </div>
+                                </th>
+                                <th scope="col">
+                                  <div>
+                                    <span
+                                      >Opel NCR (Vehicle + Options * Policy and
+                                      Warranty) %</span
+                                    >
+                                  </div>
+                                </th>
+                              </tr>
+                            </thead>
+                          </table>
+                        </div>
+                      </div>
+                      <div
+                        class="tab-pane fade"
+                        id="v-conf-add-info"
+                        role="tabpanel"
+                        aria-labelledby="v-conf-add-info-tab"
+                      >
+                      <button type="button" class="btn btn-outline-primary mb-3" disabled>Edit</button>
+                        <div class="table-responsive">
+                          <table
+                            id="confaddinfo"
+                            class="table table-sm table-striped table-bordered"
+                          >
+                            <!-- <caption class="sr-only">
+                            Summary
+                          </caption> -->
+                            <thead class="thead-light">
+                              <tr>
+                                <th scope="col">
+                                  <div><span>GMUD</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>GMUD2</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Version</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Old Trim_1</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Old Powertrain_1</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Old GMUD_1</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Old PDU"</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>New PDU</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Delta</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Mix</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Mat. Cost Calculated</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Payload Cost (LCDV)</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div>
+                                    <span>Cost Input from Finance</span>
+                                  </div>
+                                </th>
+                                <th scope="col">
+                                  <div>
+                                    <span
+                                      >Delta Building Blocks vs Cost
+                                      Finance</span
+                                    >
+                                  </div>
+                                </th>
+                              </tr>
+                            </thead>
+                          </table>
+                        </div>
+                      </div>
+                      <div
+                        class="tab-pane fade"
+                        id="v-pdu"
+                        role="tabpanel"
+                        aria-labelledby="v-pdu-tab"
+                      >
+                      <button type="button" class="btn btn-outline-primary mb-3" disabled>Edit</button>
+                        <div class="table-responsive">
+                          <table
+                            id="pdu"
+                            class="table table-sm table-striped table-bordered"
+                          >
+                            <!-- <caption class="sr-only">
+                            Summary
+                          </caption> -->
+                            <thead class="thead-light">
+                              <tr>
+                                <th scope="col">
+                                  <div><span>GMUD</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>GMUD2</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Version</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div>
+                                    <span>Additional Items CMO (New, PDU)</span>
+                                  </div>
+                                </th>
+                                <th scope="col">
+                                  <div>
+                                    <span>Prior LMO PDU (Decontenting)</span>
+                                  </div>
+                                </th>
+                                <th scope="col">
+                                  <div>
+                                    <span>New PDU Comparably equipped</span>
+                                  </div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>PDU Old</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div>
+                                    <span
+                                      >PDU Variance comparably equipped</span
+                                    >
+                                  </div>
+                                </th>
+                              </tr>
+                            </thead>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- TODO dodać na bazie nav / tablist tabele ukrywane i pokazywane w zależności od wybranego selecta: https://getbootstrap.com/docs/4.5/components/navs/#javascript-behavior -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <!-- <script src="./js/jquery-3.5.1.slim.min.js"></script> -->
+    <!-- TODO: do sprawdzenia wersje jQuery, bo coś DataTables świruje przy ładowaniu wersji jQuery Bootstrapa z dysku -->
+
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/offcanvas.js"></script>
+    <script src="../js/dataTable.jquery.js"></script>
+    <script src="https://cdn.datatables.net/fixedheader/3.1.7/js/dataTables.fixedHeader.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#generalinformation").DataTable({
+          fixedHeader: {
+            header: true,
+            headerOffset: $('#navigation').outerHeight()
+        },
+          ajax: "../data/rPT_PriceListFinal_GeneralInformation.json",
+          columns: [
+            { data: "GMUD" },
+            { data: "GMUD2" },
+            { data: "Version" },
+            { data: "Family_Code" },
+            { data: "Trim_Code" },
+            { data: "Body_Style_Code" },
+            { data: "Engine_Code" },
+            { data: "Description/Extension" },
+            { data: "N1 / M1 code" },
+            { data: "N1 / M1" },
+            { data: "Family_Description" },
+            { data: "Trim_Description" },
+            { data: "Body_Style_Description" },
+            { data: "Engine_Fuel_Type" },
+            { data: "Engine_transmission" },
+            { data: "Engine_comment" },
+            { data: "Engine_Horsepower" },
+            { data: "CO2 NEDC Tire class A" },
+            { data: "CO2 NEDC Tire class B" },
+            { data: "CO2 NEDC Tire class C" },
+            { data: "CO2 WLTP Group" },
+            { data: "CO2 WLTP" },
+            { data: "LMO String" },
+            { data: "Carline LCDV" },
+            { data: "Body Style LCDV" },
+            { data: "TrimLCDV" },
+            { data: "Eengine LCDV" },
+            { data: "Design Base + Customer LCDV" },
+            { data: "Customer LCDV" },
+            { data: "LCDV" },
+            { data: "K0 Specific LCDV" },
+            { data: "Payload GMUD" },
+            { data: "Payload LCDV" },
+            { data: "Options HeadersTrim ID" },
+          ],
+          "columnDefs": [
+              { "render": $.fn.dataTable.render.number( '.', ','),
+                "targets":'_all'
+              },
+          ],
+        });
+
+        $("#priceandpdu").DataTable({
+          fixedHeader: {
+            header: true,
+            headerOffset: $('#navigation').outerHeight()
+        },
+          ajax: "../data/rPT_PriceListFinal_PriceAndPDU.json",
+          columns: [
+            { data: "GMUD" },
+            { data: "GMUD2" },
+            { data: "Version" },
+            { data: "Default MSRP" },
+            { data: "PDU" },
+            { data: "Valid" },
+            { data: "Manual Adjst Default MSRP" },
+            { data: "Manual Adjst PDU" },
+            { data: "Final Default MSRP" },
+            { data: "Final PDU" },
+          ],
+          "columnDefs": [
+              { "render": $.fn.dataTable.render.number( '.', ','),
+                "targets":'_all'
+              },
+          ],
+        });
+
+        $("#volumeandmix").DataTable({
+          fixedHeader: {
+            header: true,
+            headerOffset: $('#navigation').outerHeight()
+        },
+          ajax: "../data/rPT_PriceListFinal_VolumeAndMix.json",
+          columns: [
+            { data: "GMUD" },
+            { data: "GMUD2" },
+            { data: "Version" },
+            { data: "Final Mix" },
+            { data: "On Offer (1= Yes)" },
+            { data: "Volume (Manual Input)" },
+            { data: "Total Mix (old)" },
+            { data: "Check Total Channel Mix" },
+            { data: "Mix Retail" },
+            { data: "Mix Fleet" },
+            { data: "Mix Rental" },
+          ],
+          "columnDefs": [
+              { "render": $.fn.dataTable.render.number( '.', ','),
+                "targets":'_all'
+              },
+          ],
+        });
+
+        $("#differentprices").DataTable({
+          fixedHeader: {
+            header: true,
+            headerOffset: $('#navigation').outerHeight()
+        },
+          ajax: "../data/rPT_PriceListFinal_DifferentPrices.json",
+          columns: [
+            { data: "GMUD" },
+            { data: "GMUD2" },
+            { data: "Version" },
+            { data: "List Price Including Taxes (Vehicle)" },
+            { data: "Options List Price incl Taxes" },
+            { data: "List Price Excluding Taxes" },
+            { data: "Options List Price Excl Taxes" },
+            { data: "List Price Excluding Taxes EUR" },
+            { data: "Options List Price Excl Taxes EUR" },
+            { data: "Dealer Price (Vehicle)" },
+            { data: "Dealer Price (Options)" },
+            { data: "Dealer Price (Vehicle) EUR" },
+            { data: "Dealer Price (Options) EUR" },
+            { data: "Transfer Price / Ex Works Price (Vehicle)" },
+            { data: "Option Ex Works Price" },
+          ],
+          "columnDefs": [
+              { "render": $.fn.dataTable.render.number( '.', ','),
+                "targets":'_all'
+              },
+          ],
+        });
+
+        $("#margin").DataTable({
+          fixedHeader: {
+            header: true,
+            headerOffset: $('#navigation').outerHeight()
+        },
+          ajax: "../data/rPT_PriceListFinal_Margin.json",
+          columns: [
+            { data: "GMUD" },
+            { data: "GMUD2" },
+            { data: "Version" },
+            { data: "Dealer Margin (Vehicle)" },
+            { data: "Dealer Margin (Options)" },
+            { data: "Importer/NSC Gross Margin Vehicle EUR" },
+            { data: "Importer/NSC Gross Margin Vehicle %" },
+            { data: "Importer/NSC Gross Margin Options EUR" },
+            { data: "Importer/NSC Gross Margin Options %" },
+            { data: "Country Margin Vehicle (I+D)" },
+            { data: "Country Margin Vehicle (I+D) %" },
+            { data: "Options Country Margin (i+d) EUR" },
+            { data: "Options Country Margin (i+d) %" },
+            { data: "Total Country Margin (i+d) EUR" },
+            { data: "Total Country Margin (i+d) %" },
+          ],
+          "columnDefs": [
+              { "render": $.fn.dataTable.render.number( '.', ','),
+                "targets":'_all'
+              },
+          ],
+        });
+
+        $("#cost").DataTable({
+          fixedHeader: {
+            header: true,
+            headerOffset: $('#navigation').outerHeight()
+        },
+          ajax: "../data/rPT_PriceListFinal_Cost.json",
+          columns: [
+            { data: "GMUD" },
+            { data: "GMUD2" },
+            { data: "Version" },
+            { data: "Total Local Costs Euro" },
+            { data: "Total Sales Allowances Importer Euro" },
+            { data: "Importer Margin Vehicle + Options (Net of Costs & SA) LC" },
+            { data: "Importer Margin Vehicle + Options (Net of Costs & SA) EUR" },
+            { data: "Importer Margin Vehicle + Options (Net of Costs & SA) %" },
+            { data: "Opel Support (% of PDU Vehicle + Options)" },
+            { data: "Importer Margin Incl All costs, SA & Opel Support EUR" },
+            { data: "Importer Margin Incl All costs, SA & Opel Support %" },
+          ],
+          "columnDefs": [
+              { "render": $.fn.dataTable.render.number( '.', ','),
+                "targets":'_all'
+              },
+          ],
+        });
+
+        $("#vatandtaxes").DataTable({
+          fixedHeader: {
+            header: true,
+            headerOffset: $('#navigation').outerHeight()
+        },
+          ajax: "../data/rPT_PriceListFinal_DetailsVATandTaxes.json",
+          columns: [
+            { data: "GMUD" },
+            { data: "GMUD2" },
+            { data: "Version" },
+            { data: "VAT%" },
+            { data: "VAT (Vehicle)" },
+            { data: "Tax 1 (Vehicle)" },
+            { data: "Tax 1 (Vehicle)_1" },
+            { data: "Tax 1 (Vehicle)_2" },
+            { data: "Tax 1 (Vehicle)_3" },
+            { data: "Total Taxes (Vehicle)" },
+            { data: "Options VAT" },
+            { data: "Options other Taxes" },
+          ],
+          "columnDefs": [
+              { "render": $.fn.dataTable.render.number( '.', ','),
+                "targets":'_all'
+              },
+          ],
+        });
+
+        $("#localcostsandduties").DataTable({
+          fixedHeader: {
+            header: true,
+            headerOffset: $('#navigation').outerHeight()
+        },
+          ajax: "../data/rPT_PriceListFinal_LocalCostsAndDuties.json",
+          columns: [
+            { data: "GMUD" },
+            { data: "GMUD2" },
+            { data: "Version" },
+            { data: "Freight to Dealers" },
+            { data: "Freight Invoiced to Dealers" },
+            { data: "Freight Plant to Country (Outbound)" },
+            { data: "Import duties" },
+            { data: "Other Costs 1" },
+            { data: "Other Costs 2" },
+            { data: "Total Local Costs Local Currency" },
+            { data: "Total Local Costs Euro_1" },
+          ],
+          "columnDefs": [
+              { "render": $.fn.dataTable.render.number( '.', ','),
+                "targets":'_all'
+              },
+          ],
+        });
+
+        $("#dealermargin").DataTable({
+          fixedHeader: {
+            header: true,
+            headerOffset: $('#navigation').outerHeight()
+        },
+          ajax: "../data/rPT_PriceListFinal_DetailsDealerMargin.json",
+          columns: [
+            { data: "GMUD" },
+            { data: "GMUD2" },
+            { data: "Version" },
+            { data: "Dealer Margin % (Vehicle)" },
+            { data: "Dealer Margin (Vehicle)_1" },
+            { data: "Dealer Margin % (Options)" },
+            { data: "Dealer Margin (Options)_1" },
+          ],
+          "columnDefs": [
+              { "render": $.fn.dataTable.render.number( '.', ','),
+                "targets":'_all'
+              },
+          ],
+        });
+
+        $("#salesallowances").DataTable({
+          fixedHeader: {
+            header: true,
+            headerOffset: $('#navigation').outerHeight()
+        },
+          ajax:
+            "../data/rPT_PriceListFinal_DetailsSalesAllowancesImporter.json",
+          columns: [
+            { data: "GMUD" },
+            { data: "GMUD2" },
+            { data: "Version" },
+            { data: "Importer Sales Allowances 1" },
+            { data: "Importer Sales Allowances 2" },
+            { data: "Importer Sales Allowances 3" },
+            { data: "Importer Sales Allowances 4" },
+            { data: "Total Importer Sales Allowances LC" },
+            { data: "Total Importer Sales AllowancesEUR" },
+          ],
+          "columnDefs": [
+              { "render": $.fn.dataTable.render.number( '.', ','),
+                "targets":'_all'
+              },
+          ],
+        });
+
+        $("#confcosts").DataTable({
+          fixedHeader: {
+            header: true,
+            headerOffset: $('#navigation').outerHeight()
+        },
+          ajax: "../data/rPT_PriceListFinal_CONFCosts.json",
+          columns: [
+            { data: "GMUD" },
+            { data: "GMUD2" },
+            { data: "Version" },
+            { data: "Cost CMO" },
+            { data: "Cost LMO" },
+            { data: "Material Cost" },
+            { data: "Manufacturing Cost" },
+            { data: "Other Vehicle Cost" },
+            { data: "Total Vehicle Cost" },
+          ],
+          "columnDefs": [
+              { "render": $.fn.dataTable.render.number( '.', ','),
+                "targets":'_all'
+              },
+          ],
+        });
+
+        $("#confwithpseudolmo").DataTable({
+          fixedHeader: {
+            header: true,
+            headerOffset: $('#navigation').outerHeight()
+        },
+          ajax: "../data/rPT_PriceListFinal_CONFWithPseudoLMO.json",
+          columns: [
+            { data: "GMUD" },
+            { data: "GMUD2" },
+            { data: "Version" },
+            { data: "OV Commercial Margin Vehicle (Pseudo LMO Incl)" },
+            { data: "OV Commercial Margin Vehicle % (Pseudo LMO Incl)" },
+            { data: "Option Cost (Pseudo LMO Excl)" },
+            { data: "OV Commercial Margin on Options (Pseudo LMO Excl)" },
+            { data: "OV Commercial Margin on Options % (Pseudo LMO Excl)" },
+          ],
+          "columnDefs": [
+              { "render": $.fn.dataTable.render.number( '.', ','),
+                "targets":'_all'
+              },
+          ],
+        });
+
+        $("#confcmo").DataTable({
+          fixedHeader: {
+            header: true,
+            headerOffset: $('#navigation').outerHeight()
+        },
+          ajax: "../data/rPT_PriceListFinal_CONFCMO.json",
+          columns: [
+            { data: "GMUD" },
+            { data: "GMUD2" },
+            { data: "Version" },
+            { data: "OV Commercial Margin Vehicle (CMO)" },
+            { data: "OV Commercial Margin Vehicle % (CMO)" },
+            { data: "Option Cost (CMO)" },
+            { data: "OV Commercial Margin on Options (CMO)" },
+            { data: "OV Commercial Margin on Options % (CMO)" },
+            { data: "OV Commercial Margin Vehicle + Options" },
+            { data: "OV Commercial Margin Vehicle + Options %" },
+          ],
+          "columnDefs": [
+              { "render": $.fn.dataTable.render.number( '.', ','),
+                "targets":'_all'
+              },
+          ],
+        });
+
+        $("#confrbcvandother").DataTable({
+          fixedHeader: {
+            header: true,
+            headerOffset: $('#navigation').outerHeight()
+        },
+          ajax: "../data/rPT_PriceListFinal_CONFRBCVandOther.json",
+          columns: [
+            { data: "GMUD" },
+            { data: "GMUD2" },
+            { data: "Version" },
+            { data: "Opel Support (% of PDU Vehicle + Options)_1" },
+            { data: "Opel RBCV (Vehicle + Options)" },
+            { data: "Opel RBCV (Vehicle + Options) %" },
+            { data: "Policy and Warranty (Not in RBCF)" },
+            { data: "Opel NCR (Vehicle + Options * Policy and Warranty)" },
+            { data: "Opel NCR (Vehicle + Options * Policy and Warranty) %" },
+          ],
+          "columnDefs": [
+              { "render": $.fn.dataTable.render.number( '.', ','),
+                "targets":'_all'
+              },
+          ],
+        });
+
+        $("#confaddinfo").DataTable({
+          fixedHeader: {
+            header: true,
+            headerOffset: $('#navigation').outerHeight()
+        },
+          ajax: "../data/rPT_PriceListFinal_CONFAddInfo.json",
+          columns: [
+            { data: "GMUD" },
+            { data: "GMUD2" },
+            { data: "Version" },
+            { data: "Old Trim_1" },
+            { data: "Old Powertrain_1" },
+            { data: "Old GMUD_1" },
+            { data: "Old PDU" },
+            { data: "New PDU" },
+            { data: "Delta" },
+            { data: "Mix" },
+            { data: "Mat Cost Calculated" },
+            { data: "Payload Cost (LCDV)" },
+            { data: "Cost Input from Finance" },
+            { data: "Delta Building Blocks vs Cost Finance" },
+          ],
+          "columnDefs": [
+              { "render": $.fn.dataTable.render.number( '.', ','),
+                "targets":'_all'
+              },
+          ],
+        });
+
+        $("#pdu").DataTable({
+          fixedHeader: {
+            header: true,
+            headerOffset: $('#navigation').outerHeight()
+        },
+          ajax: "../data/rPT_PriceListFinal_PDU.json",
+          columns: [
+            { data: "GMUD" },
+            { data: "GMUD2" },
+            { data: "Version" },
+            { data: "Additional Items CMO (New, PDU)" },
+            { data: "Prior LMO PDU (Decontenting)" },
+            { data: "New PDU Comparably equipped" },
+            { data: "PDU Old" },
+            { data: "PDU Variance comparably equipped" },
+          ],
+          "columnDefs": [
+              { "render": $.fn.dataTable.render.number( '.', ','),
+                "targets":'_all'
+              },
+          ],
+        });
+      });
+    </script>
+
+    <!-- Option 2: jQuery, Popper.js, and Bootstrap JS
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>

@@ -1,0 +1,35 @@
+{
+  "data":[ {
+  "LCDV" : "PXK",
+  "Name" : "Gasoline F 12XHL & MT-6 (74kW) EB2 ADTD_B 100Hp MT6 Start/Stop Europe",
+  "Code" : "EU6_",
+  "Default MSRP Vs Ref" : "",
+  "PDU Vs Ref" : "0",
+  "Cost CMO Vs Ref" : "0",
+  "Cost Total Vs Ref" : "0",
+  "Mix" : "10%",
+  "Code_1" : "",
+  "Default MSRP Vs Other" : "",
+  "PDU Vs Other" : "",
+  "Cost Total Vs Other" : "",
+  "RBCF EUR (GSF Based)" : 0.0,
+  "RBCF % (GSF Based)" : 0.0,
+  "Ref" : "[x]"
+}, {
+  "LCDV" : "NPK",
+  "Name" : "Gasoline F 12 XHT & MT-6 (96kW) EB2 ADTS 130Hp MT6 Start/Stop Europe",
+  "Code" : "EP6_",
+  "Default MSRP Vs Ref" : "100",
+  "PDU Vs Ref" : "10",
+  "Cost CMO Vs Ref" : "15",
+  "Cost Total Vs Ref" : "15",
+  "Mix" : "50%",
+  "Code_1" : "",
+  "Default MSRP Vs Other" : "",
+  "PDU Vs Other" : "",
+  "Cost Total Vs Other" : "",
+  "RBCF EUR (GSF Based)" : 0.0,
+  "RBCF % (GSF Based)" : 0.0,
+  "Ref" : ""
+} ]
+}

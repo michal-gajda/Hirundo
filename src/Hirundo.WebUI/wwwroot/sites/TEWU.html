@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="../css/offcanvas.css" />
+    <link rel="stylesheet" href="../css/datatables.css" />
+
+    <title>APE - Input Vehicles</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+      <span class="navbar-brand mr-auto mr-lg-0" href="#"
+        ><b>A</b>ssisted <b>P</b>ricing <b>E</b>nvironment</span
+      >
+      <button
+        class="navbar-toggler p-0 border-0"
+        type="button"
+        data-toggle="offcanvas"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div
+        class="navbar-collapse offcanvas-collapse"
+        id="navbarsExampleDefault"
+      >
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="../index.html">Summary</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./overview.html">Detailed Variance Analysis</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./pricelistfinal.html"
+              >Price List Final</a
+            >
+            <li class="nav-item"><a class="nav-link" href="./GeneralInformation.html">Input - General Information</a></li>
+          <li class="nav-item active">
+            <a class="nav-link" href="./TEWU.html"
+              >Input - Vehicles <span class="sr-only">(current)</span></a
+            >
+          </li>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./alloptions.html">Input - Options</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col">
+          <!-- z tego można pomyśleć czy nie zrobić <header> -->
+          <h1>Input - Vehicles</h1>
+          <p class="text-monospace">
+            <mark>Table creation date:</mark>
+            <time datetime="2020-05-20">20.05.2020</time>
+          </p>
+          <p class="text-monospace">
+            <mark>VOG reference date:</mark>
+            <time datetime="2020-05-10">10.05.2020</time>
+          </p>
+          <!-- </header> -->
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <form action="">
+            <div class="row">
+              <div class="form-group col-12 col-sm-6 col-md-3">
+                <!-- TODO dodać value do wszystkich selectów -->
+                <label for="country">Country</label>
+                <select class="form-control" id="country">
+                  <option>Switzerland</option>
+                  <option>Ireland</option>
+                  <option>Scotland</option>
+                  <option>Portugal</option>
+                  <option>Poland</option>
+                </select>
+              </div>
+              <div class="form-group col-12 col-sm-6 col-md-3">
+                <label for="carline">Carline</label>
+                <select class="form-control" id="carline">
+                  <option>Mokka</option>
+                  <option>Astra</option>
+                  <option>Insignia</option>
+                  <option>Corsa</option>
+                  <option>Crossland</option>
+                </select>
+              </div>
+              <div class="form-group col-12 col-sm-6 col-md-3">
+                <label for="carline">Vehicle Brand</label>
+                <select class="form-control" id="carline">
+                  <option>Opel</option>
+                  <option>Vauxhall</option>
+                </select>
+              </div>
+              <div class="form-group col-12 col-sm-6 col-md-3">
+                <label for="carline">Model Year</label>
+                <select class="form-control" id="carline">
+                  <option>21.0</option>
+                  <option>20.0</option>
+                  <option>19.0</option>
+                </select>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-submit">
+              Submit
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-auto">
+          <span class="badge badge-primary bg-info">Switzerland</span>
+        </div>
+        <div class="col-auto">
+          <span class="badge badge-primary bg-info">Mokka</span>
+        </div>
+        <div class="col-auto">
+          <span class="badge badge-primary bg-info">Opel</span>
+        </div>
+        <div class="col-auto">
+          <span class="badge badge-primary bg-info">MY21.0</span>
+        </div>
+        <div class="col-auto">
+          <span class="badge badge-primary">1,1 CHF = 1 EUR</span>
+        </div>
+      </div>
+
+      <!-- <div class="row">
+        <div class="col">
+          <div class="bd-callout">
+            <p>
+              <button
+                class="btn btn-primary"
+                type="button"
+                data-toggle="collapse"
+                data-target="#collapseVarianceAnalysis"
+                aria-expanded="false"
+                aria-controls="collapseVarianceAnalysis"
+              >
+                TEWU Parameters
+              </button>
+            <div class="collapse" id="collapseVarianceAnalysis">
+              <button type="button" class="btn btn-outline-primary mb-3" disabled>Edit</button>
+              <div class="row">
+                <div class="col-12 col-md-6">
+                  <span class="badge badge-primary">TEWU Parameters</span>
+                  <ul class="list-group">
+                    <li
+                      class="list-group-item d-flex justify-content-between align-items-center"
+                    >
+                      Gross Sales Factor (Options) - From PDU
+                      <span class="badge badge-primary badge-pill">56%</span>
+                    </li>
+                    <li
+                      class="list-group-item d-flex justify-content-between align-items-center"
+                    >
+                      Gross Sales Factor (Vehicle) - From PDU<span
+                        class="badge badge-primary badge-pill"
+                        >52%</span
+                      >
+                    </li>
+                    <li
+                      class="list-group-item d-flex justify-content-between align-items-center yellow"
+                    >
+                      Other Taxes
+                      <span class="badge badge-primary badge-pill">0%</span>
+                    </li>
+                    <li
+                      class="list-group-item d-flex justify-content-between align-items-center yellow"
+                    >
+                      Local Currency
+                      <span class="badge badge-primary badge-pill">CHF</span>
+                    </li>
+                    <li
+                      class="list-group-item d-flex justify-content-between align-items-center yellow"
+                    >
+                      FX Rate
+                      <span class="badge badge-primary badge-pill">1.1</span>
+                    </li>
+                    <li
+                      class="list-group-item d-flex justify-content-between align-items-center yellow"
+                    >
+                      VAT
+                      <span class="badge badge-primary badge-pill">7.7%</span>
+                    </li>
+                    <li
+                      class="list-group-item d-flex justify-content-between align-items-center yellow"
+                    >
+                      Dealer Margin
+                      <span class="badge badge-primary badge-pill">10%</span>
+                    </li>
+                    <li
+                      class="list-group-item d-flex justify-content-between align-items-center yellow"
+                    >
+                      Default MSRP Type
+                      <span class="badge badge-primary badge-pill"
+                        >1. Incuding Taxes</span
+                      >
+                    </li>
+                    <li
+                      class="list-group-item d-flex justify-content-between align-items-center yellow"
+                    >
+                      Importer Margin
+                      <span class="badge badge-primary badge-pill">30%</span>
+                    </li>
+                    <li
+                      class="list-group-item d-flex justify-content-between align-items-center yellow"
+                    >
+                      Importer Margin on Options
+                      <span class="badge badge-primary badge-pill">25%</span>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-12 col-md-6">
+                  <span class="badge badge-primary">Other</span>
+                  <ul class="list-group">
+                    <li
+                      class="list-group-item d-flex justify-content-between align-items-center yellow"
+                    >
+                      GMUD / LCDV Base
+                      <span class="badge badge-primary badge-pill"
+                        >0MC76EU6</span
+                      >
+                    </li>
+                    <li
+                      class="list-group-item d-flex justify-content-between align-items-center"
+                    >
+                      MSRP Base
+                      <span class="badge badge-primary badge-pill">23.915</span>
+                    </li>
+                    <li
+                      class="list-group-item d-flex justify-content-between align-items-center"
+                    >
+                      PDU
+                      <span class="badge badge-primary badge-pill">12.340</span>
+                    </li>
+                    <li
+                      class="list-group-item d-flex justify-content-between align-items-center"
+                    >
+                      Cost
+                      <span class="badge badge-primary badge-pill">9.720</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> -->
+
+      <div class="row">
+        <div class="col">
+          <div class="bd-callout">
+            <div class="row">
+              <div class="col">
+                <div class="row">
+                  <div class="col-3">
+                    <div
+                      class="nav flex-column nav-pills"
+                      id="v-pills-tab"
+                      role="tablist"
+                      aria-orientation="vertical"
+                    >
+                    <a
+                        class="nav-link active"
+                        id="v-model-mix-tab"
+                        data-toggle="pill"
+                        href="#v-model-mix"
+                        role="tab"
+                        aria-controls="v-pills-home"
+                        aria-selected="true"
+                        >MODEL MIX</a
+                      >
+                      <a
+                        class="nav-link"
+                        id="v-pills-home-tab"
+                        data-toggle="pill"
+                        href="#v-pills-home"
+                        role="tab"
+                        aria-controls="v-pills-home"
+                        aria-selected="true"
+                        >ENGINE</a
+                      >
+                      <a
+                        class="nav-link"
+                        id="v-pills-profile-tab"
+                        data-toggle="pill"
+                        href="#v-pills-profile"
+                        role="tab"
+                        aria-controls="v-pills-profile"
+                        aria-selected="false"
+                        >TRIM</a
+                      >
+                      <a
+                        class="nav-link"
+                        id="v-pills-messages-tab"
+                        data-toggle="pill"
+                        href="#v-pills-messages"
+                        role="tab"
+                        aria-controls="v-pills-messages"
+                        aria-selected="false"
+                        >BODY STYLE</a
+                      >
+                      <a
+                        class="nav-link"
+                        id="v-pills-settings-tab"
+                        data-toggle="pill"
+                        href="#v-pills-settings"
+                        role="tab"
+                        aria-controls="v-pills-settings"
+                        aria-selected="false"
+                        >VEHICLE TYPE</a
+                      >
+                      <a
+                        class="nav-link"
+                        id="v-lcv-size-type-tab"
+                        data-toggle="pill"
+                        href="#v-lcv-size-type"
+                        role="tab"
+                        aria-controls="v-lcv-size-type"
+                        aria-selected="false"
+                        >LCV Size & Type</a
+                      >
+                      <a
+                        class="nav-link"
+                        id="v-drive-axle-tab"
+                        data-toggle="pill"
+                        href="#v-drive-axle"
+                        role="tab"
+                        aria-controls="v-drive-axle"
+                        aria-selected="false"
+                        >DRIVE AXLE</a
+                      >
+                      <a
+                        class="nav-link"
+                        id="v-rear-axle-tab"
+                        data-toggle="pill"
+                        href="#v-rear-axle"
+                        role="tab"
+                        aria-controls="v-rear-axle"
+                        aria-selected="false"
+                        >REAR AXLE</a
+                      >
+                      <a
+                        class="nav-link"
+                        id="v-length-tab"
+                        data-toggle="pill"
+                        href="#v-length"
+                        role="tab"
+                        aria-controls="v-length"
+                        aria-selected="false"
+                        >LENGTH</a
+                      >
+                      <a
+                        class="nav-link"
+                        id="v-payload-tab"
+                        data-toggle="pill"
+                        href="#v-payload"
+                        role="tab"
+                        aria-controls="v-payload"
+                        aria-selected="false"
+                        >PAYLOAD</a
+                      >
+                      <a
+                        class="nav-link"
+                        id="v-height-tab"
+                        data-toggle="pill"
+                        href="#v-height"
+                        role="tab"
+                        aria-controls="v-height"
+                        aria-selected="false"
+                        >HEIGHT</a
+                      >
+                    </div>
+                  </div>
+                  <div class="col-9">
+                    <div class="tab-content" id="v-pills-tabContent">
+                      <div
+                        class="tab-pane fade show active"
+                        id="v-model-mix"
+                        role="tabpanel"
+                        aria-labelledby="v-pills-home-tab"
+                      >
+                      <button type="button" class="btn btn-outline-primary mb-3" disabled>New</button>
+                      <button type="button" class="btn btn-outline-primary mb-3" disabled>Edit</button>
+                      <button type="button" class="btn btn-outline-primary mb-3" disabled>Delete</button>
+                      <div class="table-responsive">
+                        <table
+                          class="table table-sm table-striped table-bordered"
+                        >
+                        <thead class="thead-light">
+                          <tr>
+                            <th scope="col"><div><span>GMUD2</span></div></th>
+                            <th scope="col"><div><span>LCDV</span></div></th>
+                            <th scope="col"><div><span>Version Name</span></div></th>
+                            <th scope="col"><div><span>Mix Prev. MY</span></div></th>
+                            <th scope="col" class="yellow"><div><span>Mix Curr. MY</span></div></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td><div>0</div></td>
+                            <td><div>0</div></td>
+                            <td><div>Mokka Base Gasoline F 12XHL & MT-6 (74kW) EB2 ADTD_B 100Hp MT6 Start/Stop Europe </div></td>
+                            <td><div>25%</div></td>
+                            <td class="yellow"><div>50%</div></td>
+                          </tr>
+                          <tr>
+                            <td><div>0</div></td>
+                            <td><div>0</div></td>
+                            <td><div>Mokka Edition Gasoline F 12 XHT & AT-8 (96kw) EB2 ADTS 130Hp AT8 Start/Stop Europe </div></td>
+                            <td><div>25%</div></td>
+                            <td class="yellow"><div>50%</div></td>
+                          </tr>
+                          <tr>
+                            <td><div>0</div></td>
+                            <td><div>0</div></td>
+                            <td><div>Mokka Elegance Diesel F 15DT & MT-6 (81kW) DV5RCE 110Hp MT6 Start/Stop Europe </div></td>
+                            <td><div>50%</div></td>
+                            <td class="yellow"><div>0%</div></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      </div>
+
+                      </div>
+                      <div
+                        class="tab-pane fade"
+                        id="v-pills-home"
+                        role="tabpanel"
+                        aria-labelledby="v-pills-home-tab"
+                      >
+                      <button type="button" class="btn btn-outline-primary mb-3" disabled>New</button>
+                      <button type="button" class="btn btn-outline-primary mb-3" disabled>Edit</button>
+                      <button type="button" class="btn btn-outline-primary mb-3" disabled>Delete</button>
+                        <div class="table-responsive">
+                          <table
+                            id="engine"
+                            class="table table-sm table-striped table-bordered"
+                          >
+                            <!-- <caption class="sr-only">
+                        Summary
+                      </caption> -->
+                            <thead class="thead-light">
+                              <tr>
+                                <th colspan="4"></th>
+                                <th colspan="4">Vs. Base</th>
+                                <th colspan="2"></th>
+                                <th colspan="3">Vs. Other</th>
+                                <th colspan="2">GSF Based</th>
+                              </tr>
+                              <tr>
+                                <th colspan="4"></th>
+                                <th colspan="1">EUR</th>
+                                <th colspan="1">EUR</th>
+                                <th colspan="1">EUR</th>
+                                <th colspan="1">EUR</th>
+                                <th colspan="1">%</th>
+                                <th colspan="1"></th>
+                                <th colspan="1">EUR</th>
+                                <th colspan="1">EUR</th>
+                                <th colspan="1">EUR</th>
+                                <th colspan="1">EUR</th>
+                                <th colspan="1">%</th>
+                              </tr>
+                              <tr>
+                                <th scope="col">
+                                  <div><span>LCDV</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Name</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Engine Code</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Reference</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Default MSRP</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>PDU</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Cost CMO</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Cost Total</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Mix</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Engine Code 2</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Default MSRP</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>PDU</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Cost Total</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>RBCF</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>RBCF</span></div>
+                                </th>
+                              </tr>
+                            </thead>
+                          </table>
+                        </div>
+                      </div>
+                      <div
+                        class="tab-pane fade"
+                        id="v-pills-profile"
+                        role="tabpanel"
+                        aria-labelledby="v-pills-profile-tab"
+                      >
+                      <button type="button" class="btn btn-outline-primary mb-3" disabled>New</button>
+                      <button type="button" class="btn btn-outline-primary mb-3" disabled>Edit</button>
+                      <button type="button" class="btn btn-outline-primary mb-3" disabled>Delete</button>
+                        <div class="table-responsive">
+                          <table
+                            id="trim"
+                            class="table table-sm table-striped table-bordered"
+                          >
+                            <!-- <caption class="sr-only">
+                      Summary
+                    </caption> -->
+                            <thead class="thead-light">
+                              <tr>
+                                <th colspan="4"></th>
+                                <th colspan="4">Vs. Base</th>
+                                <th colspan="2"></th>
+                                <th colspan="3">Vs. Other</th>
+                                <th colspan="2">GSF Based</th>
+                              </tr>
+                              <tr>
+                                <th colspan="4"></th>
+                                <th colspan="1">EUR</th>
+                                <th colspan="1">EUR</th>
+                                <th colspan="1">EUR</th>
+                                <th colspan="1">EUR</th>
+                                <th colspan="1">%</th>
+                                <th colspan="1"></th>
+                                <th colspan="1">EUR</th>
+                                <th colspan="1">EUR</th>
+                                <th colspan="1">EUR</th>
+                                <th colspan="1">EUR</th>
+                                <th colspan="1">%</th>
+                              </tr>
+                              <tr>
+                                <th scope="col">
+                                  <div><span>LCDV</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Name</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Trim Code</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Reference</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Default MSRP</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>PDU</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Cost CMO</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Cost Total</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Mix</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Trim Code 2</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Default MSRP</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>PDU</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Cost Total</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>RBCF</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>RBCF</span></div>
+                                </th>
+                              </tr>
+                            </thead>
+                          </table>
+                        </div>
+                      </div>
+                      <div
+                        class="tab-pane fade"
+                        id="v-pills-messages"
+                        role="tabpanel"
+                        aria-labelledby="v-pills-messages-tab"
+                      >
+                      <button type="button" class="btn btn-outline-primary mb-3" disabled>New</button>
+                      <button type="button" class="btn btn-outline-primary mb-3" disabled>Edit</button>
+                      <button type="button" class="btn btn-outline-primary mb-3" disabled>Delete</button>
+                        <div class="table-responsive">
+                          <table
+                            id="bodystyle"
+                            class="table table-sm table-striped table-bordered"
+                          >
+                            <!-- <caption class="sr-only">
+                      Summary
+                    </caption> -->
+                            <thead class="thead-light">
+                              <tr>
+                                <tr>
+                                  <th colspan="4"></th>
+                                  <th colspan="4">Vs. Base</th>
+                                  <th colspan="2"></th>
+                                  <th colspan="3">Vs. Other</th>
+                                  <th colspan="2">GSF Based</th>
+                                </tr>
+                                <tr>
+                                  <th colspan="4"></th>
+                                  <th colspan="1">EUR</th>
+                                  <th colspan="1">EUR</th>
+                                  <th colspan="1">EUR</th>
+                                  <th colspan="1">EUR</th>
+                                  <th colspan="1">%</th>
+                                  <th colspan="1"></th>
+                                  <th colspan="1">EUR</th>
+                                  <th colspan="1">EUR</th>
+                                  <th colspan="1">EUR</th>
+                                  <th colspan="1">EUR</th>
+                                  <th colspan="1">%</th>
+                                </tr>
+                                <th scope="col">
+                                  <div><span>LCDV</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Name</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Body Style Code</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Reference</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Default MSRP</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>PDU</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Cost CMO</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Cost Total</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Mix</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Body Style Code 2</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Default MSRP</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>PDU</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>Cost Total</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>RBCF</span></div>
+                                </th>
+                                <th scope="col">
+                                  <div><span>RBCF</span></div>
+                                </th>
+                              </tr>
+                            </thead>
+                          </table>
+                        </div>
+                      </div>
+                      <div
+                        class="tab-pane fade"
+                        id="v-pills-settings"
+                        role="tabpanel"
+                        aria-labelledby="v-pills-settings-tab"
+                      >
+                        Vehicle Type
+                      </div>
+                      <div
+                        class="tab-pane fade"
+                        id="v-lcv-size-type"
+                        role="tabpanel"
+                        aria-labelledby="v-lcv-size-type-tab"
+                      >
+                        LCV Size and Type
+                      </div>
+                      <div
+                        class="tab-pane fade"
+                        id="v-drive-axle"
+                        role="tabpanel"
+                        aria-labelledby="v-drive-axle-tab"
+                      >
+                        Drive Axle
+                      </div>
+                      <div
+                        class="tab-pane fade"
+                        id="v-rear-axle"
+                        role="tabpanel"
+                        aria-labelledby="v-rear-axle-tab"
+                      >
+                        Rear Axle
+                      </div>
+                      <div
+                        class="tab-pane fade"
+                        id="v-length"
+                        role="tabpanel"
+                        aria-labelledby="v-length-tab"
+                      >
+                        Length
+                      </div>
+                      <div
+                        class="tab-pane fade"
+                        id="v-payload"
+                        role="tabpanel"
+                        aria-labelledby="v-payload-tab"
+                      >
+                        Payload
+                      </div>
+                      <div
+                        class="tab-pane fade"
+                        id="v-height"
+                        role="tabpanel"
+                        aria-labelledby="v-height-tab"
+                      >
+                        Height
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <!-- <script src="./js/jquery-3.5.1.slim.min.js"></script> -->
+    <!-- TODO: do sprawdzenia wersje jQuery, bo coś DataTables świruje przy ładowaniu wersji jQuery Bootstrapa z dysku -->
+
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/offcanvas.js"></script>
+    <script src="../js/dataTable.jquery.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#engine").DataTable({
+          order: [[3, "desc"]],
+          ajax: "../data/TODO_V_rPT_TEWU_Engine.json",
+          columns: [
+            { data: "LCDV" },
+            { data: "Name" },
+            { data: "Code" },
+            { data: "Ref" },
+            { data: "Default MSRP Vs Ref" },
+            { data: "PDU Vs Ref" },
+            { data: "Cost CMO Vs Ref" },
+            { data: "Cost Total Vs Ref" },
+            { data: "Mix" },
+            { data: "Code_1" },
+            { data: "Default MSRP Vs Other" },
+            { data: "PDU Vs Other" },
+            { data: "Cost Total Vs Other" },
+            { data: "RBCF EUR (GSF Based)" },
+            { data: "RBCF % (GSF Based)" },
+          ],
+          "columnDefs": [
+    { className: "yellow", "targets": [ 3,4 ] },
+    { "render": $.fn.dataTable.render.number( '.', ','),
+                "targets":'_all'
+              },
+  ]
+        });
+
+        $("#trim").DataTable({
+          order: [[3, "desc"]],
+          ajax: "../data/TODO_V_rPT_TEWU_Trimline.json",
+          columns: [
+            { data: "LCDV" },
+            { data: "Name" },
+            { data: "Code" },            
+            { data: "Ref" },            
+            { data: "Default MSRP Vs Ref" },
+            { data: "PDU Vs Ref" },
+            { data: "Cost CMO Vs Ref" },
+            { data: "Cost Total Vs Ref" },
+            { data: "Mix" },
+            { data: "Code_1" },
+            { data: "Default MSRP Vs Other" },
+            { data: "PDU Vs Other" },
+            { data: "Cost Total Vs Other" },
+            { data: "RBCF EUR (GSF Based)" },
+            { data: "RBCF % (GSF Based)" },
+          ],
+          "columnDefs": [
+    { className: "yellow", "targets": [ 3,4 ] },
+    { "render": $.fn.dataTable.render.number( '.', ','),
+                "targets":'_all'
+              },
+  ]
+        });
+
+        $("#bodystyle").DataTable({
+          order: [[3, "desc"]],
+          ajax: "../data/TODO_V_rPT_TEWU_Body style.json",
+          columns: [
+            { data: "LCDV" },
+            { data: "Name" },
+            { data: "Code" },
+            { data: "Ref" },
+            { data: "Default MSRP Vs Ref" },
+            { data: "PDU Vs Ref" },
+            { data: "Cost CMO Vs Ref" },
+            { data: "Cost Total Vs Ref" },
+            { data: "Mix" },
+            { data: "Code_1" },
+            { data: "Default MSRP Vs Other" },
+            { data: "PDU Vs Other" },
+            { data: "Cost Total Vs Other" },
+            { data: "RBCF EUR (GSF Based)" },
+            { data: "RBCF % (GSF Based)" },
+          ],
+          "columnDefs": [
+    { className: "yellow", "targets": [ 3,4 ] },
+    { "render": $.fn.dataTable.render.number( '.', ','),
+                "targets":'_all'
+              },
+  ]
+        });
+      });
+    </script>
+  </body>
+</html>

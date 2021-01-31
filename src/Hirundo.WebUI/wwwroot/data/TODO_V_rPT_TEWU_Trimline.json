@@ -1,0 +1,35 @@
+{
+  "data":[ {
+  "LCDV" : "FA0",
+  "Name" : "Base",
+  "Code" : "B",
+  "Default MSRP Vs Ref" : "",
+  "PDU Vs Ref" : "0",
+  "Cost CMO Vs Ref" : "0",
+  "Cost Total Vs Ref" : "0",
+  "Mix" : "0%",
+  "Code_1" : "",
+  "Default MSRP Vs Other" : "",
+  "PDU Vs Other" : "",
+  "Cost Total Vs Other" : "",
+  "RBCF EUR (GSF Based)" : 0.0,
+  "RBCF % (GSF Based)" : 0.0,
+  "Ref" : "[x]"
+}, {
+  "LCDV" : "GA0",
+  "Name" : "Edition",
+  "Code" : "C",
+  "Default MSRP Vs Ref" : "0",
+  "PDU Vs Ref" : "0",
+  "Cost CMO Vs Ref" : "100",
+  "Cost Total Vs Ref" : "100",
+  "Mix" : "0%",
+  "Code_1" : "",
+  "Default MSRP Vs Other" : "",
+  "PDU Vs Other" : "",
+  "Cost Total Vs Other" : "",
+  "RBCF EUR (GSF Based)" : 0.0,
+  "RBCF % (GSF Based)" : 0.0,
+  "Ref" : ""
+} ]
+}

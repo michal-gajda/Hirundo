@@ -1,0 +1,106 @@
+[ {
+  "MeasureType_1" : "Details Mix",
+  "MeasureType_subcategory_2" : "5D",
+  "MeasureType_sub_subcategory_3" : "Mix Current",
+  "ValueFor_sub_subcategory_3" : 1000.0
+}, {
+  "MeasureType_1" : "Details Mix",
+  "MeasureType_subcategory_2" : "5D",
+  "MeasureType_sub_subcategory_3" : "Mix Proposed",
+  "ValueFor_sub_subcategory_3" : 1000.0
+}, {
+  "MeasureType_1" : "Details Mix",
+  "MeasureType_subcategory_2" : "5D",
+  "MeasureType_sub_subcategory_3" : "Mix Change",
+  "ValueFor_sub_subcategory_3" : 1000.0
+}, {
+  "MeasureType_1" : "Details Mix",
+  "MeasureType_subcategory_2" : "ST",
+  "MeasureType_sub_subcategory_3" : "Mix Current",
+  "ValueFor_sub_subcategory_3" : 1000.0
+}, {
+  "MeasureType_1" : "Details Mix",
+  "MeasureType_subcategory_2" : "ST",
+  "MeasureType_sub_subcategory_3" : "Mix Proposed",
+  "ValueFor_sub_subcategory_3" : 1000.0
+}, {
+  "MeasureType_1" : "Details Mix",
+  "MeasureType_subcategory_2" : "ST",
+  "MeasureType_sub_subcategory_3" : "Mix Change",
+  "ValueFor_sub_subcategory_3" : 1000.0
+}, {
+  "MeasureType_1" : "Details Mix",
+  "MeasureType_subcategory_2" : "TRIM 1",
+  "MeasureType_sub_subcategory_3" : "Mix Current",
+  "ValueFor_sub_subcategory_3" : 1000.0
+}, {
+  "MeasureType_1" : "Details Mix",
+  "MeasureType_subcategory_2" : "TRIM 1",
+  "MeasureType_sub_subcategory_3" : "Mix Proposed",
+  "ValueFor_sub_subcategory_3" : 1000.0
+}, {
+  "MeasureType_1" : "Details Mix",
+  "MeasureType_subcategory_2" : "TRIM 1",
+  "MeasureType_sub_subcategory_3" : "Mix Change",
+  "ValueFor_sub_subcategory_3" : 1000.0
+}, {
+  "MeasureType_1" : "Details Mix",
+  "MeasureType_subcategory_2" : "TRIM 2",
+  "MeasureType_sub_subcategory_3" : "Mix Current",
+  "ValueFor_sub_subcategory_3" : 1000.0
+}, {
+  "MeasureType_1" : "Details Mix",
+  "MeasureType_subcategory_2" : "TRIM 2",
+  "MeasureType_sub_subcategory_3" : "Mix Proposed",
+  "ValueFor_sub_subcategory_3" : 1000.0
+}, {
+  "MeasureType_1" : "Details Mix",
+  "MeasureType_subcategory_2" : "TRIM 2",
+  "MeasureType_sub_subcategory_3" : "Mix Change",
+  "ValueFor_sub_subcategory_3" : 1000.0
+}, {
+  "MeasureType_1" : "Details Mix",
+  "MeasureType_subcategory_2" : "ENGINE 1",
+  "MeasureType_sub_subcategory_3" : "Mix Current",
+  "ValueFor_sub_subcategory_3" : 1000.0
+}, {
+  "MeasureType_1" : "Details Mix",
+  "MeasureType_subcategory_2" : "ENGINE 1",
+  "MeasureType_sub_subcategory_3" : "Mix Proposed",
+  "ValueFor_sub_subcategory_3" : 1000.0
+}, {
+  "MeasureType_1" : "Details Mix",
+  "MeasureType_subcategory_2" : "ENGINE 1",
+  "MeasureType_sub_subcategory_3" : "Mix Change",
+  "ValueFor_sub_subcategory_3" : 1000.0
+}, {
+  "MeasureType_1" : "Details Mix",
+  "MeasureType_subcategory_2" : "ENGINE 2",
+  "MeasureType_sub_subcategory_3" : "Mix Current",
+  "ValueFor_sub_subcategory_3" : 1000.0
+}, {
+  "MeasureType_1" : "Details Mix",
+  "MeasureType_subcategory_2" : "ENGINE 2",
+  "MeasureType_sub_subcategory_3" : "Mix Proposed",
+  "ValueFor_sub_subcategory_3" : 1000.0
+}, {
+  "MeasureType_1" : "Details Mix",
+  "MeasureType_subcategory_2" : "ENGINE 2",
+  "MeasureType_sub_subcategory_3" : "Mix Change",
+  "ValueFor_sub_subcategory_3" : 1000.0
+}, {
+  "MeasureType_1" : "Details Mix",
+  "MeasureType_subcategory_2" : "ENGINE 3",
+  "MeasureType_sub_subcategory_3" : "Mix Current",
+  "ValueFor_sub_subcategory_3" : 1000.0
+}, {
+  "MeasureType_1" : "Details Mix",
+  "MeasureType_subcategory_2" : "ENGINE 3",
+  "MeasureType_sub_subcategory_3" : "Mix Proposed",
+  "ValueFor_sub_subcategory_3" : 1000.0
+}, {
+  "MeasureType_1" : "Details Mix",
+  "MeasureType_subcategory_2" : "ENGINE 3",
+  "MeasureType_sub_subcategory_3" : "Mix Change",
+  "ValueFor_sub_subcategory_3" : 1000.0
+} ]

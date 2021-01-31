@@ -1,0 +1,136 @@
+[ {
+  "MeasureType_1" : "Variance Analysis",
+  "MeasureType_subcategory_2" : "RBCV incl. P&W per unit in Euro",
+  "MeasureType_sub_subcategory_3" : "Current Average (incl. Free Options)",
+  "ValueFor_sub_subcategory_3" : 1000.0
+}, {
+  "MeasureType_1" : "Variance Analysis",
+  "MeasureType_subcategory_2" : "RBCV incl. P&W per unit in Euro",
+  "MeasureType_sub_subcategory_3" : "Proposed Average (incl. Free Options)",
+  "ValueFor_sub_subcategory_3" : 1000.0
+}, {
+  "MeasureType_1" : "Variance Analysis",
+  "MeasureType_subcategory_2" : "RBCV incl. P&W per unit in Euro",
+  "MeasureType_sub_subcategory_3" : "Variance per unit",
+  "ValueFor_sub_subcategory_3" : 1000.0
+}, {
+  "MeasureType_1" : "Variance Analysis",
+  "MeasureType_subcategory_2" : "There of:",
+  "MeasureType_sub_subcategory_3" : "Mix",
+  "ValueFor_sub_subcategory_3" : 1000.0
+}, {
+  "MeasureType_1" : "Variance Analysis",
+  "MeasureType_subcategory_2" : "There of:",
+  "MeasureType_sub_subcategory_3" : "Equipment",
+  "ValueFor_sub_subcategory_3" : 1000.0
+}, {
+  "MeasureType_1" : "Variance Analysis",
+  "MeasureType_subcategory_2" : "There of:",
+  "MeasureType_sub_subcategory_3" : "Economics",
+  "ValueFor_sub_subcategory_3" : 1000.0
+}, {
+  "MeasureType_1" : "Variance Analysis",
+  "MeasureType_subcategory_2" : "There of:",
+  "MeasureType_sub_subcategory_3" : "Other Cost / GSF",
+  "ValueFor_sub_subcategory_3" : 1000.0
+}, {
+  "MeasureType_1" : "Variance Analysis",
+  "MeasureType_subcategory_2" : "There of:",
+  "MeasureType_sub_subcategory_3" : "Free Option",
+  "ValueFor_sub_subcategory_3" : 1000.0
+}, {
+  "MeasureType_1" : "Variance Analysis",
+  "MeasureType_subcategory_2" : "There of:",
+  "MeasureType_sub_subcategory_3" : "Sales Allowances",
+  "ValueFor_sub_subcategory_3" : 1000.0
+}, {
+  "MeasureType_1" : "Variance Analysis",
+  "MeasureType_subcategory_2" : "There of:",
+  "MeasureType_sub_subcategory_3" : "Other Contribution Cost",
+  "ValueFor_sub_subcategory_3" : 1000.0
+}, {
+  "MeasureType_1" : "Variance Analysis",
+  "MeasureType_subcategory_2" : "Volume",
+  "MeasureType_sub_subcategory_3" : "Current",
+  "ValueFor_sub_subcategory_3" : 1000.0
+}, {
+  "MeasureType_1" : "Variance Analysis",
+  "MeasureType_subcategory_2" : "Volume",
+  "MeasureType_sub_subcategory_3" : "Proposed",
+  "ValueFor_sub_subcategory_3" : 1000.0
+}, {
+  "MeasureType_1" : "Variance Analysis",
+  "MeasureType_subcategory_2" : "Volume",
+  "MeasureType_sub_subcategory_3" : "Variance",
+  "ValueFor_sub_subcategory_3" : 1000.0
+}, {
+  "MeasureType_1" : "Variance Analysis",
+  "MeasureType_subcategory_2" : "Economics",
+  "MeasureType_sub_subcategory_3" : "Mix",
+  "ValueFor_sub_subcategory_3" : 1000.0
+}, {
+  "MeasureType_1" : "Variance Analysis",
+  "MeasureType_subcategory_2" : "Economics",
+  "MeasureType_sub_subcategory_3" : "Equipment",
+  "ValueFor_sub_subcategory_3" : 1000.0
+}, {
+  "MeasureType_1" : "Variance Analysis",
+  "MeasureType_subcategory_2" : "Economics",
+  "MeasureType_sub_subcategory_3" : "Economics",
+  "ValueFor_sub_subcategory_3" : 1000.0
+}, {
+  "MeasureType_1" : "Variance Analysis",
+  "MeasureType_subcategory_2" : "Economics",
+  "MeasureType_sub_subcategory_3" : "Other Cost / GS",
+  "ValueFor_sub_subcategory_3" : 1000.0
+}, {
+  "MeasureType_1" : "Variance Analysis",
+  "MeasureType_subcategory_2" : "Economics",
+  "MeasureType_sub_subcategory_3" : "Free Options",
+  "ValueFor_sub_subcategory_3" : 1000.0
+}, {
+  "MeasureType_1" : "Variance Analysis",
+  "MeasureType_subcategory_2" : "FFO",
+  "MeasureType_sub_subcategory_3" : "FFO penetration",
+  "ValueFor_sub_subcategory_3" : 1000.0
+}, {
+  "MeasureType_1" : "Variance Analysis",
+  "MeasureType_subcategory_2" : "FFO",
+  "MeasureType_sub_subcategory_3" : "FFO prices",
+  "ValueFor_sub_subcategory_3" : 1000.0
+}, {
+  "MeasureType_1" : "Variance Analysis",
+  "MeasureType_subcategory_2" : "FFO",
+  "MeasureType_sub_subcategory_3" : "FFO deletions",
+  "ValueFor_sub_subcategory_3" : 1000.0
+}, {
+  "MeasureType_1" : "Variance Analysis",
+  "MeasureType_subcategory_2" : "FFO",
+  "MeasureType_sub_subcategory_3" : "FFO introductions",
+  "ValueFor_sub_subcategory_3" : 1000.0
+}, {
+  "MeasureType_1" : "Variance Analysis",
+  "MeasureType_subcategory_2" : "FFO",
+  "MeasureType_sub_subcategory_3" : "Pack penetrations",
+  "ValueFor_sub_subcategory_3" : 1000.0
+}, {
+  "MeasureType_1" : "Variance Analysis",
+  "MeasureType_subcategory_2" : "FFO",
+  "MeasureType_sub_subcategory_3" : "Pack prices",
+  "ValueFor_sub_subcategory_3" : 1000.0
+}, {
+  "MeasureType_1" : "Variance Analysis",
+  "MeasureType_subcategory_2" : "FFO",
+  "MeasureType_sub_subcategory_3" : "Pack introductions",
+  "ValueFor_sub_subcategory_3" : 1000.0
+}, {
+  "MeasureType_1" : "Variance Analysis",
+  "MeasureType_subcategory_2" : "FFO",
+  "MeasureType_sub_subcategory_3" : "Pack deletions",
+  "ValueFor_sub_subcategory_3" : 1000.0
+}, {
+  "MeasureType_1" : "Variance Analysis",
+  "MeasureType_subcategory_2" : "FFO",
+  "MeasureType_sub_subcategory_3" : "Pack cntent change",
+  "ValueFor_sub_subcategory_3" : 1000.0
+} ]

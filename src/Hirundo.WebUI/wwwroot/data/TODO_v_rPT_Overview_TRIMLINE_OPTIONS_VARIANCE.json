@@ -1,0 +1,19 @@
+{
+  "data": [ {
+  "LCDV" : "FA0",
+  "Name" : "Base",
+  "Code" : "B",
+  "Previous Code" : "B",
+  "Mix" : "0.0%",
+  "Mix_2" : "",
+  "List Price Including Taxes LC" : "",
+  "List Price Excluding Taxes LC" : "",
+  "Dealer Margin €" : "",
+  "Gross Sales / PDU (LC/EUR)" : "",
+  "Importer Gross Margin €" : "",
+  "Importer Gross Margin %" : "",
+  "Country Gross Margin (i+d) %" : "",
+  "Commercial Margin Opel EUR" : "",
+  "Commercial Margin Opel %" : ""
+} ]
+}

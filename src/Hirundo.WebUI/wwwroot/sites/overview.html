@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="../css/offcanvas.css" />
+    <link rel="stylesheet" href="../css/datatables.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/3.3.2/css/fixedColumns.dataTables.min.css">
+
+    <title>APE - Detailed Variance Analysis</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+      <span class="navbar-brand mr-auto mr-lg-0" href="#"
+        ><b>A</b>ssisted <b>P</b>ricing <b>E</b>nvironment</span
+      >
+      <button
+        class="navbar-toggler p-0 border-0"
+        type="button"
+        data-toggle="offcanvas"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div
+        class="navbar-collapse offcanvas-collapse"
+        id="navbarsExampleDefault"
+      >
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="../index.html">Summary</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="./overview.html"
+              >Detailed Variance Analysis <span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./pricelistfinal.html">Price List final</a>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="./GeneralInformation.html">Input - General Information</a></li>
+          <li class="nav-item">
+            <a class="nav-link" href="./TEWU.html">Input - Vehicles</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./alloptions.html">Input - Options</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col">
+          <!-- z tego można pomyśleć czy nie zrobić <header> -->
+          <h1>Detailed Variance Analysis</h1>
+          <p class="text-monospace">
+            <mark>Table creation date:</mark>
+            <time datetime="2020-05-20">20.05.2020</time>
+          </p>
+          <p class="text-monospace">
+            <mark>VOG reference date:</mark>
+            <time datetime="2020-05-10">10.05.2020</time>
+          </p>
+          <!-- </header> -->
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <form action="">
+            <div class="row">
+              <div class="form-group col-12 col-sm-6 col-md-3">
+                <!-- TODO dodać value do wszystkich selectów -->
+                <label for="country">Country</label>
+                <select class="form-control" id="country">
+                  <option>Switzerland</option>
+                  <option>Ireland</option>
+                  <option>Scotland</option>
+                  <option>Portugal</option>
+                  <option>Poland</option>
+                </select>
+              </div>
+              <div class="form-group col-12 col-sm-6 col-md-3">
+                <label for="carline">Carline</label>
+                <select class="form-control" id="carline">
+                  <option>Mokka</option>
+                  <option>Astra</option>
+                  <option>Insignia</option>
+                  <option>Corsa</option>
+                  <option>Crossland</option>
+                </select>
+              </div>
+              <div class="form-group col-12 col-sm-6 col-md-3">
+                <label for="carline">Vehicle Brand</label>
+                <select class="form-control" id="carline">
+                  <option>Opel</option>
+                  <option>Vauxhall</option>
+                </select>
+              </div>
+              <div class="form-group col-12 col-sm-6 col-md-3">
+                <label for="carline">Model Year</label>
+                <select class="form-control" id="carline">
+                  <option>21.0</option>
+                  <option>20.0</option>
+                  <option>19.0</option>
+                </select>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-submit">
+              Submit
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-auto">
+          <span class="badge badge-primary bg-info">Switzerland</span>
+        </div>
+        <div class="col-auto">
+          <span class="badge badge-primary bg-info">Mokka</span>
+        </div>
+        <div class="col-auto">
+          <span class="badge badge-primary bg-info">Opel</span>
+        </div>
+        <div class="col-auto">
+          <span class="badge badge-primary bg-info">MY21.0</span>
+        </div>
+        <div class="col-auto">
+          <span class="badge badge-primary">1,1 CHF = 1 EUR</span>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <div class="bd-callout">
+            <div class="row">
+              <div class="col">
+                <form class="form-inline">
+                  <label class="my-1 mr-2" for="overviewTableFor"
+                    >Choose overview table for</label
+                  >
+                  <select
+                    class="custom-select my-1 mr-sm-2"
+                    id="overviewTableFor"
+                  >
+                    <!-- TODO poprawić value dla wszystkich option -->
+                    <option value="0">Engines</option>
+                    <option selected value="1">Trims</option>
+                    <option value="2">Body style</option>
+                    <!-- <option selected value="0">
+                      Vehicle + options variance
+                    </option>
+                    <option value="1">Vehicle variance</option>
+                    <option value="2">Options variance</option>
+                    <option value="3">Vehicle + options submission</option>
+                    <option value="4">Vehicle submission</option>
+                    <option value="5">Options submission</option>
+                    <option value="6">
+                      Vehicle + options previous business case
+                    </option>
+                    <option value="7">Vehicle previous business case</option>
+                    <option value="8">Options previous business case</option> -->
+                  </select>
+                  <!-- TODO dodać przycisk submit -->
+                </form>
+
+                <div class="row mt-5">
+                  <div class="col">
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                      <li class="nav-item">
+                        <a class="nav-link active" id="subtab1-tab" data-toggle="tab" href="#subtab1" role="tab" aria-controls="subtab1" aria-selected="true">Sub-Tab 1</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" id="subtab1-tab" data-toggle="tab" href="#subtab2" role="tab" aria-controls="subtab2" aria-selected="false">Sub-Tab 2</a>
+                      </li>
+                    </ul>
+                    <div class="tab-content" id="myTabContent">
+                      <div class="tab-pane fade show active" id="subtab1" role="tabpanel" aria-labelledby="subtab1-tab">
+                        <div class="row">
+                          <div class="table-responsive">
+                            <div class="col mt-4">
+                              <p class="yellow">VEHICLE + OPTIONS</p>
+                              <table
+                                class="table table-sm table-striped table-bordered"
+                              >
+                                <thead class="thead-light">
+                                  <tr>
+                                    <th colspan="4"><div><span></span></div></th>
+                                    <th colspan="3"><div><span>Mix in %</span></div></th>
+                                    <th colspan="3"><div><span>List Price Incl. Taxes in LC</span></div></th>
+                                    <th colspan="3"><div><span>List Price Excl. Taxes in LC</span></div></th>
+                                    <th colspan="3"><div><span>Gross Sales / PDU in EUR</span></div></th>
+                                    <th colspan="3"><div><span>PPI in EUR</span></div></th>
+                                    <th colspan="3"><div><span>RBCF in EUR</span></div></th>
+                                  </tr>
+                                  <tr>
+                                    <th scope="col"><div><span>LCDV</span></div></th>
+                                    <th scope="col"><div><span>Code</span></div></th>
+                                    <th scope="col"><div><span>RPO</span></div></th>
+                                    <th scope="col"><div><span>Name</span></div></th>
+                                    <th scope="col"><div><span>Prev. MY</span></div></th>
+                                    <th scope="col"><div><span>Curr. MY</span></div></th>
+                                    <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16">
+                                      <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
+                                    </svg></span></div></th>
+                                    <th scope="col"><div><span>Prev. MY</span></div></th>
+                                    <th scope="col"><div><span>Curr. MY</span></div></th>
+                                    <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16">
+                                      <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
+                                    </svg></span></div></th>
+                                    <th scope="col"><div><span>Prev. MY</span></div></th>
+                                    <th scope="col"><div><span>Curr. MY</span></div></th>
+                                    <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16">
+                                      <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
+                                    </svg></span></div></th>
+                                    <th scope="col"><div><span>Prev. MY</span></div></th>
+                                    <th scope="col"><div><span>Curr. MY</span></div></th>
+                                    <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16">
+                                      <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
+                                    </svg></span></div></th>
+                                    <th scope="col"><div><span>Prev. MY</span></div></th>
+                                    <th scope="col"><div><span>Curr. MY</span></div></th>
+                                    <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16">
+                                      <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
+                                    </svg></span></div></th>
+                                    <th scope="col"><div><span>Prev. MY</span></div></th>
+                                    <th scope="col"><div><span>Curr. MY</span></div></th>
+                                    <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16">
+                                      <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
+                                    </svg></span></div></th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td scope="col" class="bold"><div><span>FA0</span></div></td>
+                                    <td scope="col" class="bold"><div><span>B</span></div></td>
+                                    <td scope="col" class="bold"><div><span></span></div></td>
+                                    <td scope="col" class="bold"><div><span>Base</span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span>0%</span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                  </tr>
+                                  <tr>
+                                    <td scope="col" class="bold"><div><span>GA0</span></div></td>
+                                    <td scope="col" class="bold"><div><span>C</span></div></td>
+                                    <td scope="col" class="bold"><div><span></span></div></td>
+                                    <td scope="col" class="bold"><div><span>Edition</span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span>5%</span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span>24.452</span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span>26.445</span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span>14.689</span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                              <p class="yellow">VEHICLE</p>
+                              <table
+                                class="table table-sm table-striped table-bordered"
+                              >
+                                <thead class="thead-light">
+                                  <tr>
+                                    <th colspan="4"><div><span></span></div></th>
+                                    <th colspan="3"><div><span>Mix in %</span></div></th>
+                                    <th colspan="3"><div><span>List Price Incl. Taxes in LC</span></div></th>
+                                    <th colspan="3"><div><span>List Price Excl. Taxes in LC</span></div></th>
+                                    <th colspan="3"><div><span>Gross Sales / PDU in EUR</span></div></th>
+                                    <th colspan="3"><div><span>PPI in EUR</span></div></th>
+                                    <th colspan="3"><div><span>RBCF in EUR</span></div></th>
+                                  </tr>
+                                  <tr>
+                                    <th scope="col"><div><span>LCDV</span></div></th>
+                                    <th scope="col"><div><span>Code</span></div></th>
+                                    <th scope="col"><div><span>RPO</span></div></th>
+                                    <th scope="col"><div><span>Name</span></div></th>
+                                    <th scope="col"><div><span>Prev. MY</span></div></th>
+                                    <th scope="col"><div><span>Curr. MY</span></div></th>
+                                    <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16">
+                                      <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
+                                    </svg></span></div></th>
+                                    <th scope="col"><div><span>Prev. MY</span></div></th>
+                                    <th scope="col"><div><span>Curr. MY</span></div></th>
+                                    <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16">
+                                      <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
+                                    </svg></span></div></th>
+                                    <th scope="col"><div><span>Prev. MY</span></div></th>
+                                    <th scope="col"><div><span>Curr. MY</span></div></th>
+                                    <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16">
+                                      <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
+                                    </svg></span></div></th>
+                                    <th scope="col"><div><span>Prev. MY</span></div></th>
+                                    <th scope="col"><div><span>Curr. MY</span></div></th>
+                                    <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16">
+                                      <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
+                                    </svg></span></div></th>
+                                    <th scope="col"><div><span>Prev. MY</span></div></th>
+                                    <th scope="col"><div><span>Curr. MY</span></div></th>
+                                    <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16">
+                                      <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
+                                    </svg></span></div></th>
+                                    <th scope="col"><div><span>Prev. MY</span></div></th>
+                                    <th scope="col"><div><span>Curr. MY</span></div></th>
+                                    <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16">
+                                      <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
+                                    </svg></span></div></th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td scope="col" class="bold"><div><span>FA0</span></div></td>
+                                    <td scope="col" class="bold"><div><span>B</span></div></td>
+                                    <td scope="col" class="bold"><div><span></span></div></td>
+                                    <td scope="col" class="bold"><div><span>Base</span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span>0%</span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                  </tr>
+                                  <tr>
+                                    <td scope="col" class="bold"><div><span>GA0</span></div></td>
+                                    <td scope="col" class="bold"><div><span>C</span></div></td>
+                                    <td scope="col" class="bold"><div><span></span></div></td>
+                                    <td scope="col" class="bold"><div><span>Edition</span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span>5%</span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span>23.159</span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span>25.046</span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span>13.918</span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                              <p class="yellow">OPTIONS</p>
+                              <table
+                                class="table table-sm table-striped table-bordered"
+                              >
+                                <thead class="thead-light">
+                                  <tr>
+                                    <th colspan="4"><div><span></span></div></th>
+                                    <th colspan="3"><div><span>Mix in %</span></div></th>
+                                    <th colspan="3"><div><span>List Price Incl. Taxes in LC</span></div></th>
+                                    <th colspan="3"><div><span>List Price Excl. Taxes in LC</span></div></th>
+                                    <th colspan="3"><div><span>Gross Sales / PDU in EUR</span></div></th>
+                                    <th colspan="3"><div><span>PPI in EUR</span></div></th>
+                                    <th colspan="3"><div><span>RBCF in EUR</span></div></th>
+                                  </tr>
+                                  <tr>
+                                    <th scope="col"><div><span>LCDV</span></div></th>
+                                    <th scope="col"><div><span>Code</span></div></th>
+                                    <th scope="col"><div><span>RPO</span></div></th>
+                                    <th scope="col"><div><span>Name</span></div></th>
+                                    <th scope="col"><div><span>Prev. MY</span></div></th>
+                                    <th scope="col"><div><span>Curr. MY</span></div></th>
+                                    <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16">
+                                      <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
+                                    </svg></span></div></th>
+                                    <th scope="col"><div><span>Prev. MY</span></div></th>
+                                    <th scope="col"><div><span>Curr. MY</span></div></th>
+                                    <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16">
+                                      <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
+                                    </svg></span></div></th>
+                                    <th scope="col"><div><span>Prev. MY</span></div></th>
+                                    <th scope="col"><div><span>Curr. MY</span></div></th>
+                                    <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16">
+                                      <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
+                                    </svg></span></div></th>
+                                    <th scope="col"><div><span>Prev. MY</span></div></th>
+                                    <th scope="col"><div><span>Curr. MY</span></div></th>
+                                    <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16">
+                                      <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
+                                    </svg></span></div></th>
+                                    <th scope="col"><div><span>Prev. MY</span></div></th>
+                                    <th scope="col"><div><span>Curr. MY</span></div></th>
+                                    <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16">
+                                      <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
+                                    </svg></span></div></th>
+                                    <th scope="col"><div><span>Prev. MY</span></div></th>
+                                    <th scope="col"><div><span>Curr. MY</span></div></th>
+                                    <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16">
+                                      <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
+                                    </svg></span></div></th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <td scope="col" class="bold"><div><span>FA0</span></div></td>
+                                    <td scope="col" class="bold"><div><span>B</span></div></td>
+                                    <td scope="col" class="bold"><div><span></span></div></td>
+                                    <td scope="col" class="bold"><div><span>Base</span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span>0%</span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                  </tr>
+                                  <tr>
+                                    <td scope="col" class="bold"><div><span>GA0</span></div></td>
+                                    <td scope="col" class="bold"><div><span>C</span></div></td>
+                                    <td scope="col" class="bold"><div><span></span></div></td>
+                                    <td scope="col" class="bold"><div><span>Edition</span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span>5%</span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span>1.293</span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span>1.399</span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span>771</span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                    <td scope="col"><div><span></span></div></td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- SUBTAB2 -->
+                      <div class="tab-pane fade" id="subtab2" role="tabpanel" aria-labelledby="subtab2-tab">
+                        <div class="tab-pane fade show active" id="subtab1" role="tabpanel" aria-labelledby="subtab1-tab">
+                          <div class="row">
+                            <div class="table-responsive">
+                              <div class="col mt-4">
+                                <p class="yellow">VEHICLE + OPTIONS</p>
+                                <table
+                                  class="table table-sm table-striped table-bordered"
+                                >
+                                  <thead class="thead-light">
+                                    <tr>
+                                      <th colspan="4"><div><span></span></div></th>
+                                      <th colspan="3"><div><span>Importer Gross Margin EUR</span></div></th>
+                                      <th colspan="3"><div><span>Importer Gross Margin %</span></div></th>
+                                      <th colspan="3"><div><span>Importer Net Margin EUR</span></div></th>
+                                      <th colspan="3"><div><span>Importer Net Margin %</span></div></th>
+                                      <th colspan="3"><div><span>Country Gross Margin EUR</span></div></th>
+                                      <th colspan="3"><div><span>Country Gross Margin %</span></div></th>
+                                      <th colspan="3"><div><span>Dealer Margin in EUR</span></div></th>
+                                    </tr>
+                                    <tr>
+                                      <th scope="col"><div><span>LCDV</span></div></th>
+                                      <th scope="col"><div><span>Code</span></div></th>
+                                      <th scope="col"><div><span>RPO</span></div></th>
+                                      <th scope="col"><div><span>Name</span></div></th>
+                                      <th scope="col"><div><span>Prev. MY</span></div></th>
+                                      <th scope="col"><div><span>Curr. MY</span></div></th>
+                                      <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16">
+                                        <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
+                                      </svg></span></div></th>
+                                      <th scope="col"><div><span>Prev. MY</span></div></th>
+                                      <th scope="col"><div><span>Curr. MY</span></div></th>
+                                      <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16">
+                                        <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
+                                      </svg></span></div></th>
+                                      <th scope="col"><div><span>Prev. MY</span></div></th>
+                                      <th scope="col"><div><span>Curr. MY</span></div></th>
+                                      <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16">
+                                        <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
+                                      </svg></span></div></th>
+                                      <th scope="col"><div><span>Prev. MY</span></div></th>
+                                      <th scope="col"><div><span>Curr. MY</span></div></th>
+                                      <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16">
+                                        <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
+                                      </svg></span></div></th>
+                                      <th scope="col"><div><span>Prev. MY</span></div></th>
+                                      <th scope="col"><div><span>Curr. MY</span></div></th>
+                                      <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16">
+                                        <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
+                                      </svg></span></div></th>
+                                      <th scope="col"><div><span>Prev. MY</span></div></th>
+                                      <th scope="col"><div><span>Curr. MY</span></div></th>
+                                      <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16">
+                                        <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
+                                      </svg></span></div></th>
+                                      <th scope="col"><div><span>Prev. MY</span></div></th>
+                                      <th scope="col"><div><span>Curr. MY</span></div></th>
+                                      <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16">
+                                        <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
+                                      </svg></span></div></th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr>
+                                      <td scope="col" class="bold"><div><span>FA0</span></div></td>
+                                      <td scope="col" class="bold"><div><span>B</span></div></td>
+                                      <td scope="col" class="bold"><div><span></span></div></td>
+                                      <td scope="col" class="bold"><div><span>Base</span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                    </tr>
+                                    <tr>
+                                      <td scope="col" class="bold"><div><span>GA0</span></div></td>
+                                      <td scope="col" class="bold"><div><span>C</span></div></td>
+                                      <td scope="col" class="bold"><div><span></span></div></td>
+                                      <td scope="col" class="bold"><div><span>Edition</span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span>1.000</span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span>1.000</span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span>1.000</span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span>1.000</span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span>1.000</span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span>1.000</span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span>1.000</span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                                <p class="yellow">VEHICLE</p>
+                                <table
+                                  class="table table-sm table-striped table-bordered"
+                                >
+                                  <thead class="thead-light">
+                                    <tr>
+                                      <th colspan="4"><div><span></span></div></th>
+                                      <th colspan="3"><div><span>Importer Gross Margin EUR</span></div></th>
+                                      <th colspan="3"><div><span>Importer Gross Margin %</span></div></th>
+                                      <th colspan="3"><div><span>Importer Net Margin EUR</span></div></th>
+                                      <th colspan="3"><div><span>Importer Net Margin %</span></div></th>
+                                      <th colspan="3"><div><span>Country Gross Margin EUR</span></div></th>
+                                      <th colspan="3"><div><span>Country Gross Margin %</span></div></th>
+                                      <th colspan="3"><div><span>Dealer Margin in EUR</span></div></th>
+                                    </tr>
+                                    <tr>
+                                      <th scope="col"><div><span>LCDV</span></div></th>
+                                      <th scope="col"><div><span>Code</span></div></th>
+                                      <th scope="col"><div><span>RPO</span></div></th>
+                                      <th scope="col"><div><span>Name</span></div></th>
+                                      <th scope="col"><div><span>Prev. MY</span></div></th>
+                                      <th scope="col"><div><span>Curr. MY</span></div></th>
+                                      <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16">
+                                        <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
+                                      </svg></span></div></th>
+                                      <th scope="col"><div><span>Prev. MY</span></div></th>
+                                      <th scope="col"><div><span>Curr. MY</span></div></th>
+                                      <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16">
+                                        <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
+                                      </svg></span></div></th>
+                                      <th scope="col"><div><span>Prev. MY</span></div></th>
+                                      <th scope="col"><div><span>Curr. MY</span></div></th>
+                                      <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16">
+                                        <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
+                                      </svg></span></div></th>
+                                      <th scope="col"><div><span>Prev. MY</span></div></th>
+                                      <th scope="col"><div><span>Curr. MY</span></div></th>
+                                      <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16">
+                                        <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
+                                      </svg></span></div></th>
+                                      <th scope="col"><div><span>Prev. MY</span></div></th>
+                                      <th scope="col"><div><span>Curr. MY</span></div></th>
+                                      <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16">
+                                        <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
+                                      </svg></span></div></th>
+                                      <th scope="col"><div><span>Prev. MY</span></div></th>
+                                      <th scope="col"><div><span>Curr. MY</span></div></th>
+                                      <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16">
+                                        <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
+                                      </svg></span></div></th>
+                                      <th scope="col"><div><span>Prev. MY</span></div></th>
+                                      <th scope="col"><div><span>Curr. MY</span></div></th>
+                                      <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16">
+                                        <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
+                                      </svg></span></div></th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr>
+                                      <td scope="col" class="bold"><div><span>FA0</span></div></td>
+                                      <td scope="col" class="bold"><div><span>B</span></div></td>
+                                      <td scope="col" class="bold"><div><span></span></div></td>
+                                      <td scope="col" class="bold"><div><span>Base</span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span>0%</span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                    </tr>
+                                    <tr>
+                                      <td scope="col" class="bold"><div><span>GA0</span></div></td>
+                                      <td scope="col" class="bold"><div><span>C</span></div></td>
+                                      <td scope="col" class="bold"><div><span></span></div></td>
+                                      <td scope="col" class="bold"><div><span>Edition</span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span>1.000</span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span>1.000</span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span>1.000</span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span>1.000</span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span>1.000</span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span>1.000</span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span>1.000</span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                                <p class="yellow">OPTIONS</p>
+                                <table
+                                  class="table table-sm table-striped table-bordered"
+                                >
+                                  <thead class="thead-light">
+                                    <tr>
+                                      <th colspan="4"><div><span></span></div></th>
+                                      <th colspan="3"><div><span>Importer Gross Margin EUR</span></div></th>
+                                      <th colspan="3"><div><span>Importer Gross Margin %</span></div></th>
+                                      <th colspan="3"><div><span>Importer Net Margin EUR</span></div></th>
+                                      <th colspan="3"><div><span>Importer Net Margin %</span></div></th>
+                                      <th colspan="3"><div><span>Country Gross Margin EUR</span></div></th>
+                                      <th colspan="3"><div><span>Country Gross Margin %</span></div></th>
+                                      <th colspan="3"><div><span>Dealer Margin in EUR</span></div></th>
+                                    </tr>
+                                    <tr>
+                                      <th scope="col"><div><span>LCDV</span></div></th>
+                                      <th scope="col"><div><span>Code</span></div></th>
+                                      <th scope="col"><div><span>RPO</span></div></th>
+                                      <th scope="col"><div><span>Name</span></div></th>
+                                      <th scope="col"><div><span>Prev. MY</span></div></th>
+                                      <th scope="col"><div><span>Curr. MY</span></div></th>
+                                      <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16">
+                                        <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
+                                      </svg></span></div></th>
+                                      <th scope="col"><div><span>Prev. MY</span></div></th>
+                                      <th scope="col"><div><span>Curr. MY</span></div></th>
+                                      <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16">
+                                        <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
+                                      </svg></span></div></th>
+                                      <th scope="col"><div><span>Prev. MY</span></div></th>
+                                      <th scope="col"><div><span>Curr. MY</span></div></th>
+                                      <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16">
+                                        <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
+                                      </svg></span></div></th>
+                                      <th scope="col"><div><span>Prev. MY</span></div></th>
+                                      <th scope="col"><div><span>Curr. MY</span></div></th>
+                                      <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16">
+                                        <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
+                                      </svg></span></div></th>
+                                      <th scope="col"><div><span>Prev. MY</span></div></th>
+                                      <th scope="col"><div><span>Curr. MY</span></div></th>
+                                      <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16">
+                                        <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
+                                      </svg></span></div></th>
+                                      <th scope="col"><div><span>Prev. MY</span></div></th>
+                                      <th scope="col"><div><span>Curr. MY</span></div></th>
+                                      <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16">
+                                        <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
+                                      </svg></span></div></th>
+                                      <th scope="col"><div><span>Prev. MY</span></div></th>
+                                      <th scope="col"><div><span>Curr. MY</span></div></th>
+                                      <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16">
+                                        <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
+                                      </svg></span></div></th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr>
+                                      <td scope="col" class="bold"><div><span>FA0</span></div></td>
+                                      <td scope="col" class="bold"><div><span>B</span></div></td>
+                                      <td scope="col" class="bold"><div><span></span></div></td>
+                                      <td scope="col" class="bold"><div><span>Base</span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span>0%</span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                    </tr>
+                                    <tr>
+                                      <td scope="col" class="bold"><div><span>GA0</span></div></td>
+                                      <td scope="col" class="bold"><div><span>C</span></div></td>
+                                      <td scope="col" class="bold"><div><span></span></div></td>
+                                      <td scope="col" class="bold"><div><span>Edition</span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span>1.000</span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span>1.000</span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span>1.000</span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span>1.000</span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span>1.000</span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span>1.000</span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                      <td scope="col"><div><span>1.000</span></div></td>
+                                      <td scope="col"><div><span></span></div></td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+                <!-- TODO dodać na bazie nav / tablist tabele ukrywane i pokazywane w zależności od wybranego selecta: https://getbootstrap.com/docs/4.5/components/navs/#javascript-behavior -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <!-- <script src="./js/jquery-3.5.1.slim.min.js"></script> -->
+    <!-- TODO: do sprawdzenia wersje jQuery, bo coś DataTables świruje przy ładowaniu wersji jQuery Bootstrapa z dysku -->
+
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/offcanvas.js"></script>
+    <script src="../js/dataTable.jquery.js"></script>
+    <script src="https://cdn.datatables.net/fixedcolumns/3.3.2/js/dataTables.fixedColumns.min.js"></script>
+    <script>
+      $(document).ready(function () {
+
+        $("#vehicleoptionsvariance").DataTable({
+          // scrollX:        true,
+        // scrollCollapse: true,
+          // fixedColumns:   {
+          //   leftColumns: 2
+          // },
+          ajax: "../data/TODO_v_rPT_Overview_TRIMLINE_VEHICLE_OPTIONS_VARIANCE.json",
+          columns: [
+            { data: "LCDV" },
+            { data: "Name" },
+            { data: "Code" },
+            { data: "Previous Code" },
+            { data: "Mix" },
+            { data: "Mix_2" },
+            { data: "List Price Including Taxes LC" },
+            { data: "List Price Excluding Taxes LC" },
+            { data: "Dealer Margin €" },
+            { data: "Gross Sales / PDU (LC/EUR)" },
+            { data: "Importer Gross Margin €" },
+            { data: "Importer Gross Margin %" },
+            { data: "Country Gross Margin (i+d) %" },
+            { data: "Commercial Margin Opel EUR" },
+            { data: "Commercial Margin Opel %" },
+          ],
+          "columnDefs": [
+    { className: "bold", "targets": [ 0,1,2,3,4 ] },
+    { "render": $.fn.dataTable.render.number( '.', ','),
+                "targets":'_all'},
+  ]
+        });
+        
+        $("#vehiclevariance").DataTable({
+          ajax: "../data/TODO_v_rPT_Overview_TRIMLINE_VEHICLE_VARIANCE.json",
+          columns: [
+            { data: "LCDV" },
+            { data: "Name" },
+            { data: "Code" },
+            { data: "Previous Code" },
+            { data: "Mix" },
+            { data: "Mix_2" },
+            { data: "List Price Including Taxes LC" },
+            { data: "List Price Excluding Taxes LC" },
+            { data: "Dealer Margin €" },
+            { data: "Gross Sales / PDU (LC/EUR)" },
+            { data: "Importer Gross Margin €" },
+            { data: "Importer Gross Margin %" },
+            { data: "Country Gross Margin (i+d) %" },
+            { data: "Commercial Margin Opel EUR" },
+            { data: "Commercial Margin Opel %" },
+          ],
+          "columnDefs": [
+    { className: "bold", "targets": [ 0,1,2,3,4 ] },
+    { "render": $.fn.dataTable.render.number( '.', ','),
+                "targets":'_all'},
+  ]
+        });
+
+        $("#optionsvariance").DataTable({
+          ajax: "../data/TODO_v_rPT_Overview_TRIMLINE_OPTIONS_VARIANCE.json",
+          columns: [
+            { data: "LCDV" },
+            { data: "Name" },
+            { data: "Code" },
+            { data: "Previous Code" },
+            { data: "Mix" },
+            { data: "Mix_2" },
+            { data: "List Price Including Taxes LC" },
+            { data: "List Price Excluding Taxes LC" },
+            { data: "Dealer Margin €" },
+            { data: "Gross Sales / PDU (LC/EUR)" },
+            { data: "Importer Gross Margin €" },
+            { data: "Importer Gross Margin %" },
+            { data: "Country Gross Margin (i+d) %" },
+            { data: "Commercial Margin Opel EUR" },
+            { data: "Commercial Margin Opel %" },
+          ],
+          "columnDefs": [
+    { className: "bold", "targets": [ 0,1,2,3,4 ] },
+    { "render": $.fn.dataTable.render.number( '.', ','),
+                "targets":'_all'},
+  ]
+        });
+
+        $("#vehicleoptionssubmission").DataTable({
+          ajax: "../data/TODO_v_rPT_Overview_TRIMLINE_VEHICLE_OPTIONS_SUBMISSION.json",
+          columns: [
+            { data: "LCDV" },
+            { data: "Name" },
+            { data: "Code" },
+            { data: "Previous Code" },
+            { data: "Mix" },
+            { data: "Mix_2" },
+            { data: "List Price Including Taxes LC" },
+            { data: "List Price Excluding Taxes LC" },
+            { data: "Dealer Margin €" },
+            { data: "Gross Sales / PDU (LC/EUR)" },
+            { data: "Importer Gross Margin €" },
+            { data: "Importer Gross Margin %" },
+            { data: "Country Gross Margin (i+d) %" },
+            { data: "Commercial Margin Opel EUR" },
+            { data: "Commercial Margin Opel %" },
+          ],
+          "columnDefs": [
+    { className: "bold", "targets": [ 0,1,2,3,4 ] },
+    { "render": $.fn.dataTable.render.number( '.', ','),
+                "targets":'_all'},
+  ]
+        });
+
+        $("#vehiclesubmission").DataTable({
+          ajax: "../data/TODO_v_rPT_Overview_TRIMLINE_VEHICLE_SUBMISSION.json",
+          columns: [
+            { data: "LCDV" },
+            { data: "Name" },
+            { data: "Code" },
+            { data: "Previous Code" },
+            { data: "Mix" },
+            { data: "Mix_2" },
+            { data: "List Price Including Taxes LC" },
+            { data: "List Price Excluding Taxes LC" },
+            { data: "Dealer Margin €" },
+            { data: "Gross Sales / PDU (LC/EUR)" },
+            { data: "Importer Gross Margin €" },
+            { data: "Importer Gross Margin %" },
+            { data: "Country Gross Margin (i+d) %" },
+            { data: "Commercial Margin Opel EUR" },
+            { data: "Commercial Margin Opel %" },
+          ],
+          "columnDefs": [
+    { className: "bold", "targets": [ 0,1,2,3,4 ] },
+    { "render": $.fn.dataTable.render.number( '.', ','),
+                "targets":'_all'},
+  ]
+        });
+
+        $("#optionssubmission").DataTable({
+          ajax: "../data/TODO_v_rPT_Overview_TRIMLINE_OPTIONS_SUBMISSION.json",
+          columns: [
+            { data: "LCDV" },
+            { data: "Name" },
+            { data: "Code" },
+            { data: "Previous Code" },
+            { data: "Mix" },
+            { data: "Mix_2" },
+            { data: "List Price Including Taxes LC" },
+            { data: "List Price Excluding Taxes LC" },
+            { data: "Dealer Margin €" },
+            { data: "Gross Sales / PDU (LC/EUR)" },
+            { data: "Importer Gross Margin €" },
+            { data: "Importer Gross Margin %" },
+            { data: "Country Gross Margin (i+d) %" },
+            { data: "Commercial Margin Opel EUR" },
+            { data: "Commercial Margin Opel %" },
+          ],
+          "columnDefs": [
+    { className: "bold", "targets": [ 0,1,2,3,4 ] },
+    { "render": $.fn.dataTable.render.number( '.', ','),
+                "targets":'_all'},
+  ]
+        });
+
+        $("#vehicleoptionspbc").DataTable({
+          ajax: "../data/TODO_v_rPT_Overview_TRIMLINE_VEHICLE_OPTIONS_PREVIOUS_BUSINESS_CASE.json",
+          columns: [
+            { data: "LCDV" },
+            { data: "Name" },
+            { data: "Code" },
+            { data: "Previous Code" },
+            { data: "Mix" },
+            { data: "Mix_2" },
+            { data: "List Price Including Taxes LC" },
+            { data: "List Price Excluding Taxes LC" },
+            { data: "Dealer Margin €" },
+            { data: "Gross Sales / PDU (LC/EUR)" },
+            { data: "Importer Gross Margin €" },
+            { data: "Importer Gross Margin %" },
+            { data: "Country Gross Margin (i+d) %" },
+            { data: "Commercial Margin Opel EUR" },
+            { data: "Commercial Margin Opel %" },
+          ],
+          "columnDefs": [
+    { className: "bold", "targets": [ 0,1,2,3,4 ] },
+    { "render": $.fn.dataTable.render.number( '.', ','),
+                "targets":'_all'},
+  ]
+        });
+
+        $("#vehiclepbc").DataTable({
+          ajax: "../data/TODO_v_rPT_Overview_TRIMLINE_VEHICLE_PREVIOUS_BUSINESS_CASE.json",
+          columns: [
+            { data: "LCDV" },
+            { data: "Name" },
+            { data: "Code" },
+            { data: "Previous Code" },
+            { data: "Mix" },
+            { data: "Mix_2" },
+            { data: "List Price Including Taxes LC" },
+            { data: "List Price Excluding Taxes LC" },
+            { data: "Dealer Margin €" },
+            { data: "Gross Sales / PDU (LC/EUR)" },
+            { data: "Importer Gross Margin €" },
+            { data: "Importer Gross Margin %" },
+            { data: "Country Gross Margin (i+d) %" },
+            { data: "Commercial Margin Opel EUR" },
+            { data: "Commercial Margin Opel %" },
+          ],
+          "columnDefs": [
+    { className: "bold", "targets": [ 0,1,2,3,4 ] },
+    { "render": $.fn.dataTable.render.number( '.', ','),
+                "targets":'_all'},
+  ]
+        });
+
+        $("#optionspbc").DataTable({
+          ajax: "../data/TODO_v_rPT_Overview_TRIMLINE_OPTIONS_PREVIOUS_BUSINESS_CASE.json",
+          columns: [
+            { data: "LCDV" },
+            { data: "Name" },
+            { data: "Code" },
+            { data: "Previous Code" },
+            { data: "Mix" },
+            { data: "Mix_2" },
+            { data: "List Price Including Taxes LC" },
+            { data: "List Price Excluding Taxes LC" },
+            { data: "Dealer Margin €" },
+            { data: "Gross Sales / PDU (LC/EUR)" },
+            { data: "Importer Gross Margin €" },
+            { data: "Importer Gross Margin %" },
+            { data: "Country Gross Margin (i+d) %" },
+            { data: "Commercial Margin Opel EUR" },
+            { data: "Commercial Margin Opel %" },
+          ],
+          "columnDefs": [
+    { className: "bold", "targets": [ 0,1,2,3,4 ] },
+    { "render": $.fn.dataTable.render.number( '.', ','),
+                "targets":'_all'},
+  ]
+        });
+
+      });
+    </script>
+
+    <!-- Option 2: jQuery, Popper.js, and Bootstrap JS
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>

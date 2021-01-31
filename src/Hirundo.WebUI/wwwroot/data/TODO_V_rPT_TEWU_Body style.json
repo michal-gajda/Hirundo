@@ -1,0 +1,19 @@
+{
+  "data":[ {
+  "LCDV" : "",
+  "Name" : "5-door",
+  "Code" : "76",
+  "Default MSRP Vs Ref" : "",
+  "PDU Vs Ref" : "",
+  "Cost CMO Vs Ref" : "0",
+  "Cost Total Vs Ref" : "0",
+  "Mix" : "100%",
+  "Code_1" : "",
+  "Default MSRP Vs Other" : "",
+  "PDU Vs Other" : "",
+  "Cost Total Vs Other" : "",
+  "RBCF EUR (GSF Based)" : 0.0,
+  "RBCF % (GSF Based)" : 0.0,
+  "Ref" : "[x]"
+} ]
+  }
