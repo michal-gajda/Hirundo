@@ -8,6 +8,7 @@ namespace Hirundo.Infrastructure.Handlers
     using System.Threading.Tasks;
     using Hirundo.Application.Queries;
     using Hirundo.Application.ValueObjects;
+    using Hirundo.Infrastructure.Extensions;
     using MediatR;
     using Microsoft.Extensions.Configuration;
 
@@ -24,14 +25,15 @@ namespace Hirundo.Infrastructure.Handlers
             using var connection = new SqlConnection(this.configuration.GetConnectionString("DefaultConnection"));
             connection.Open();
             using var command = connection.CreateCommand();
-            command.CommandText = "[dbo].[mojaprocedure]";
+            command.CommandText = "[dbo].[get_main_table]";
             command.CommandType = CommandType.StoredProcedure;
 
-            var json = JsonSerializer.Serialize(request);
+            var json = request.ToJson();
             command.Parameters.Add("@json", SqlDbType.NVarChar, json.Length).Value = json;
+            
             var text = (string)command.ExecuteScalar();
 
-            var data = JsonSerializer.Deserialize<List<SummaryResponseRecord>>(text);
+            var data = text.To<List<SummaryResponseRecord>>();
             response.Date = data;
             return await Task.FromResult(response);
         }
