@@ -4,21 +4,21 @@ namespace Hirundo.Application.ValueObjects
 
     public sealed class SummaryResponseRecord
     {
-        //[JsonPropertyName("MeasureType_1")]
+        [JsonPropertyName("MeasureType_1")]
         public string MeasureType_1 { get; set; }
-        //[JsonPropertyName("EURTotalSubmission")]
+        [JsonPropertyName("EURTotalSubmission")]
         public string EURTotalSubmission { get; set; }
-        //[JsonPropertyName("EURTotalBudget")]
+        [JsonPropertyName("EURTotalBudget")]
         public string EURTotalBudget { get; set; }
-        //[JsonPropertyName("EURTotalPrevious")]
+        [JsonPropertyName("EURTotalPrevious")]
         public string EURTotalPrevious { get; set; }
-        //[JsonPropertyName("EURVehicleSubmission")]
+        [JsonPropertyName("EURVehicleSubmission")]
         public string EURVehicleSubmission { get; set; }
-        //[JsonPropertyName("EUROptionsSubmission")]
+        [JsonPropertyName("EUROptionsSubmission")]
         public string EUROptionsSubmission { get; set; }
-        //[JsonPropertyName("EURVehiclePrevious")]
+        [JsonPropertyName("EURVehiclePrevious")]
         public string EURVehiclePrevious { get; set; }
-        //[JsonPropertyName("EUROptionsPrevious")]
+        [JsonPropertyName("EUROptionsPrevious")]
         public string EUROptionsPrevious { get; set; }
     }
 }

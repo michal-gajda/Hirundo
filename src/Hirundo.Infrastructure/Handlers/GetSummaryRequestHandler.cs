@@ -3,7 +3,6 @@ namespace Hirundo.Infrastructure.Handlers
     using System.Collections.Generic;
     using System.Data;
     using System.Data.SqlClient;
-    using System.Text.Json;
     using System.Threading;
     using System.Threading.Tasks;
     using Hirundo.Application.Queries;
@@ -15,6 +14,7 @@ namespace Hirundo.Infrastructure.Handlers
     internal sealed class GetSummaryRequestHandler : IRequestHandler<GetSummaryRequest, SummaryResponse>
     {
         private readonly IConfiguration configuration;
+
         public GetSummaryRequestHandler(IConfiguration configuration) =>
             this.configuration = configuration;
 
@@ -23,18 +23,17 @@ namespace Hirundo.Infrastructure.Handlers
             var response = new SummaryResponse();
 
             using var connection = new SqlConnection(this.configuration.GetConnectionString("DefaultConnection"));
-            connection.Open();
+            await connection.OpenAsync(cancellationToken);
+           
             using var command = connection.CreateCommand();
             command.CommandText = "[dbo].[get_main_table]";
             command.CommandType = CommandType.StoredProcedure;
 
-            var json = request.ToJson();
-            command.Parameters.Add("@json", SqlDbType.NVarChar, json.Length).Value = json;
+            command.Parameters.AddWithValue("@json", request.ToJson());
             
-            var text = (string)command.ExecuteScalar();
+            var text = await command.ExecuteScalarAsync(cancellationToken) as string;
 
-            var data = text.To<List<SummaryResponseRecord>>();
-            response.Date = data;
+            response.Date = text.To<List<SummaryResponseRecord>>();
             return await Task.FromResult(response);
         }
     }
