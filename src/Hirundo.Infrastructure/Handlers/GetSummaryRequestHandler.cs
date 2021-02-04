@@ -29,7 +29,7 @@ namespace Hirundo.Infrastructure.Handlers
             command.CommandText = "[dbo].[get_main_table]";
             command.CommandType = CommandType.StoredProcedure;
 
-            command.Parameters.AddWithValue("@json", request.ToJson());
+            command.Parameters.AddWithValue("@source_json", request.ToJson());
             
             var text = await command.ExecuteScalarAsync(cancellationToken) as string;
 

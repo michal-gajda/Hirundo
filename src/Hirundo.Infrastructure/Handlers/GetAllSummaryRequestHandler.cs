@@ -36,7 +36,7 @@ namespace Hirundo.Infrastructure.Handlers
                 command.CommandText = "[dbo].[get_main_table]";
                 command.CommandType = CommandType.StoredProcedure;
 
-                command.Parameters.AddWithValue("@json", request.ToJson());
+                command.Parameters.AddWithValue("@source_json", request.ToJson());
                 
                 using var reader =await  command.ExecuteReaderAsync(cancellationToken);
                 await reader.ReadAsync(cancellationToken);
