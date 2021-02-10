@@ -31,18 +31,21 @@ namespace Hirundo.Infrastructure.Handlers
             {
                 using var connection = new SqlConnection(this.configuration.GetConnectionString("DefaultConnection"));
                 await connection.OpenAsync(cancellationToken);
-            
+
                 using var command = connection.CreateCommand();
                 command.CommandText = "[dbo].[get_main_table]";
                 command.CommandType = CommandType.StoredProcedure;
 
                 command.Parameters.AddWithValue("@source_json", request.ToJson());
-                
-                using var reader =await  command.ExecuteReaderAsync(cancellationToken);
+
+                using var reader = await command.ExecuteReaderAsync(cancellationToken);
                 await reader.ReadAsync(cancellationToken);
                 var text = reader.GetString(0);
+
+                this.logger.LogInformation("{text}", text);
+
                 response.Date = text.To<List<SummaryResponseRecord>>();
-                
+
                 /*
                 await reader.NextResultAsync(cancellationToken);
                 await reader.ReadAsync(cancellationToken);
@@ -54,7 +57,7 @@ namespace Hirundo.Infrastructure.Handlers
                 response.Date2 = reader.GetString(0).To<List<SummaryResponseRecord>>();
                 */
             }
-            catch(Exception exception)
+            catch (Exception exception)
             {
                 this.logger.LogError(exception, exception.Message);
             }

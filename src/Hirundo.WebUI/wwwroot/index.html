@@ -503,6 +503,8 @@
     </div>
   </div>
 
+  <table id="example" class="display" width="100%"></table>
+
   <!-- Optional JavaScript; choose one of the two! -->
 
   <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
@@ -514,167 +516,242 @@
   <script src="js/offcanvas.js"></script>
   <script src="js/dataTable.jquery.js"></script>
   <script src="js/dataTables.responsive.min.js"></script>
+
+  <!-- <script>
+    var dataSet = [
+    [ "Tiger Nixon", "System Architect", "Edinburgh", "5421", "2011/04/25", "$320,800" ],
+    [ "Garrett Winters", "Accountant", "Tokyo", "8422", "2011/07/25", "$170,750" ],
+    [ "Ashton Cox", "Junior Technical Author", "San Francisco", "1562", "2009/01/12", "$86,000" ],
+    [ "Cedric Kelly", "Senior Javascript Developer", "Edinburgh", "6224", "2012/03/29", "$433,060" ],
+    [ "Airi Satou", "Accountant", "Tokyo", "5407", "2008/11/28", "$162,700" ],
+    [ "Brielle Williamson", "Integration Specialist", "New York", "4804", "2012/12/02", "$372,000" ],
+    [ "Herrod Chandler", "Sales Assistant", "San Francisco", "9608", "2012/08/06", "$137,500" ],
+    [ "Rhona Davidson", "Integration Specialist", "Tokyo", "6200", "2010/10/14", "$327,900" ],
+    [ "Colleen Hurst", "Javascript Developer", "San Francisco", "2360", "2009/09/15", "$205,500" ]
+];
+ 
+$(document).ready(function() {
+    $('#example').DataTable( {
+        data: dataSet,
+        columns: [
+            { title: "Name" },
+            { title: "Position" },
+            { title: "Office" },
+            { title: "Extn." },
+            { title: "Start date" },
+            { title: "Salary" }
+        ]
+    } );
+    debugger;
+    $('#example').DataTable().clear().draw();
+    $('#example').DataTable().rows.add(dataSet);
+    $('#example').DataTable().columns.adjust().draw();
+} );
+  </script> -->
+  
   <script>
-    document.querySelector("#submitButton").addEventListener("click", (e) => {
-      let r =
-      {
-        country: document.querySelector("#country").value,
-        carline: document.querySelector("#carline").value,
-        vehicleBrand: document.querySelector("#vehicleBrand").value,
-        modelYear: document.querySelector("#modelYear").value
-      };
-
-      //alert(JSON.stringify(r));
-
-      fetch('Summary', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(r)
-      })
-        .then(response => response.json())
-        .then(data => {
-          $('"#mainTable').dataTable().fnClearTable();
-          $('"#mainTable').dataTable().fnAddData(data);
-        }
-        );
-    });
-
     $(document).ready(function () {
-      var table = $("#mainTable").DataTable({
-        paging: false,
-        ordering: false,
-        bInfo: false,
-        autoWidth: false,
-        ajax: {
-          "url": "Summary",
-          "type": "GET"
-        },
-        columns: [
-          { data: "MeasureType_1" },
-          { data: "EURTotalSubmission" },
-          { data: "EURTotalBudget" },
-          { data: "EURTotalPrevious" },
-          { data: "EURVehicleSubmission" },
-          { data: "EUROptionsSubmission" },
-          { data: "EURVehiclePrevious" },
-          { data: "EUROptionsPrevious" },
-        ],
-        // "fnRowCallback": function(nRow, aData, iDisplayIndex) {
-        //   if(aRow == "RBCV") {
-        //     $(aRow).addClass('bold')
-        //   }
-        // },
-        "columnDefs": [
-          {
-            "render": $.fn.dataTable.render.number('.', ','),
-            "targets": '_all'
+      document.querySelector("#submitButton").addEventListener("click", (e) => {
+        e.preventDefault();
+        let r =
+        {
+          country: document.querySelector("#country").value,
+          carline: document.querySelector("#carline").value,
+          vehicleBrand: document.querySelector("#vehicleBrand").value,
+          modelYear: document.querySelector("#modelYear").value
+        };
+
+        //alert(JSON.stringify(r));
+
+        fetch('Summary', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
           },
-        ],
+          body: JSON.stringify(r)
+        })
+          .then(response => response.json())
+          .then(data => {
+            // TEN KOD PONIŻEJ NIE DZIAŁA
+            // $('#mainTable').DataTable().fnClearTable();
+            // $('#mainTable').DataTable().fnAddData(data);
+           
+            // ODŚWIEŻANIE TABELI W TEN SPOSÓB DZIAŁA
+            // https://stackoverflow.com/questions/27778389/how-to-manually-update-datatables-table-with-new-json-data
+              // $('#mainTable').DataTable().clear();
+              // $('#mainTable').DataTable().rows.add(data);
+              // $('#mainTable').DataTable().draw();
+            //https://stackoverflow.com/questions/25929347/how-to-redraw-datatable-with-new-data
+             //debugger;
+              $('#mainTable').DataTable().clear().draw();
+              $('#mainTable').DataTable().rows.add(data.data); // Add new data
+              $('#mainTable').DataTable().columns.adjust().draw();
+          }
+          );
       });
-
-
-
-      // $("a.toggle-vis").on("click", function (e) {
-      //   e.preventDefault();
-
-      //   // Get the column API object
-      //   var column = table.column($(this).attr("data-column"));
-
-      //   // Toggle the visibility
-      //   column.visible(!column.visible());
-      // });
-
-      $("#mixbodystyle").DataTable({
-        // responsive: true,
-        searching: false,
-        paging: false,
-        ordering: false,
-        bInfo: false,
-        autoWidth: false,
-        ajax: "./data/rPT_Summary_DetailsMix_BodyStyle.json",
-        columns: [
-          // { data: "MeasureType_1" },
-          { data: "MeasureType_subcategory_2" },
-          { data: "Mix Current" },
-          { data: "Mix Proposed" },
-          { data: "Mix Change" },
-        ],
-        // "columnDefs": [
-        //     { "render": $.fn.dataTable.render.number( '.', ','),
-        //       "targets":'_all'
-        //     },
-        // ],
-      });
-      $("#mixengine").DataTable({
-        // responsive: true,
-        paging: false,
-        searching: false,
-        ordering: false,
-        bInfo: false,
-        autoWidth: false,
-        ajax: "./data/rPT_Summary_DetailsMix_Engine.json",
-        columns: [
-          // { data: "MeasureType_1" },
-          { data: "MeasureType_subcategory_2" },
-          { data: "Mix Current" },
-          { data: "Mix Proposed" },
-          { data: "Mix Change" },
-        ],
-        // "columnDefs": [
-        //     { "render": $.fn.dataTable.render.number( '.', ','),
-        //       "targets":'_all'
-        //     },
-        // ],
-      });
-      $("#mixtrim").DataTable({
-        // responsive: true,
-        paging: false,
-        searching: false,
-        ordering: false,
-        bInfo: false,
-        autoWidth: false,
-        ajax: "./data/rPT_Summary_DetailsMix_Trimline.json",
-        columns: [
-          // { data: "MeasureType_1" },
-          { data: "MeasureType_subcategory_2" },
-          { data: "Mix Current" },
-          { data: "Mix Proposed" },
-          { data: "Mix Change" },
-        ],
-        // "columnDefs": [
-        //     { "render": $.fn.dataTable.render.number( '.', ','),
-        //       "targets":'_all'
-        //     },
-        // ],
-      });
-      $("#contentchangetrim").DataTable({
-        // responsive: true,
-        paging: false,
-        searching: false,
-        ordering: false,
-        bInfo: false,
-        autoWidth: false,
-        ajax: "./data/rPT_Summary_ContentChange_Trimline.json",
-        columns: [
-          { data: "TrimlineCodeGMUD2" },
-          { data: "TrimlineCodeLCDV" },
-          { data: "CMO_CurrentMY" },
-          { data: "CMO_PreviousMY" },
-          { data: "ChangesAdded" },
-          { data: "ChangesDroped" },
-          { data: "ImpactOnPrices" },
-          { data: "ImpactOnCosts" },
-        ],
-        // "columnDefs": [
-        //     { "render": $.fn.dataTable.render.number( '.', ','),
-        //       "targets":'_all'
-        //     },
-        // ],
-      });
-
     });
+
+    //https://datatables.net/forums/discussion/53391/datatables-stuck-at-loading-when-using-ajax-and-webmethod
+
+      let r =
+        {
+          country: document.querySelector("#country").value,
+          carline: document.querySelector("#carline").value,
+          vehicleBrand: document.querySelector("#vehicleBrand").value,
+          modelYear: document.querySelector("#modelYear").value
+        };
+        
+      $.ajax({
+        headers: { 
+          'Accept': 'application/json',
+          'Content-Type': 'application/json' 
+        },
+        'type': 'POST',
+        'url': "Summary",
+        'data': JSON.stringify(r),
+        'dataType': 'json',
+        success: function (data) {
+          $("#mainTable").dataTable({
+            data: data.data,
+            paging: false,
+            ordering: false,
+            bInfo: false,
+            autoWidth: false,
+            columns: [
+              { "data": "MeasureType_1" },
+              { "data": "EURTotalSubmission" },
+              { "data": "EURTotalBudget" },
+              { "data": "EURTotalPrevious" },
+              { "data": "EURVehicleSubmission" },
+              { "data": "EUROptionsSubmission" },
+              { "data": "EURVehiclePrevious" },
+              { "data": "EUROptionsPrevious" },
+            ],
+            // "fnRowCallback": function(nRow, aData, iDisplayIndex) {
+            //   if(aRow == "RBCV") {
+            //     $(aRow).addClass('bold')
+            //   }
+            // },
+            "columnDefs": [
+              {
+                "render": $.fn.dataTable.render.number('.', ','),
+                "targets": '_all'
+              },
+            ],
+            error: function (error) {
+              alert("Data Tables ERROR: " + error)
+            }
+          });
+        },
+        error: function (error) {
+          alert("AJAX ERROR: " + error)
+        },
+      });
+    
+
+
+
+
+    // $("a.toggle-vis").on("click", function (e) {
+    //   e.preventDefault();
+
+    //   // Get the column API object
+    //   var column = table.column($(this).attr("data-column"));
+
+    //   // Toggle the visibility
+    //   column.visible(!column.visible());
+    // });
+/*
+    $("#mixbodystyle").DataTable({
+      // responsive: true,
+      searching: false,
+      paging: false,
+      ordering: false,
+      bInfo: false,
+      autoWidth: false,
+      ajax: "./data/rPT_Summary_DetailsMix_BodyStyle.json",
+      columns: [
+        // { data: "MeasureType_1" },
+        { data: "MeasureType_subcategory_2" },
+        { data: "Mix Current" },
+        { data: "Mix Proposed" },
+        { data: "Mix Change" },
+      ],
+      // "columnDefs": [
+      //     { "render": $.fn.dataTable.render.number( '.', ','),
+      //       "targets":'_all'
+      //     },
+      // ],
+    });
+    $("#mixengine").DataTable({
+      // responsive: true,
+      paging: false,
+      searching: false,
+      ordering: false,
+      bInfo: false,
+      autoWidth: false,
+      ajax: "./data/rPT_Summary_DetailsMix_Engine.json",
+      columns: [
+        // { data: "MeasureType_1" },
+        { data: "MeasureType_subcategory_2" },
+        { data: "Mix Current" },
+        { data: "Mix Proposed" },
+        { data: "Mix Change" },
+      ],
+      // "columnDefs": [
+      //     { "render": $.fn.dataTable.render.number( '.', ','),
+      //       "targets":'_all'
+      //     },
+      // ],
+    });
+    $("#mixtrim").DataTable({
+      // responsive: true,
+      paging: false,
+      searching: false,
+      ordering: false,
+      bInfo: false,
+      autoWidth: false,
+      ajax: "./data/rPT_Summary_DetailsMix_Trimline.json",
+      columns: [
+        // { data: "MeasureType_1" },
+        { data: "MeasureType_subcategory_2" },
+        { data: "Mix Current" },
+        { data: "Mix Proposed" },
+        { data: "Mix Change" },
+      ],
+      // "columnDefs": [
+      //     { "render": $.fn.dataTable.render.number( '.', ','),
+      //       "targets":'_all'
+      //     },
+      // ],
+    });
+    $("#contentchangetrim").DataTable({
+      // responsive: true,
+      paging: false,
+      searching: false,
+      ordering: false,
+      bInfo: false,
+      autoWidth: false,
+      ajax: "./data/rPT_Summary_ContentChange_Trimline.json",
+      columns: [
+        { data: "TrimlineCodeGMUD2" },
+        { data: "TrimlineCodeLCDV" },
+        { data: "CMO_CurrentMY" },
+        { data: "CMO_PreviousMY" },
+        { data: "ChangesAdded" },
+        { data: "ChangesDroped" },
+        { data: "ImpactOnPrices" },
+        { data: "ImpactOnCosts" },
+      ],
+      // "columnDefs": [
+      //     { "render": $.fn.dataTable.render.number( '.', ','),
+      //       "targets":'_all'
+      //     },
+      // ],
+    });
+
+    
+    */
   </script>
 
   <!-- Option 2: jQuery, Popper.js, and Bootstrap JS

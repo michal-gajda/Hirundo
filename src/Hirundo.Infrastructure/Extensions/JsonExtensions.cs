@@ -9,6 +9,7 @@ namespace Hirundo.Infrastructure.Extensions
             var options = new JsonSerializerOptions
             {
                 WriteIndented = true,
+
             };
 
             return JsonSerializer.Serialize(source, options);
@@ -16,9 +17,9 @@ namespace Hirundo.Infrastructure.Extensions
 
         internal static T To<T>(this string source)
         {
-            if(string.IsNullOrWhiteSpace(source))
+            if (string.IsNullOrWhiteSpace(source))
             {
-                return default (T);
+                return default(T);
             }
 
             var options = new JsonSerializerOptions
