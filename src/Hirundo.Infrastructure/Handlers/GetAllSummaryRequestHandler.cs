@@ -33,7 +33,8 @@ namespace Hirundo.Infrastructure.Handlers
                 await connection.OpenAsync(cancellationToken);
 
                 using var command = connection.CreateCommand();
-                command.CommandText = "[dbo].[get_main_table]";
+                //command.CommandText = "[dbo].[get_main_table]";   //Hirundo db
+                command.CommandText = "[dbo].[pPT_GetData_SummaryPage]";    //Opel db 
                 command.CommandType = CommandType.StoredProcedure;
 
                 command.Parameters.AddWithValue("@source_json", request.ToJson());
@@ -44,18 +45,53 @@ namespace Hirundo.Infrastructure.Handlers
 
                 this.logger.LogInformation("{text}", text);
 
-                response.Date = text.To<List<SummaryResponseRecord>>();
+                response.Data = text.To<List<SummaryResponseRecord>>();
 
-                /*
                 await reader.NextResultAsync(cancellationToken);
                 await reader.ReadAsync(cancellationToken);
                 text = reader.GetString(0);
-                response.Date1 = text.To<List<SummaryResponseRecord>>();
+                response.Data1 = text.To<List<SummaryResponseRecord1>>();
+                
+                await reader.NextResultAsync(cancellationToken);
+                await reader.ReadAsync(cancellationToken);
+                text = reader.GetString(0);
+                response.Data2 = text.To<List<SummaryResponseRecord2>>();
 
                 await reader.NextResultAsync(cancellationToken);
                 await reader.ReadAsync(cancellationToken);
-                response.Date2 = reader.GetString(0).To<List<SummaryResponseRecord>>();
-                */
+                text = reader.GetString(0);
+                response.Data3 = text.To<List<SummaryResponseRecord3>>();
+
+                await reader.NextResultAsync(cancellationToken);
+                await reader.ReadAsync(cancellationToken);
+                text = reader.GetString(0);
+                response.Data4 = text.To<List<SummaryResponseRecord4>>();
+
+                await reader.NextResultAsync(cancellationToken);
+                await reader.ReadAsync(cancellationToken);
+                text = reader.GetString(0);
+                response.Data5 = text.To<List<SummaryResponseRecord5>>();
+
+                await reader.NextResultAsync(cancellationToken);
+                await reader.ReadAsync(cancellationToken);
+                text = reader.GetString(0);
+                response.Data6 = text.To<List<SummaryResponseRecord6>>();
+
+                await reader.NextResultAsync(cancellationToken);
+                await reader.ReadAsync(cancellationToken);
+                text = reader.GetString(0);
+                response.Data7 = text.To<List<SummaryResponseRecord7>>();
+
+                await reader.NextResultAsync(cancellationToken);
+                await reader.ReadAsync(cancellationToken);
+                text = reader.GetString(0);
+                response.Data8 = text.To<List<SummaryResponseRecord8>>();
+
+                await reader.NextResultAsync(cancellationToken);
+                await reader.ReadAsync(cancellationToken);
+                text = reader.GetString(0);
+                response.Data9 = text.To<List<SummaryResponseRecord9>>();
+                
             }
             catch (Exception exception)
             {

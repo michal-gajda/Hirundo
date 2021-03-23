@@ -6,9 +6,10 @@ namespace Hirundo.Application.Queries
 
     public sealed record GetSummaryRequest : IRequest<SummaryResponse>
     {
-        [JsonPropertyName("country")] public string Country { get; init; }
-        [JsonPropertyName("carline")] public string Carline { get; init; }
-        [JsonPropertyName("vehicleBrand")] public string VehicleBrand { get; init; }
-        [JsonPropertyName("modelYear")] public string ModelYear { get; init; }
+        [JsonPropertyName("country")] public string country { get; init; }
+        [JsonPropertyName("countryGroup")] public string countryGroup { get; init; }
+        [JsonPropertyName("carline")] public string carline { get; init; }
+        [JsonPropertyName("vehicleBrand")] public string vehicleBrand { get; init; }
+        [JsonPropertyName("modelYear")] public string modelYear { get; init; }
     }
 }

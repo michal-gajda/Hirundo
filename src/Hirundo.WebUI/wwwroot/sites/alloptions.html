@@ -91,6 +91,12 @@
                 </select>
               </div>
               <div class="form-group col-12 col-sm-6 col-md-3">
+                <label for="countryGroup">Country Group</label>
+                <select class="form-control" id="countryGroup">
+                  <option>CA</option>
+                </select>
+              </div>
+              <div class="form-group col-12 col-sm-6 col-md-3">
                 <label for="carline">Carline</label>
                 <select class="form-control" id="carline">
                   <option>Mokka</option>
@@ -101,29 +107,29 @@
                 </select>
               </div>
               <div class="form-group col-12 col-sm-6 col-md-3">
-                <label for="carline">Vehicle Brand</label>
-                <select class="form-control" id="carline">
-                  <option>Opel</option>
+                <label for="vehicleBrand">Vehicle Brand</label>
+                <select class="form-control" id="vehicleBrand">
+                  <option>0: Opel</option>
                   <option>Vauxhall</option>
                 </select>
               </div>
               <div class="form-group col-12 col-sm-6 col-md-3">
-                <label for="carline">Model Year</label>
-                <select class="form-control" id="carline">
-                  <option>21.0</option>
+                <label for="modelYear">Model Year</label>
+                <select class="form-control" id="modelYear">
+                  <option>21.0A</option>
                   <option>20.0</option>
                   <option>19.0</option>
                 </select>
               </div>
             </div>
-            <button type="submit" class="btn btn-primary btn-submit">
+            <button id="submitButton" class="btn btn-primary">
               Submit
             </button>
           </form>
         </div>
       </div>
 
-      <div class="row">
+      <!-- <div class="row">
         <div class="col-auto">
           <span class="badge badge-primary bg-info">Switzerland</span>
         </div>
@@ -139,7 +145,7 @@
         <div class="col-auto">
           <span class="badge badge-primary">1,1 CHF = 1 EUR</span>
         </div>
-      </div>
+      </div> -->
 
       <div class="row">
         <div class="col">
@@ -147,183 +153,14 @@
             <div class="row">
               <div class="col">
                 <div class="row">
-                  <div class="col-3">
-                    <div
-                      class="nav flex-column nav-pills"
-                      id="v-pills-tab"
-                      role="tablist"
-                      aria-orientation="vertical"
-                    >
-                      <a
-                        class="nav-link active"
-                        id="v-cmo-tab"
-                        data-toggle="pill"
-                        href="#v-cmo"
-                        role="tab"
-                        aria-controls="v-cmo"
-                        aria-selected="true"
-                        >CMO</a
-                      >
-                      <a
-                        class="nav-link"
-                        id="v-tlwu-tab"
-                        data-toggle="pill"
-                        href="#v-tlwu"
-                        role="tab"
-                        aria-controls="v-tlwu"
-                        aria-selected="false"
-                        >LMO</a
-                      >
-                      <a
-                        class="nav-link"
-                        id="v-price-tab"
-                        data-toggle="pill"
-                        href="#v-price"
-                        role="tab"
-                        aria-controls="v-price"
-                        aria-selected="false"
-                        >Default MSRP</a
-                      >
-                      <a
-                        class="nav-link"
-                        id="v-pdu-tab"
-                        data-toggle="pill"
-                        href="#v-pdu"
-                        role="tab"
-                        aria-controls="v-pdu"
-                        aria-selected="false"
-                        >PDU</a
-                      >
-                      <a
-                        class="nav-link"
-                        id="v-mix-tab"
-                        data-toggle="pill"
-                        href="#v-mix"
-                        role="tab"
-                        aria-controls="v-mix"
-                        aria-selected="false"
-                        >Mix</a
-                      >
-                      <a
-                        class="nav-link"
-                        id="v-cost-tab"
-                        data-toggle="pill"
-                        href="#v-cost"
-                        role="tab"
-                        aria-controls="v-cost"
-                        aria-selected="false"
-                        >Cost</a
-                      >
-                      <a
-                        class="nav-link"
-                        id="v-pdu-old-evps-tab"
-                        data-toggle="pill"
-                        href="#v-pdu-old-evps"
-                        role="tab"
-                        aria-controls="v-pdu-old-evps"
-                        aria-selected="false"
-                        >PDU OLD EVPS</a
-                      >
-                      <a
-                        class="nav-link"
-                        id="v-mix-old-mis-tab"
-                        data-toggle="pill"
-                        href="#v-mix-old-mis"
-                        role="tab"
-                        aria-controls="v-mix-old-mis"
-                        aria-selected="false"
-                        >Mix OLD MIS</a
-                      >
-                      <a
-                        class="nav-link"
-                        id="v-pdu-old-bc-tab"
-                        data-toggle="pill"
-                        href="#v-pdu-old-bc"
-                        role="tab"
-                        aria-controls="v-pdu-old-bc"
-                        aria-selected="false"
-                        >PDU OLD BC</a
-                      >
-                      <a
-                        class="nav-link"
-                        id="v-mix-old-bc-tab"
-                        data-toggle="pill"
-                        href="#v-mix-old-bc"
-                        role="tab"
-                        aria-controls="v-mix-old-bc"
-                        aria-selected="false"
-                        >Mix OLD BC</a
-                      >
-                      <a
-                        class="nav-link"
-                        id="v-cost-old-bc-tab"
-                        data-toggle="pill"
-                        href="#v-cost-old-bc"
-                        role="tab"
-                        aria-controls="v-cost-old-bc"
-                        aria-selected="false"
-                        >Cost OLD BC</a
-                      >
-                      <a
-                        class="nav-link"
-                        id="v-contribution-margin-per-tab"
-                        data-toggle="pill"
-                        href="#v-contribution-margin-per"
-                        role="tab"
-                        aria-controls="v-contribution-margin-per"
-                        aria-selected="false"
-                        >Contribution Margin %</a
-                      >
-                      <a
-                        class="nav-link"
-                        id="v-contribution-margin-tab"
-                        data-toggle="pill"
-                        href="#v-contribution-margin"
-                        role="tab"
-                        aria-controls="v-contribution-margin"
-                        aria-selected="false"
-                        >Contribution Margin EUR</a
-                      >
-                      <a
-                        class="nav-link"
-                        id="v-cost-temp-tab"
-                        data-toggle="pill"
-                        href="#v-cost-temp"
-                        role="tab"
-                        aria-controls="v-cost-temp"
-                        aria-selected="false"
-                        >Cost Temp.</a
-                      >
-                      <a
-                        class="nav-link"
-                        id="v-old-default-msrp-bc-tab"
-                        data-toggle="pill"
-                        href="#v-old-default-msrp-bc"
-                        role="tab"
-                        aria-controls="v-old-default-msrp-bc"
-                        aria-selected="false"
-                        >OLD Default MSRP (BC)</a
-                      >
-                      <a
-                        class="nav-link"
-                        id="v-pdu-hq-tab"
-                        data-toggle="pill"
-                        href="#v-pdu-hq"
-                        role="tab"
-                        aria-controls="v-pdu-hq"
-                        aria-selected="false"
-                        >PDU HQ</a
-                      >
-                    </div>
-                  </div>
-                  <div class="col-9">
+                  <div class="col">
                     <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-outline-primary mb-4" data-toggle="modal" data-target="#exampleModalCenter">
+                    <!-- <button type="button" class="btn btn-outline-primary mb-4" data-toggle="modal" data-target="#exampleModalCenter">
                       Join tables
-                    </button>
+                    </button> -->
 
                     <!-- Modal -->
-                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <!-- <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                       <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
                           <div class="modal-header">
@@ -393,631 +230,72 @@
                           </div>
                         </div>
                       </div>
-                    </div>
-                    <div class="tab-content" id="v-pills-tabContent">
+                    </div> -->
+                    <div class="tab-content" >
                       <div
                         class="tab-pane fade show active"
-                        id="v-cmo"
                         role="tabpanel"
-                        aria-labelledby="v-cmo-tab"
                       >
                       <button type="button" class="btn btn-outline-primary mb-3" disabled>New</button>
                       <button type="button" class="btn btn-outline-primary mb-3" disabled>Edit</button>
                       <button type="button" class="btn btn-outline-primary mb-3" disabled>Delete</button>
                         <div class="table-responsive">
                           <table
-                            id="cmo"
+                            id="options_prices"
                             class="table table-sm table-striped table-bordered"
                           >
                             <thead class="thead-light">
                               <tr>
-                                <th scope="col">
-                                  <div><span>Option Category</span></div>
-                                </th>
-                                <th scope="col">
-                                  <div><span>Option Code</span></div>
-                                </th>
-                                <th scope="col">
-                                  <div><span>Family</span></div>
-                                </th>
-                                <th scope="col">
-                                  <div><span>Option Description</span></div>
-                                </th>
-                                <th scope="col">
-                                  <div><span>MB76</span></div>
-                                </th>
-                                <th scope="col">
-                                  <div><span>MC76</span></div>
-                                </th>
-                                <th scope="col">
-                                  <div><span>ME76</span></div>
-                                </th>
-                                <th scope="col">
-                                  <div><span>MJ76</span></div>
-                                </th>
-                                <th scope="col">
-                                  <div><span>MS76</span></div>
-                                </th>
-                                <th scope="col">
-                                  <div><span>MT76</span></div>
-                                </th>
-                                <th scope="col">
-                                  <div><span>MU76</span></div>
-                                </th>
-                                <th scope="col">
-                                  <div><span>MI76</span></div>
-                                </th>
-                                <th scope="col">
-                                  <div><span>MD76</span></div>
-                                </th>
-                                <th scope="col">
-                                  <div><span>MF76</span></div>
-                                </th>
-                                <th scope="col">
-                                  <div><span>ML76</span></div>
-                                </th>
-                                <th scope="col">
-                                  <div><span>MM76</span></div>
-                                </th>
-                                <th scope="col">
-                                  <div><span>MN76</span></div>
-                                </th>
-                                <th scope="col">
-                                  <div><span>MH76</span></div>
-                                </th>
+                                <th colspan="8"></td>
+                                <th colspan="8">CURRENT MY</td>
+                                <th colspan="8">PREVIOUS MY</td>
+                              </tr>
+                              <tr>
+                                <th colspan="8"></td>
+                                <th colspan="2">MSRP</td>
+                                <th colspan="1">Mix</td>
+                                <th colspan="1">GSF</td>
+                                <th colspan="1">GS / PDU</td>
+                                <th colspan="1">Material Cost</td>
+                                <th colspan="2">FFO RBCV</td>   
+                                <th colspan="2">MSRP</td>
+                                <th colspan="1">Mix</td>
+                                <th colspan="1">GSF</td>
+                                <th colspan="1">GS / PDU</td>
+                                <th colspan="1">Material Cost</td>
+                                <th colspan="2">FFO RBCV</td>                              
+                              </tr>
+                              <tr>
+                                <th scope="col" class="yellow"><div><span>Selected FFO</span></div></th>
+                                <th scope="col"><div><span>Option Code RPO</span></div></th>
+                                <th scope="col"><div><span>Option Code LCDV</span></div></th>
+                                <th scope="col"><div><span>Over Standart CMO</span></div></th>
+                                <th scope="col"><div><span>Option Designation</span></div></th>
+                                <th scope="col"><div><span>Trimline Code</span></div></th>
+                                <th scope="col"><div><span>Trimline</span></div></th>
+                                <th scope="col"><div><span>Aggregated Body Style</span></div></th>
+                                <th scope="col" class="yellow"><div><span>in LC</span></div></th>
+                                <th scope="col"><div><span>in Euro</span></div></th>
+                                <th scope="col" class="yellow"><div><span>%</span></div></th>
+                                <th scope="col"><div><span>%</span></div></th>
+                                <th scope="col" class="yellow"><div><span>in Euro</span></div></th>
+                                <th scope="col"><div><span>in Euro</span></div></th>
+                                <th scope="col"><div><span>in Euro</span></div></th>
+                                <th scope="col"><div><span>% of PDU</span></div></th>
+                                <th scope="col"><div><span>in LC</span></div></th>
+                                <th scope="col"><div><span>in Euro</span></div></th>
+                                <th scope="col"><div><span>%</span></div></th>
+                                <th scope="col"><div><span>%</span></div></th>
+                                <th scope="col"><div><span>in Euro</span></div></th>
+                                <th scope="col"><div><span>in Euro</span></div></th>
+                                <th scope="col"><div><span>in Euro</span></div></th>
+                                <th scope="col"><div><span>% of PDU</span></div></th>
                               </tr>
                             </thead>
                           </table>
                         </div>
                       </div>
-                      <div
-                        class="tab-pane fade"
-                        id="v-tlwu"
-                        role="tabpanel"
-                        aria-labelledby="v-tlwu-tab"
-                      >
-                      <div class="table-responsive">
-                        <table
-                          id="tlwu"
-                          class="table table-sm table-striped table-bordered"
-                        >
-                          <thead class="thead-light">
-                            <tr>
-                              <th scope="col">
-                                <div><span>Option Category</span></div>
-                              </th>
-                              <th scope="col">
-                                <div><span>Option Code</span></div>
-                              </th>
-                              <th scope="col">
-                                <div><span>Family</span></div>
-                              </th>
-                              <th scope="col">
-                                <div><span>Option Description</span></div>
-                              </th>
-                              <th scope="col">
-                                <div><span>MB76</span></div>
-                              </th>
-                              <th scope="col">
-                                <div><span>MC76</span></div>
-                              </th>
-                              <th scope="col">
-                                <div><span>MG76</span></div>
-                              </th>
-                              <th scope="col">
-                                <div><span>ME76</span></div>
-                              </th>
-                              <th scope="col">
-                                <div><span>MJ76</span></div>
-                              </th>
-                              <th scope="col">
-                                <div><span>MS76</span></div>
-                              </th>
-                              <th scope="col">
-                                <div><span>MT76</span></div>
-                              </th>
-                              <th scope="col">
-                                <div><span>MU76</span></div>
-                              </th>
-                              <th scope="col">
-                                <div><span>MI76</span></div>
-                              </th>
-                              <th scope="col">
-                                <div><span>MD76</span></div>
-                              </th>
-                              <th scope="col">
-                                <div><span>MK76</span></div>
-                              </th>
-                              <th scope="col">
-                                <div><span>MF76</span></div>
-                              </th>
-                              <th scope="col">
-                                <div><span>ML76</span></div>
-                              </th>
-                              <th scope="col">
-                                <div><span>MM76</span></div>
-                              </th>
-                              <th scope="col">
-                                <div><span>MN76</span></div>
-                              </th>
-                              <th scope="col">
-                                <div><span>MH76</span></div>
-                              </th>
-                            </tr>
-                          </thead>
-                        </table>
-                      </div>
-                      </div>
-                      <div
-                        class="tab-pane fade"
-                        id="v-price"
-                        role="tabpanel"
-                        aria-labelledby="v-price-tab"
-                      >
-                      <button type="button" class="btn btn-outline-primary mb-3" disabled>New</button>
-                      <button type="button" class="btn btn-outline-primary mb-3" disabled>Edit</button>
-                      <button type="button" class="btn btn-outline-primary mb-3" disabled>Delete</button>
-                      <div class="table-responsive">
-                        <table
-                          id="price"
-                          class="table table-sm table-striped table-bordered"
-                        >
-                          <thead class="thead-light">
-                            <tr>
-                              <th scope="col"><div><span>Option Category</span></div></th>
-                              <th scope="col"><div><span>Option Code</span></div></th>
-                              <th scope="col"><div><span>Family</span></div></th>
-                              <th scope="col"><div><span>Option Description</span></div></th>
-                              <th scope="col"><div><span>Standard Per Design Base/Country</span></div></th>
-                              <th scope="col"><div><span>MB76</span></div></th>
-                              <th scope="col"><div><span>MC76</span></div></th>
-                              <th scope="col"><div><span>ME76</span></div></th>
-                              <th scope="col"><div><span>MJ76</span></div></th>
-                              <th scope="col"><div><span>MS76</span></div></th>
-                              <th scope="col"><div><span>MT76</span></div></th>
-                              <th scope="col"><div><span>MU76</span></div></th>
-                              <th scope="col"><div><span>MI76</span></div></th>
-                              <th scope="col"><div><span>MD76</span></div></th>
-                              <th scope="col"><div><span>MF76</span></div></th>
-                              <th scope="col"><div><span>ML76</span></div></th>
-                              <th scope="col"><div><span>MM76</span></div></th>
-                              <th scope="col"><div><span>MN76</span></div></th>
-                              <th scope="col"><div><span>MH76</span></div></th>
-                            </tr>
-                          </thead>
-                        </table>
-                      </div>
-                      </div>
-                      <div
-                        class="tab-pane fade"
-                        id="v-pdu"
-                        role="tabpanel"
-                        aria-labelledby="v-pdu-tab"
-                      >
-                      <button type="button" class="btn btn-outline-primary mb-3" disabled>New</button>
-                      <button type="button" class="btn btn-outline-primary mb-3" disabled>Edit</button>
-                      <button type="button" class="btn btn-outline-primary mb-3" disabled>Delete</button>
-                      <div class="table-responsive">
-                        <table
-                          id="pdu"
-                          class="table table-sm table-striped table-bordered"
-                        >
-                          <thead class="thead-light">
-                            <tr>
-                              <th scope="col"><div><span>Option Category</span></div></th>
-                              <th scope="col"><div><span>Option Code</span></div></th>
-                              <th scope="col"><div><span>Family</span></div></th>
-                              <th scope="col"><div><span>Option Description</span></div></th>
-                              <th scope="col"><div><span>Standard Per Design Base/Country</span></div></th>
-                              <th scope="col"><div><span>MB76</span></div></th>
-                              <th scope="col"><div><span>MC76</span></div></th>
-                              <th scope="col"><div><span>ME76</span></div></th>
-                              <th scope="col"><div><span>MJ76</span></div></th>
-                              <th scope="col"><div><span>MS76</span></div></th>
-                              <th scope="col"><div><span>MT76</span></div></th>
-                              <th scope="col"><div><span>MU76</span></div></th>
-                              <th scope="col"><div><span>MI76</span></div></th>
-                              <th scope="col"><div><span>MD76</span></div></th>
-                              <th scope="col"><div><span>MK76</span></div></th>
-                              <th scope="col"><div><span>ML76</span></div></th>
-                              <th scope="col"><div><span>MM76</span></div></th>
-                              <th scope="col"><div><span>MN76</span></div></th>
-                              <th scope="col"><div><span>MH76</span></div></th>
-                            </tr>
-                          </thead>
-                        </table>
-                      </div>
-                      </div>
-                      <div
-                        class="tab-pane fade"
-                        id="v-mix"
-                        role="tabpanel"
-                        aria-labelledby="v-mix-tab"
-                      >
-                      <button type="button" class="btn btn-outline-primary mb-3" disabled>New</button>
-                      <button type="button" class="btn btn-outline-primary mb-3" disabled>Edit</button>
-                      <button type="button" class="btn btn-outline-primary mb-3" disabled>Delete</button>
-                      <div class="table-responsive">
-                        <table
-                          id="mix"
-                          class="table table-sm table-striped table-bordered"
-                        >
-                          <thead class="thead-light">
-                            <tr>
-                              <th scope="col"><div><span>Option Category</span></div></th>
-                              <th scope="col"><div><span>Option Code</span></div></th>
-                              <th scope="col"><div><span>Family</span></div></th>
-                              <th scope="col"><div><span>Option Description</span></div></th>
-                              <th scope="col"><div><span>Option Mix</span></div></th>
-                              <th scope="col"><div><span>MB76</span></div></th>
-                              <th scope="col"><div><span>MC76</span></div></th>
-                              <th scope="col"><div><span>ME76</span></div></th>
-                              <th scope="col"><div><span>MJ76</span></div></th>
-                              <th scope="col"><div><span>MS76</span></div></th>
-                              <th scope="col"><div><span>MT76</span></div></th>
-                              <th scope="col"><div><span>MU76</span></div></th>
-                              <th scope="col"><div><span>MI76</span></div></th>
-                              <th scope="col"><div><span>MD76</span></div></th>
-                              <th scope="col"><div><span>MK76</span></div></th>
-                              <th scope="col"><div><span>ML76</span></div></th>
-                              <th scope="col"><div><span>MM76</span></div></th>
-                              <th scope="col"><div><span>MN76</span></div></th>
-                              <th scope="col"><div><span>MH76</span></div></th>
-                            </tr>
-                          </thead>
-                        </table>
-                      </div>
-                      </div>
-                      <div
-                        class="tab-pane fade"
-                        id="v-cost"
-                        role="tabpanel"
-                        aria-labelledby="v-cost-tab"
-                      >
-                      <div class="table-responsive">
-                        <table
-                          id="cost"
-                          class="table table-sm table-striped table-bordered"
-                        >
-                          <thead class="thead-light">
-                            <tr>
-                              <th scope="col"><div><span>Option Category</span></div></th>
-                              <th scope="col"><div><span>Option Code</span></div></th>
-                              <th scope="col"><div><span>Family</span></div></th>
-                              <th scope="col"><div><span>Option Description</span></div></th>
-                              <th scope="col"><div><span>MB76</span></div></th>
-                              <th scope="col"><div><span>MC76</span></div></th>
-                              <th scope="col"><div><span>ME76</span></div></th>
-                              <th scope="col"><div><span>MJ76</span></div></th>
-                              <th scope="col"><div><span>MS76</span></div></th>
-                              <th scope="col"><div><span>MT76</span></div></th>
-                              <th scope="col"><div><span>MU76</span></div></th>
-                              <th scope="col"><div><span>MI76</span></div></th>
-                              <th scope="col"><div><span>MD76</span></div></th>
-                              <th scope="col"><div><span>MF76</span></div></th>
-                              <th scope="col"><div><span>ML76</span></div></th>
-                              <th scope="col"><div><span>MM76</span></div></th>
-                              <th scope="col"><div><span>MN76</span></div></th>
-                              <th scope="col"><div><span>MH76</span></div></th>
-                            </tr>
-                          </thead>
-                        </table>
-                      </div>
-                      </div>
-                      <div
-                        class="tab-pane fade"
-                        id="v-pdu-old-evps"
-                        role="tabpanel"
-                        aria-labelledby="v-pdu-old-evps-tab"
-                      >
-                      <div class="table-responsive">
-                        <table
-                          id="pduoldevps"
-                          class="table table-sm table-striped table-bordered"
-                        >
-                          <thead class="thead-light">
-                            <tr>
-                              <th scope="col"><div><span>Option Category</span></div></th>
-                              <th scope="col"><div><span>Option Code</span></div></th>
-                              <th scope="col"><div><span>Family</span></div></th>
-                              <th scope="col"><div><span>Option Description</span></div></th>
-                              <th scope="col"><div><span>Standard Per Design Base/Country</span></div></th>
-                              <th scope="col"><div><span>MB76</span></div></th>
-                              <th scope="col"><div><span>MC76</span></div></th>
-                              <th scope="col"><div><span>ME76</span></div></th>
-                              <th scope="col"><div><span>MJ76</span></div></th>
-                              <th scope="col"><div><span>MS76</span></div></th>
-                              <th scope="col"><div><span>MT76</span></div></th>
-                              <th scope="col"><div><span>MU76</span></div></th>
-                              <th scope="col"><div><span>MI76</span></div></th>
-                              <th scope="col"><div><span>MD76</span></div></th>
-                              <th scope="col"><div><span>MF76</span></div></th>
-                              <th scope="col"><div><span>ML76</span></div></th>
-                              <th scope="col"><div><span>MM76</span></div></th>
-                              <th scope="col"><div><span>MN76</span></div></th>
-                              <th scope="col"><div><span>MH76</span></div></th>
-                            </tr>
-                          </thead>
-                        </table>
-                      </div>
-                      </div>
-                      <div
-                        class="tab-pane fade"
-                        id="v-mix-old-mis"
-                        role="tabpanel"
-                        aria-labelledby="v-mix-old-mis-tab"
-                      >
-                      <div class="table-responsive">
-                        <table
-                          id="mixoldmis"
-                          class="table table-sm table-striped table-bordered"
-                        >
-                          <thead class="thead-light">
-                            <tr>
-                              <th scope="col"><div><span>Option Category</span></div></th>
-                              <th scope="col"><div><span>Option Code</span></div></th>
-                              <th scope="col"><div><span>Family</span></div></th>
-                              <th scope="col"><div><span>Option Description</span></div></th>
-                              <th scope="col"><div><span>Option Mix</span></div></th>
-                              <th scope="col"><div><span>MB76</span></div></th>
-                              <th scope="col"><div><span>MC76</span></div></th>
-                              <th scope="col"><div><span>ME76</span></div></th>
-                              <th scope="col"><div><span>MJ76</span></div></th>
-                              <th scope="col"><div><span>MS76</span></div></th>
-                              <th scope="col"><div><span>MT76</span></div></th>
-                              <th scope="col"><div><span>MU76</span></div></th>
-                              <th scope="col"><div><span>MI76</span></div></th>
-                              <th scope="col"><div><span>MD76</span></div></th>
-                              <th scope="col"><div><span>MF76</span></div></th>
-                              <th scope="col"><div><span>ML76</span></div></th>
-                              <th scope="col"><div><span>MM76</span></div></th>
-                              <th scope="col"><div><span>MN76</span></div></th>
-                              <th scope="col"><div><span>MH76</span></div></th>
-                            </tr>
-                          </thead>
-                        </table>
-                      </div>
-                      </div>
-                      <div
-                        class="tab-pane fade"
-                        id="v-pdu-old-bc"
-                        role="tabpanel"
-                        aria-labelledby="v-pdu-old-bc-tab"
-                      >
-                      <div class="table-responsive">
-                        <table
-                          id="pduoldbc"
-                          class="table table-sm table-striped table-bordered"
-                        >
-                          <thead class="thead-light">
-                            <tr>
-                              <th scope="col"><div><span>Option Category</span></div></th>
-                              <th scope="col"><div><span>Option Code</span></div></th>
-                              <th scope="col"><div><span>Family</span></div></th>
-                              <th scope="col"><div><span>Option Description</span></div></th>
-                              <th scope="col"><div><span>Standard Per Design Base/Country</span></div></th>
-                              <th scope="col"><div><span>MB76</span></div></th>
-                              <th scope="col"><div><span>MC76</span></div></th>
-                              <th scope="col"><div><span>ME76</span></div></th>
-                              <th scope="col"><div><span>MJ76</span></div></th>
-                              <th scope="col"><div><span>MS76</span></div></th>
-                              <th scope="col"><div><span>MT76</span></div></th>
-                              <th scope="col"><div><span>MU76</span></div></th>
-                              <th scope="col"><div><span>MI76</span></div></th>
-                              <th scope="col"><div><span>MD76</span></div></th>
-                              <th scope="col"><div><span>MF76</span></div></th>
-                              <th scope="col"><div><span>ML76</span></div></th>
-                              <th scope="col"><div><span>MM76</span></div></th>
-                              <th scope="col"><div><span>MN76</span></div></th>
-                              <th scope="col"><div><span>MH76</span></div></th>
-                            </tr>
-                          </thead>
-                        </table>
-                      </div>
-                      </div>
-                      <div
-                        class="tab-pane fade"
-                        id="v-mix-old-bc"
-                        role="tabpanel"
-                        aria-labelledby="v-mix-old-bc-tab"
-                      >
-                      <div class="table-responsive">
-                        <table
-                          id="mixoldbc"
-                          class="table table-sm table-striped table-bordered"
-                        >
-                          <thead class="thead-light">
-                            <tr>
-                              <th scope="col"><div><span>Option Category</span></div></th>
-                              <th scope="col"><div><span>Option Code</span></div></th>
-                              <th scope="col"><div><span>Family</span></div></th>
-                              <th scope="col"><div><span>Option Description</span></div></th>
-                              <th scope="col"><div><span>Option Mix</span></div></th>
-                              <th scope="col"><div><span>MB76</span></div></th>
-                              <th scope="col"><div><span>MC76</span></div></th>
-                              <th scope="col"><div><span>ME76</span></div></th>
-                              <th scope="col"><div><span>MJ76</span></div></th>
-                              <th scope="col"><div><span>MS76</span></div></th>
-                              <th scope="col"><div><span>MT76</span></div></th>
-                              <th scope="col"><div><span>MU76</span></div></th>
-                              <th scope="col"><div><span>MI76</span></div></th>
-                              <th scope="col"><div><span>MD76</span></div></th>
-                              <th scope="col"><div><span>MF76</span></div></th>
-                              <th scope="col"><div><span>ML76</span></div></th>
-                              <th scope="col"><div><span>MM76</span></div></th>
-                              <th scope="col"><div><span>MN76</span></div></th>
-                              <th scope="col"><div><span>MH76</span></div></th>
-                            </tr>
-                          </thead>
-                        </table>
-                      </div>
-                      </div>
-                      <div
-                        class="tab-pane fade"
-                        id="v-cost-old-bc"
-                        role="tabpanel"
-                        aria-labelledby="v-cost-old-bc-tab"
-                      >
-                      <div class="table-responsive">
-                        <table
-                          id="costoldbc"
-                          class="table table-sm table-striped table-bordered"
-                        >
-                          <thead class="thead-light">
-                            <tr>
-                              <th scope="col"><div><span>Option Category</span></div></th>
-                              <th scope="col"><div><span>Option Code</span></div></th>
-                              <th scope="col"><div><span>Family</span></div></th>
-                              <th scope="col"><div><span>Option Description</span></div></th>
-                              <th scope="col"><div><span>MB76</span></div></th>
-                              <th scope="col"><div><span>MC76</span></div></th>
-                              <th scope="col"><div><span>ME76</span></div></th>
-                              <th scope="col"><div><span>MJ76</span></div></th>
-                              <th scope="col"><div><span>MS76</span></div></th>
-                              <th scope="col"><div><span>MT76</span></div></th>
-                              <th scope="col"><div><span>MU76</span></div></th>
-                              <th scope="col"><div><span>MI76</span></div></th>
-                              <th scope="col"><div><span>MD76</span></div></th>
-                              <th scope="col"><div><span>MF76</span></div></th>
-                              <th scope="col"><div><span>ML76</span></div></th>
-                              <th scope="col"><div><span>MM76</span></div></th>
-                              <th scope="col"><div><span>MN76</span></div></th>
-                              <th scope="col"><div><span>MH76</span></div></th>
-                            </tr>
-                          </thead>
-                        </table>
-                      </div>
-                      </div>
-                      <div
-                        class="tab-pane fade"
-                        id="v-cost-temp"
-                        role="tabpanel"
-                        aria-labelledby="v-cost-temp-tab"
-                      >
-                      <div class="table-responsive">
-                        <table
-                          id="costtemp"
-                          class="table table-sm table-striped table-bordered"
-                        >
-                          <thead class="thead-light">
-                            <tr>
-                              <th scope="col"><div><span>Option Category</span></div></th>
-                              <th scope="col"><div><span>Option Code</span></div></th>
-                              <th scope="col"><div><span>Family</span></div></th>
-                              <th scope="col"><div><span>Option Description</span></div></th>
-                              <th scope="col"><div><span>Standard Per Design Base/Country</span></div></th>
-                              <th scope="col"><div><span>MB76</span></div></th>
-                              <th scope="col"><div><span>MC76</span></div></th>
-                              <th scope="col"><div><span>ME76</span></div></th>
-                              <th scope="col"><div><span>MJ76</span></div></th>
-                              <th scope="col"><div><span>MS76</span></div></th>
-                              <th scope="col"><div><span>MT76</span></div></th>
-                              <th scope="col"><div><span>MU76</span></div></th>
-                              <th scope="col"><div><span>MI76</span></div></th>
-                              <th scope="col"><div><span>MD76</span></div></th>
-                              <th scope="col"><div><span>MF76</span></div></th>
-                              <th scope="col"><div><span>ML76</span></div></th>
-                              <th scope="col"><div><span>MM76</span></div></th>
-                              <th scope="col"><div><span>MN76</span></div></th>
-                              <th scope="col"><div><span>MH76</span></div></th>
-                            </tr>
-                          </thead>
-                        </table>
-                      </div>
-                      </div>
-                      <div
-                        class="tab-pane fade"
-                        id="v-contribution-margin-per"
-                        role="tabpanel"
-                        aria-labelledby="v-contribution-margin-per-tab"
-                      >
-                      <button type="button" class="btn btn-outline-primary mb-3" disabled>New</button>
-                      <button type="button" class="btn btn-outline-primary mb-3" disabled>Edit</button>
-                      <button type="button" class="btn btn-outline-primary mb-3" disabled>Delete</button>
-                      <div class="table-responsive">
-                        <table
-                          id="contributionmarginpercent"
-                          class="table table-sm table-striped table-bordered"
-                        >
-                          <thead class="thead-light">
-                            <tr>
-                              <th scope="col"><div><span>Option Category</span></div></th>
-                              <th scope="col"><div><span>Option Code</span></div></th>
-                              <th scope="col"><div><span>Family</span></div></th>
-                              <th scope="col"><div><span>Option Description</span></div></th>
-                              <th scope="col"><div><span>Standard Per Design Base/Country</span></div></th>
-                              <th scope="col"><div><span>MB76</span></div></th>
-                              <th scope="col"><div><span>MC76</span></div></th>
-                              <th scope="col"><div><span>ME76</span></div></th>
-                              <th scope="col"><div><span>MJ76</span></div></th>
-                              <th scope="col"><div><span>MS76</span></div></th>
-                              <th scope="col"><div><span>MT76</span></div></th>
-                              <th scope="col"><div><span>MU76</span></div></th>
-                              <th scope="col"><div><span>MI76</span></div></th>
-                              <th scope="col"><div><span>MD76</span></div></th>
-                              <th scope="col"><div><span>MF76</span></div></th>
-                              <th scope="col"><div><span>ML76</span></div></th>
-                              <th scope="col"><div><span>MM76</span></div></th>
-                              <th scope="col"><div><span>MN76</span></div></th>
-                              <th scope="col"><div><span>MH76</span></div></th>
-                            </tr>
-                          </thead>
-                        </table>
-                      </div>
-                      </div>
-                      <div
-                        class="tab-pane fade"
-                        id="v-contribution-margin"
-                        role="tabpanel"
-                        aria-labelledby="v-contribution-margin-tab"
-                      >
-                        Contribution Margin EUR
-                      </div>
-                      <div
-                        class="tab-pane fade"
-                        id="v-pdu-hq"
-                        role="tabpanel"
-                        aria-labelledby="v-pdu-hq-tab"
-                      >
-                        PDU HQ
-                      </div>
-                      <div
-                        class="tab-pane fade"
-                        id="v-old-default-msrp-bc"
-                        role="tabpanel"
-                        aria-labelledby="v-old-default-msrp-bc-tab"
-                      >
-                      <div class="table-responsive">
-                        <table
-                          id="olddefaultmsrpbc"
-                          class="table table-sm table-striped table-bordered"
-                        >
-                          <thead class="thead-light">
-                            <tr>
-                              <th scope="col"><div><span>Option Category</span></div></th>
-                              <th scope="col"><div><span>Option Code</span></div></th>
-                              <th scope="col"><div><span>Family</span></div></th>
-                              <th scope="col"><div><span>Option Description</span></div></th>
-                              <th scope="col"><div><span>Standard Per Design Base/Country</span></div></th>
-                              <th scope="col"><div><span>MB76</span></div></th>
-                              <th scope="col"><div><span>MC76</span></div></th>
-                              <th scope="col"><div><span>ME76</span></div></th>
-                              <th scope="col"><div><span>MJ76</span></div></th>
-                              <th scope="col"><div><span>MS76</span></div></th>
-                              <th scope="col"><div><span>MT76</span></div></th>
-                              <th scope="col"><div><span>MU76</span></div></th>
-                              <th scope="col"><div><span>MI76</span></div></th>
-                              <th scope="col"><div><span>MD76</span></div></th>
-                              <th scope="col"><div><span>MF76</span></div></th>
-                              <th scope="col"><div><span>ML76</span></div></th>
-                              <th scope="col"><div><span>MM76</span></div></th>
-                              <th scope="col"><div><span>MN76</span></div></th>
-                              <th scope="col"><div><span>MH76</span></div></th>
-                            </tr>
-                          </thead>
-                        </table>
-                      </div>
-                      </div>
+
                     </div>
                   </div>
                 </div>
@@ -1026,7 +304,7 @@
               </div>
             </div>
           </div>
-          <div id="joinTablesExample" class="table-responsive mt-5 d-none">
+          <!-- <div id="joinTablesExample" class="table-responsive mt-5 d-none">
             <table class="table table-sm table-striped table-bordered">
               <thead class="thead-light">
                 <tr>
@@ -1126,7 +404,7 @@
                 </tr>
               </tbody>
             </table>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
@@ -1143,6 +421,109 @@
     <script src="../js/dataTable.jquery.js"></script>
     <script src="https://cdn.datatables.net/fixedheader/3.1.7/js/dataTables.fixedHeader.min.js"></script>
     <script>
+      $(document).ready(function () {
+        document.querySelector("#submitButton").addEventListener("click", (e) => {
+          e.preventDefault();
+          let r =
+          {
+            country: document.querySelector("#country").value,
+            countryGroup: document.querySelector("#countryGroup").value,
+            carline: document.querySelector("#carline").value,
+            vehicleBrand: document.querySelector("#vehicleBrand").value,
+            modelYear: document.querySelector("#modelYear").value
+          };
+    
+          fetch('../InputOptions', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(r)
+          })
+            .then(response => response.json())
+            .then(data => {
+                //price list final
+                $('#options_prices').DataTable().clear().draw();
+                $('#options_prices').DataTable().rows.add(data.options_prices);
+                $('#options_prices').DataTable().columns.adjust().draw();
+ 
+            });
+        });
+      });
+  
+        let r =
+          {
+            country: document.querySelector("#country").value,
+            countryGroup: document.querySelector("#countryGroup").value,
+            carline: document.querySelector("#carline").value,
+            vehicleBrand: document.querySelector("#vehicleBrand").value,
+            modelYear: document.querySelector("#modelYear").value
+          };
+  
+        let tableData; // placeholder for ajax tables data
+          
+        $.ajax({
+          headers: { 
+            'Accept': 'application/json',
+            'Content-Type': 'application/json' 
+          },
+          'type': 'POST',
+          'url': "../InputOptions",
+          'data': JSON.stringify(r),
+          'dataType': 'json',
+          success: function (data) {
+            tableData = data,
+            console.log('tableData', data);
+            $("#options_prices").dataTable({
+              data: data.options_prices,
+            //   fixedHeader: {
+            //   header: true,
+            //   headerOffset: $('#navigation').outerHeight()
+            // },
+              columns: [
+                { "data": "selectedFFO" },
+                { "data": "optionCodeRPO" },
+                { "data": "optionCodeLCDV" },
+                { "data": "overStandartCMO" },
+                { "data": "optionDescription" },
+                { "data": "trimlineCode" },
+                { "data": "trimlineName" },
+                { "data": "aggregatedBodyStyle" },
+                { "data": "msrpInLC_CurrMY" },
+                { "data": "msrpInEuro_CurrMY" },
+                { "data": "mixPercent_CurrMY" },
+                { "data": "gsfPercent_CurrMY" },
+                { "data": "gsDividedPDUinEuro_CurrMY" },
+                { "data": "materialCostInEuro_CurrMY" },
+                { "data": "foRbcvInEuro_CurrMY" },
+                { "data": "foRbcvPercentOfPDU_CurrMY" },
+                { "data": "msrpInLC_PrevMY" },
+                { "data": "msrpInEuro_PrevMY" },
+                { "data": "mixPercent_PrevMY" },
+                { "data": "gsfPercent_PrevMY" },
+                { "data": "gsDividedPDUinEuro_PrevMY" },
+                { "data": "materialCostInEuro_PrevMY" },
+                { "data": "foRbcvInEuro_PrevMY" },
+                { "data": "foRbcvPercentOfPDU_PrevMY" },                
+              ],
+              "columnDefs": [
+              { "render": $.fn.dataTable.render.number( '.', ','),
+                "targets":[ 8,9,12,13,14,16,17,20,21,22 ]
+              },
+              {className: "yellow", "targets": [ 0,8,10,12 ] },
+              ],
+              error: function (error) {
+                alert("Data Tables ERROR: " + error)
+              }
+            });
+  },
+          error: function (error) {
+            alert("AJAX ERROR: " + error)
+          },
+        });
+              
+    </script>
+    <!-- <script>
       $(document).ready(function () {
         $("#cmo").DataTable({
           fixedHeader: {
@@ -1177,460 +558,11 @@
           ]
         });
 
-        $("#tlwu").DataTable({
-          fixedHeader: {
-            header: true,
-            headerOffset: $('#navigation').outerHeight()
-        },
-          ajax: "../data/rPT_ArPT_AllOptions_TLWU.json",
-          columns: [
-            { data: "Option Category" },
-            { data: "Option Code" },
-            { data: "Family" },
-            { data: "Option Description" },
-            { data: "MB76" },
-            { data: "MC76" },
-            { data: "MG76" },
-            { data: "ME76" },
-            { data: "MJ76" },
-            { data: "MS76" },
-            { data: "MT76" },
-            { data: "MU76" },
-            { data: "MI76" },
-            { data: "MD76" },
-            { data: "MK76" },
-            { data: "MF76" },
-            { data: "ML76" },
-            { data: "MM76" },
-            { data: "MN76" },
-            { data: "MH76" },
-          ],
-          "columnDefs": [
-    { "render": $.fn.dataTable.render.number( '.', ','),
-                "targets":'_all'
-              },
-          ]
-        });
-        
-        $("#price").DataTable({
-          // ordering: false,
-          fixedHeader: {
-            header: true,
-            headerOffset: $('#navigation').outerHeight()
-        },
-          ajax: "../data/rPT_AllOptions_DefaultMSRP.json",
-          columns: [
-            { data: "Option Category" },
-            { data: "Option Code" },
-            { data: "Family" },
-            { data: "Option Description" },
-            { data: "Standard Per Design Base/Country" },
-            { data: "MB76" },
-            { data: "MC76" },
-            { data: "ME76" },
-            { data: "MJ76" },
-            { data: "MS76" },
-            { data: "MT76" },
-            { data: "MU76" },
-            { data: "MI76" },
-            { data: "MD76" },
-            { data: "MF76" },
-            { data: "ML76" },
-            { data: "MM76" },
-            { data: "MN76" },
-            { data: "MH76" },
-          ],
-          "columnDefs": [
-    { "render": $.fn.dataTable.render.number( '.', ','),
-                "targets":'_all'
-              },
-          ]
-        });
-
-        $("#pdu").DataTable({
-          fixedHeader: {
-            header: true,
-            headerOffset: $('#navigation').outerHeight()
-        },
-          ajax: "../data/rPT_AllOptions_PDU.json",
-          columns: [
-            { data: "Option Category" },
-            { data: "Option Code" },
-            { data: "Family" },
-            { data: "Option Description" },
-            { data: "Standard Per Design Base/Country" },
-            { data: "MB76" },
-            { data: "MC76" },
-            { data: "ME76" },
-            { data: "MJ76" },
-            { data: "MS76" },
-            { data: "MT76" },
-            { data: "MU76" },
-            { data: "MI76" },
-            { data: "MD76" },
-            { data: "MF76" },
-            { data: "ML76" },
-            { data: "MM76" },
-            { data: "MN76" },
-            { data: "MH76" },
-          ],
-          "columnDefs": [
-    { "render": $.fn.dataTable.render.number( '.', ','),
-                "targets":'_all'
-              },
-          ]
-        });
-
-        $("#mix").DataTable({
-          fixedHeader: {
-            header: true,
-            headerOffset: $('#navigation').outerHeight()
-        },
-          ajax: "../data/rPT_AllOptions_Mix.json",
-          columns: [
-            { data: "Option Category" },
-            { data: "Option Code" },
-            { data: "Family" },
-            { data: "Option Description" },
-            { data: "Option Mix" },
-            { data: "MB76" },
-            { data: "MC76" },
-            { data: "ME76" },
-            { data: "MJ76" },
-            { data: "MS76" },
-            { data: "MT76" },
-            { data: "MU76" },
-            { data: "MI76" },
-            { data: "MD76" },
-            { data: "MF76" },
-            { data: "ML76" },
-            { data: "MM76" },
-            { data: "MN76" },
-            { data: "MH76" },
-          ],
-          "columnDefs": [
-    { "render": $.fn.dataTable.render.number( '.', ','),
-                "targets":'_all'
-              },
-          ]
-        });
-
-        $("#cost").DataTable({
-          // ordering: false,
-          fixedHeader: {
-            header: true,
-            headerOffset: $('#navigation').outerHeight()
-        },
-          ajax: "../data/rPT_AllOptions_Cost.json",
-          columns: [
-            { data: "Option Category" },
-            { data: "Option Code" },
-            { data: "Family" },
-            { data: "Option Description" },
-            { data: "MB76" },
-            { data: "MC76" },
-            { data: "ME76" },
-            { data: "MJ76" },
-            { data: "MS76" },
-            { data: "MT76" },
-            { data: "MU76" },
-            { data: "MI76" },
-            { data: "MD76" },
-            { data: "MF76" },
-            { data: "ML76" },
-            { data: "MM76" },
-            { data: "MN76" },
-            { data: "MH76" },
-          ],
-          "columnDefs": [
-    { "render": $.fn.dataTable.render.number( '.', ','),
-                "targets":'_all'
-              },
-          ]
-        });
-
-        $("#pduoldevps").DataTable({
-          fixedHeader: {
-            header: true,
-            headerOffset: $('#navigation').outerHeight()
-        },
-          ajax: "../data/rPT_AllOptions_PDU_OLD_EVPS.json",
-          columns: [
-            { data: "Option Category" },
-            { data: "Option Code" },
-            { data: "Family" },
-            { data: "Option Description" },
-            { data: "Standard Per Design Base/Country" },
-            { data: "MB76" },
-            { data: "MC76" },
-            { data: "ME76" },
-            { data: "MJ76" },
-            { data: "MS76" },
-            { data: "MT76" },
-            { data: "MU76" },
-            { data: "MI76" },
-            { data: "MD76" },
-            { data: "MF76" },
-            { data: "ML76" },
-            { data: "MM76" },
-            { data: "MN76" },
-            { data: "MH76" },
-          ],
-          "columnDefs": [
-    { "render": $.fn.dataTable.render.number( '.', ','),
-                "targets":'_all'
-              },
-          ]
-        });
-
-        $("#mixoldmis").DataTable({
-          fixedHeader: {
-            header: true,
-            headerOffset: $('#navigation').outerHeight()
-        },
-          ajax: "../data/rPT_AllOptions_Mix_OLD_MIS.json",
-          columns: [
-            { data: "Option Category" },
-            { data: "Option Code" },
-            { data: "Family" },
-            { data: "Option Description" },
-            { data: "Option Mix" },
-            { data: "MB76" },
-            { data: "MC76" },
-            { data: "ME76" },
-            { data: "MJ76" },
-            { data: "MS76" },
-            { data: "MT76" },
-            { data: "MU76" },
-            { data: "MI76" },
-            { data: "MD76" },
-            { data: "MF76" },
-            { data: "ML76" },
-            { data: "MM76" },
-            { data: "MN76" },
-            { data: "MH76" },
-          ],
-          "columnDefs": [
-    { "render": $.fn.dataTable.render.number( '.', ','),
-                "targets":'_all'
-              },
-          ]
-        });
-
-        $("#pduoldbc").DataTable({
-          fixedHeader: {
-            header: true,
-            headerOffset: $('#navigation').outerHeight()
-        },
-          ajax: "../data/rPT_AllOptions_PDU_OLD_BC.json",
-          columns: [
-            { data: "Option Category" },
-            { data: "Option Code" },
-            { data: "Family" },
-            { data: "Option Description" },
-            { data: "Standard Per Design Base/Country" },
-            { data: "MB76" },
-            { data: "MC76" },
-            { data: "ME76" },
-            { data: "MJ76" },
-            { data: "MS76" },
-            { data: "MT76" },
-            { data: "MU76" },
-            { data: "MI76" },
-            { data: "MD76" },
-            { data: "MF76" },
-            { data: "ML76" },
-            { data: "MM76" },
-            { data: "MN76" },
-            { data: "MH76" },
-          ],
-          "columnDefs": [
-    { "render": $.fn.dataTable.render.number( '.', ','),
-                "targets":'_all'
-              },
-          ]
-        });
-
-        $("#mixoldbc").DataTable({
-          fixedHeader: {
-            header: true,
-            headerOffset: $('#navigation').outerHeight()
-        },
-          ajax: "../data/rPT_AllOptions_Mix_OLD_BC.json",
-          columns: [
-            { data: "Option Category" },
-            { data: "Option Code" },
-            { data: "Family" },
-            { data: "Option Description" },
-            { data: "Option Mix" },
-            { data: "MB76" },
-            { data: "MC76" },
-            { data: "ME76" },
-            { data: "MJ76" },
-            { data: "MS76" },
-            { data: "MT76" },
-            { data: "MU76" },
-            { data: "MI76" },
-            { data: "MD76" },
-            { data: "MF76" },
-            { data: "ML76" },
-            { data: "MM76" },
-            { data: "MN76" },
-            { data: "MH76" },
-          ],
-          "columnDefs": [
-    { "render": $.fn.dataTable.render.number( '.', ','),
-                "targets":'_all'
-              },
-            ]
-        });
-
-        $("#costoldbc").DataTable({
-          fixedHeader: {
-            header: true,
-            headerOffset: $('#navigation').outerHeight()
-        },
-          ajax: "../data/rPT_AllOptions_Cost_OLD_BC.json",
-          columns: [
-            { data: "Option Category" },
-            { data: "Option Code" },
-            { data: "Family" },
-            { data: "Option Description" },
-            { data: "MB76" },
-            { data: "MC76" },
-            { data: "ME76" },
-            { data: "MJ76" },
-            { data: "MS76" },
-            { data: "MT76" },
-            { data: "MU76" },
-            { data: "MI76" },
-            { data: "MD76" },
-            { data: "MF76" },
-            { data: "ML76" },
-            { data: "MM76" },
-            { data: "MN76" },
-            { data: "MH76" },
-          ],
-          "columnDefs": [
-    { "render": $.fn.dataTable.render.number( '.', ','),
-                "targets":'_all'
-              },
-            ]
-        });
-
-        $("#contributionmarginpercent").DataTable({
-          // ordering: false,
-          fixedHeader: {
-            header: true,
-            headerOffset: $('#navigation').outerHeight()
-        },
-          ajax: "../data/rPT_AllOptions_ContribMargin.json",
-          columns: [
-            { data: "Option Category" },
-            { data: "Option Code" },
-            { data: "Family" },
-            { data: "Option Description" },
-            { data: "Standard Per Design Base/Country" },
-            { data: "MB76" },
-            { data: "MC76" },
-            { data: "ME76" },
-            { data: "MJ76" },
-            { data: "MS76" },
-            { data: "MT76" },
-            { data: "MU76" },
-            { data: "MI76" },
-            { data: "MD76" },
-            { data: "MF76" },
-            { data: "ML76" },
-            { data: "MM76" },
-            { data: "MN76" },
-            { data: "MH76" },
-          ],
-          "columnDefs": [
-    { "render": $.fn.dataTable.render.number( '.', ','),
-                "targets":'_all'
-              },
-            ]
-        });
-
-        // TO DO: CM EUR
-
-        $("#costtemp").DataTable({
-          // ordering: false,
-          fixedHeader: {
-            header: true,
-            headerOffset: $('#navigation').outerHeight()
-        },
-          ajax: "../data/rPT_AllOptions_CostTemp.json",
-          columns: [
-            { data: "Option Category" },
-            { data: "Option Code" },
-            { data: "Family" },
-            { data: "Option Description" },
-            { data: "Standard Per Design Base/Country" },
-            { data: "MB76" },
-            { data: "MC76" },
-            { data: "ME76" },
-            { data: "MJ76" },
-            { data: "MS76" },
-            { data: "MT76" },
-            { data: "MU76" },
-            { data: "MI76" },
-            { data: "MD76" },
-            { data: "MF76" },
-            { data: "ML76" },
-            { data: "MM76" },
-            { data: "MN76" },
-            { data: "MH76" },
-          ],
-          "columnDefs": [
-    { "render": $.fn.dataTable.render.number( '.', ','),
-                "targets":'_all'
-              },
-          ]
-        });
-
-        $("#olddefaultmsrpbc").DataTable({
-          // ordering: false,
-          fixedHeader: {
-            header: true,
-            headerOffset: $('#navigation').outerHeight()
-        },
-          ajax: "../data/rPT_AllOptions_OLD_DefaultMSRP_BC.json",
-          columns: [
-            { data: "Option Category" },
-            { data: "Option Code" },
-            { data: "Family" },
-            { data: "Option Description" },
-            { data: "Standard Per Design Base/Country" },
-            { data: "MB76" },
-            { data: "MC76" },
-            { data: "ME76" },
-            { data: "MJ76" },
-            { data: "MS76" },
-            { data: "MT76" },
-            { data: "MU76" },
-            { data: "MI76" },
-            { data: "MD76" },
-            { data: "MF76" },
-            { data: "ML76" },
-            { data: "MM76" },
-            { data: "MN76" },
-            { data: "MH76" },
-          ],
-          "columnDefs": [
-          { "render": $.fn.dataTable.render.number( '.', ','),
-                  "targets":'_all'
-                },
-            ]
-          });
-
-        // TO DO: PDU HQ
 
       });
-    </script>
+    </script> -->
 
-    <script>
+    <!-- <script>
       var joinTableBtn = $("#joinTableBtn");
       var joinTableModal = $("#exampleModalCenter");
       var spinner = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>'
@@ -1660,7 +592,7 @@
         setTimeout(function(){ hideModal(joinTableModal); scrollTopAnimated(); enableButton(joinTableBtn); }, 1000);
         showJoinTable();
       });
-    </script>
+    </script> -->
 
     <!-- Option 2: jQuery, Popper.js, and Bootstrap JS
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

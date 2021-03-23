@@ -1,0 +1,1 @@
+{"country":"Switzerland","carline":"Mokka","vehicleBrand":"0: Opel","modelYear":"21.0A"}

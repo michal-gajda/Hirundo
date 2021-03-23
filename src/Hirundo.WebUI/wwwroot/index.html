@@ -33,7 +33,7 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" href="./sites/pricelistfinal.html">Price List Final</a>
-        <li class="nav-item"><a class="nav-link" href="../GeneralInformation.html">Input - General Information</a></li>
+        <li class="nav-item"><a class="nav-link" href="./sites/GeneralInformation.html">Input - General Information</a></li>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="./sites/TEWU.html">Input - Vehicles</a>
@@ -77,6 +77,12 @@
               </select>
             </div>
             <div class="form-group col-12 col-sm-6 col-md-3">
+              <label for="countryGroup">Country Group</label>
+              <select class="form-control" id="countryGroup">
+                <option>CA</option>
+              </select>
+            </div>
+            <div class="form-group col-12 col-sm-6 col-md-3">
               <label for="carline">Carline</label>
               <select class="form-control" id="carline">
                 <option>Mokka</option>
@@ -89,14 +95,14 @@
             <div class="form-group col-12 col-sm-6 col-md-3">
               <label for="vehicleBrand">Vehicle Brand</label>
               <select class="form-control" id="vehicleBrand">
-                <option>Opel</option>
+                <option>0: Opel</option>
                 <option>Vauxhall</option>
               </select>
             </div>
             <div class="form-group col-12 col-sm-6 col-md-3">
               <label for="modelYear">Model Year</label>
               <select class="form-control" id="modelYear">
-                <option>21.0</option>
+                <option>21.0A</option>
                 <option>20.0</option>
                 <option>19.0</option>
               </select>
@@ -556,6 +562,7 @@ $(document).ready(function() {
         let r =
         {
           country: document.querySelector("#country").value,
+          countryGroup: document.querySelector("#countryGroup").value,
           carline: document.querySelector("#carline").value,
           vehicleBrand: document.querySelector("#vehicleBrand").value,
           modelYear: document.querySelector("#modelYear").value
@@ -583,9 +590,31 @@ $(document).ready(function() {
               // $('#mainTable').DataTable().draw();
             //https://stackoverflow.com/questions/25929347/how-to-redraw-datatable-with-new-data
              //debugger;
+              //main table
               $('#mainTable').DataTable().clear().draw();
-              $('#mainTable').DataTable().rows.add(data.data); // Add new data
+              $('#mainTable').DataTable().rows.add(data.financial_summary); // Add new data
               $('#mainTable').DataTable().columns.adjust().draw();
+
+              //mix changes trimline
+              $('#mixtrim').DataTable().clear().draw();
+              $('#mixtrim').DataTable().rows.add(data.mix_changes_trimline); // Add new data
+              $('#mixtrim').DataTable().columns.adjust().draw();
+
+              //mix changes engine
+              $('#mixengine').DataTable().clear().draw();
+              $('#mixengine').DataTable().rows.add(data.mix_changes_engine); // Add new data
+              $('#mixengine').DataTable().columns.adjust().draw();
+              
+              //mix changes bodystyle
+              $('#mixbodystyle').DataTable().clear().draw();
+              $('#mixbodystyle').DataTable().rows.add(data.mix_changes_bodystyle); // Add new data
+              $('#mixbodystyle').DataTable().columns.adjust().draw();
+              
+              //content changes
+              $('#contentchangetrim').DataTable().clear().draw();
+              $('#contentchangetrim').DataTable().rows.add(data.content_changes); // Add new data
+              $('#contentchangetrim').DataTable().columns.adjust().draw();
+              
           }
           );
       });
@@ -596,10 +625,13 @@ $(document).ready(function() {
       let r =
         {
           country: document.querySelector("#country").value,
+          countryGroup: document.querySelector("#countryGroup").value,
           carline: document.querySelector("#carline").value,
           vehicleBrand: document.querySelector("#vehicleBrand").value,
           modelYear: document.querySelector("#modelYear").value
         };
+
+      let tableData; // placeholder for ajax tables data
         
       $.ajax({
         headers: { 
@@ -611,21 +643,23 @@ $(document).ready(function() {
         'data': JSON.stringify(r),
         'dataType': 'json',
         success: function (data) {
+          tableData = data,
+          console.log('tableData', data);
           $("#mainTable").dataTable({
-            data: data.data,
+            data: data.financial_summary,
             paging: false,
             ordering: false,
             bInfo: false,
             autoWidth: false,
             columns: [
-              { "data": "MeasureType_1" },
-              { "data": "EURTotalSubmission" },
-              { "data": "EURTotalBudget" },
-              { "data": "EURTotalPrevious" },
-              { "data": "EURVehicleSubmission" },
-              { "data": "EUROptionsSubmission" },
-              { "data": "EURVehiclePrevious" },
-              { "data": "EUROptionsPrevious" },
+              { "data": "measureType_1" },
+              { "data": "eurTotalSubmission" },
+              { "data": "eurTotalBudget" },
+              { "data": "eurTotalPrevious" },
+              { "data": "eurVehicleSubmission" },
+              { "data": "eurOptionsSubmission" },
+              { "data": "eurVehiclePrevious" },
+              { "data": "eurOptionsPrevious" },
             ],
             // "fnRowCallback": function(nRow, aData, iDisplayIndex) {
             //   if(aRow == "RBCV") {
@@ -642,15 +676,114 @@ $(document).ready(function() {
               alert("Data Tables ERROR: " + error)
             }
           });
+
+          $("#mixtrim").dataTable({
+            data: tableData.mix_changes_trimline,
+            searching: false,
+            paging: false,
+            ordering: false,
+            bInfo: false,
+            autoWidth: false,
+            columns: [
+              { "data": "name" },
+              { "data": "mixCurrentMY" },
+              { "data": "mixPreviousMy" },
+              { "data": "mixDelta" },
+            ],
+            "columnDefs": [
+              {
+                "render": $.fn.dataTable.render.number('.', ','),
+                "targets": '_all'
+              },
+            ],
+            error: function (error) {
+              alert("Data Tables ERROR: " + error)
+            }
+          });
+
+          $("#mixengine").dataTable({
+            data: tableData.mix_changes_engine,
+            searching: false,
+            paging: false,
+            ordering: false,
+            bInfo: false,
+            autoWidth: false,
+            columns: [
+              { "data": "name" },
+              { "data": "mixCurrentMY" },
+              { "data": "mixPreviousMy" },
+              { "data": "mixDelta" },
+            ],
+            "columnDefs": [
+              {
+                "render": $.fn.dataTable.render.number('.', ','),
+                "targets": '_all'
+              },
+            ],
+            error: function (error) {
+              alert("Data Tables ERROR: " + error)
+            }
+          });
+
+          $("#mixbodystyle").dataTable({
+            data: tableData.mix_changes_bodystyle,
+            searching: false,
+            paging: false,
+            ordering: false,
+            bInfo: false,
+            autoWidth: false,
+            columns: [
+              { "data": "name" },
+              { "data": "mixCurrentMY" },
+              { "data": "mixPreviousMy" },
+              { "data": "mixDelta" },
+            ],
+            "columnDefs": [
+              {
+                "render": $.fn.dataTable.render.number('.', ','),
+                "targets": '_all'
+              },
+            ],
+            error: function (error) {
+              alert("Data Tables ERROR: " + error)
+            }
+          });
+
+          $("#contentchangetrim").dataTable({
+            data: tableData.content_changes,
+            searching: false,
+            paging: false,
+            ordering: false,
+            bInfo: false,
+            autoWidth: false,
+            columns: [
+              { "data": "trimlineCodeGMUD2" },
+              { "data": "trimlineCodeLCDV" },
+              { "data": "cmoCurrentMY" },
+              { "data": "cmoPreviousMY" },
+              { "data": "changesAdded" },
+              { "data": "changesDroped" },
+              { "data": "impactOnPrices" },
+              { "data": "impactOnCosts" },
+            ],
+            "columnDefs": [
+              {
+                "render": $.fn.dataTable.render.number('.', ','),
+                "targets": '_all'
+              },
+            ],
+            error: function (error) {
+              alert("Data Tables ERROR: " + error)
+            }
+          });
+
         },
+
         error: function (error) {
           alert("AJAX ERROR: " + error)
         },
       });
-    
-
-
-
+          
 
     // $("a.toggle-vis").on("click", function (e) {
     //   e.preventDefault();
@@ -661,97 +794,7 @@ $(document).ready(function() {
     //   // Toggle the visibility
     //   column.visible(!column.visible());
     // });
-/*
-    $("#mixbodystyle").DataTable({
-      // responsive: true,
-      searching: false,
-      paging: false,
-      ordering: false,
-      bInfo: false,
-      autoWidth: false,
-      ajax: "./data/rPT_Summary_DetailsMix_BodyStyle.json",
-      columns: [
-        // { data: "MeasureType_1" },
-        { data: "MeasureType_subcategory_2" },
-        { data: "Mix Current" },
-        { data: "Mix Proposed" },
-        { data: "Mix Change" },
-      ],
-      // "columnDefs": [
-      //     { "render": $.fn.dataTable.render.number( '.', ','),
-      //       "targets":'_all'
-      //     },
-      // ],
-    });
-    $("#mixengine").DataTable({
-      // responsive: true,
-      paging: false,
-      searching: false,
-      ordering: false,
-      bInfo: false,
-      autoWidth: false,
-      ajax: "./data/rPT_Summary_DetailsMix_Engine.json",
-      columns: [
-        // { data: "MeasureType_1" },
-        { data: "MeasureType_subcategory_2" },
-        { data: "Mix Current" },
-        { data: "Mix Proposed" },
-        { data: "Mix Change" },
-      ],
-      // "columnDefs": [
-      //     { "render": $.fn.dataTable.render.number( '.', ','),
-      //       "targets":'_all'
-      //     },
-      // ],
-    });
-    $("#mixtrim").DataTable({
-      // responsive: true,
-      paging: false,
-      searching: false,
-      ordering: false,
-      bInfo: false,
-      autoWidth: false,
-      ajax: "./data/rPT_Summary_DetailsMix_Trimline.json",
-      columns: [
-        // { data: "MeasureType_1" },
-        { data: "MeasureType_subcategory_2" },
-        { data: "Mix Current" },
-        { data: "Mix Proposed" },
-        { data: "Mix Change" },
-      ],
-      // "columnDefs": [
-      //     { "render": $.fn.dataTable.render.number( '.', ','),
-      //       "targets":'_all'
-      //     },
-      // ],
-    });
-    $("#contentchangetrim").DataTable({
-      // responsive: true,
-      paging: false,
-      searching: false,
-      ordering: false,
-      bInfo: false,
-      autoWidth: false,
-      ajax: "./data/rPT_Summary_ContentChange_Trimline.json",
-      columns: [
-        { data: "TrimlineCodeGMUD2" },
-        { data: "TrimlineCodeLCDV" },
-        { data: "CMO_CurrentMY" },
-        { data: "CMO_PreviousMY" },
-        { data: "ChangesAdded" },
-        { data: "ChangesDroped" },
-        { data: "ImpactOnPrices" },
-        { data: "ImpactOnCosts" },
-      ],
-      // "columnDefs": [
-      //     { "render": $.fn.dataTable.render.number( '.', ','),
-      //       "targets":'_all'
-      //     },
-      // ],
-    });
 
-    
-    */
   </script>
 
   <!-- Option 2: jQuery, Popper.js, and Bootstrap JS

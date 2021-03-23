@@ -68,10 +68,18 @@
                 <label for="country">Country</label>
                 <select class="form-control" id="country">
                   <option>Switzerland</option>
-                  <option>Ireland</option>
+                  <option>Greece</option>
                   <option>Scotland</option>
                   <option>Portugal</option>
                   <option>Poland</option>
+                </select>
+              </div>
+              <div class="form-group col-12 col-sm-6 col-md-3">
+                <!-- TODO dodać value do wszystkich selectów -->
+                <label for="countryGroup">Country Group</label>
+                <select class="form-control" id="countryGroup">
+                  <option>CA</option>
+                  <option>B0</option>
                 </select>
               </div>
               <div class="form-group col-12 col-sm-6 col-md-3">
@@ -82,32 +90,35 @@
                   <option>Insignia</option>
                   <option>Corsa</option>
                   <option>Crossland</option>
+                  <option>P2JO (1GJO)</option>
                 </select>
               </div>
               <div class="form-group col-12 col-sm-6 col-md-3">
-                <label for="carline">Vehicle Brand</label>
-                <select class="form-control" id="carline">
-                  <option>Opel</option>
+                <label for="vehicleBrand">Vehicle Brand</label>
+                <select class="form-control" id="vehicleBrand">
+                  <option>0: Opel</option>
                   <option>Vauxhall</option>
+                  <option>G</option>
                 </select>
               </div>
               <div class="form-group col-12 col-sm-6 col-md-3">
-                <label for="carline">Model Year</label>
-                <select class="form-control" id="carline">
-                  <option>21.0</option>
+                <label for="modelYear">Model Year</label>
+                <select class="form-control" id="modelYear">
+                  <option>21.0A</option>
                   <option>20.0</option>
                   <option>19.0</option>
+                  <option>C6</option>
                 </select>
               </div>
             </div>
-            <button type="submit" class="btn btn-primary btn-submit">
+            <button id="submitButton" class="btn btn-primary">
               Submit
             </button>
           </form>
         </div>
       </div>
 
-      <div class="row">
+      <!-- <div class="row">
         <div class="col-auto">
           <span class="badge badge-primary bg-info">Switzerland</span>
         </div>
@@ -123,119 +134,44 @@
         <div class="col-auto">
           <span class="badge badge-primary">1,1 CHF = 1 EUR</span>
         </div>
-      </div>
+      </div> -->
 
       <div class="row">
         <div class="col">
           <div class="bd-callout">
             <p>
-              <button type="button" class="btn btn-outline-primary mb-3" disabled>Edit</button>
               <div class="row">
                 <div class="col-12 col-md-6">
-                  <span class="badge badge-primary">Input General</span>
-                  <ul class="list-group">
-                    <li
-                      class="list-group-item d-flex justify-content-between align-items-center"
-                    >
-                      Gross Sales Factor (Options) - From PDU
-                      <span class="badge badge-primary badge-pill">56%</span>
-                    </li>
-                    <li
-                      class="list-group-item d-flex justify-content-between align-items-center"
-                    >
-                      Gross Sales Factor (Vehicle) - From PDU<span
-                        class="badge badge-primary badge-pill"
-                        >52%</span
-                      >
-                    </li>
-                    <li
-                      class="list-group-item d-flex justify-content-between align-items-center yellow"
-                    >
-                      Other Taxes
-                      <span class="badge badge-primary badge-pill">0%</span>
-                    </li>
-                    <li
-                      class="list-group-item d-flex justify-content-between align-items-center yellow"
-                    >
-                      Local Currency
-                      <span class="badge badge-primary badge-pill">CHF</span>
-                    </li>
-                    <li
-                      class="list-group-item d-flex justify-content-between align-items-center yellow"
-                    >
-                      FX Rate
-                      <span class="badge badge-primary badge-pill">1.1</span>
-                    </li>
-                    <li
-                      class="list-group-item d-flex justify-content-between align-items-center yellow"
-                    >
-                      VAT
-                      <span class="badge badge-primary badge-pill">7.7%</span>
-                    </li>
-                    <li
-                      class="list-group-item d-flex justify-content-between align-items-center yellow"
-                    >
-                      Dealer Margin
-                      <span class="badge badge-primary badge-pill">10%</span>
-                    </li>
-                    <li
-                      class="list-group-item d-flex justify-content-between align-items-center yellow"
-                    >
-                      Default MSRP Type
-                      <span class="badge badge-primary badge-pill"
-                        >1. Incuding Taxes</span
-                      >
-                    </li>
-                    <li
-                      class="list-group-item d-flex justify-content-between align-items-center yellow"
-                    >
-                      Importer Margin
-                      <span class="badge badge-primary badge-pill">30%</span>
-                    </li>
-                    <li
-                      class="list-group-item d-flex justify-content-between align-items-center yellow"
-                    >
-                      Importer Margin on Options
-                      <span class="badge badge-primary badge-pill">25%</span>
-                    </li>
-                    <li
-                      class="list-group-item d-flex justify-content-between align-items-center yellow"
-                    >
-                      Sales Allowances (% of PDU)
-                      <span class="badge badge-primary badge-pill">3%</span>
-                    </li>
-                  </ul>
+                  <button type="button" class="btn btn-outline-primary mb-3" disabled>Edit</button>
+                  <!-- <span class="badge badge-primary">Input General</span> -->
+                  <div class="table-responsive">
+                    <table class="table table-sm table-striped table-bordered" id = "inputgeneral">
+                      <thead class="thead-light">
+                        <tr>
+                          <th scope="col"><div><span>Input General</span></div></th>
+                          <th scope="col"><div><span>Value</span></div></th>
+                        </tr>
+                      </thead>
+                    </table>
+                  </div>
                 </div>
                 <div class="col-12 col-md-6">
-                  <span class="badge badge-primary">Other</span>
-                  <ul class="list-group">
-                    <li
-                      class="list-group-item d-flex justify-content-between align-items-center yellow"
+                  <!-- <span class="badge badge-primary">Other</span> -->
+                  <button type="button" class="btn btn-outline-primary mb-3" disabled>Edit</button>
+              
+                  <div class="table-responsive">
+                    <table
+                      class="table table-sm table-striped table-bordered"
+                      id = "inputother"
                     >
-                      GMUD / LCDV Base
-                      <span class="badge badge-primary badge-pill"
-                        >0MC76EU6</span
-                      >
-                    </li>
-                    <li
-                      class="list-group-item d-flex justify-content-between align-items-center"
-                    >
-                      MSRP Base
-                      <span class="badge badge-primary badge-pill">23.915</span>
-                    </li>
-                    <li
-                      class="list-group-item d-flex justify-content-between align-items-center"
-                    >
-                      PDU
-                      <span class="badge badge-primary badge-pill">12.340</span>
-                    </li>
-                    <li
-                      class="list-group-item d-flex justify-content-between align-items-center"
-                    >
-                      Cost
-                      <span class="badge badge-primary badge-pill">9.720</span>
-                    </li>
-                  </ul>
+                      <thead class="thead-light">
+                        <tr>
+                          <th scope="col"><div><span>Input Other</span></div></th>
+                          <th scope="col"><div><span>Value</span></div></th>
+                        </tr>
+                      </thead>
+                    </table>
+                  </div>
                 </div>
               </div>
             
@@ -250,9 +186,111 @@
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <!-- <script src="./js/jquery-3.5.1.slim.min.js"></script> -->
     <!-- TODO: do sprawdzenia wersje jQuery, bo coś DataTables świruje przy ładowaniu wersji jQuery Bootstrapa z dysku -->
-
+    <script src="https://cdn.datatables.net/select/1.3.2/js/dataTables.select.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.7.0/js/dataTables.buttons.min.js"></script>
     <script src="../js/bootstrap.bundle.min.js"></script>
     <script src="../js/offcanvas.js"></script>
     <script src="../js/dataTable.jquery.js"></script>
+    <script>
+      $(document).ready(function () {
+        document.querySelector("#submitButton").addEventListener("click", (e) => {
+          e.preventDefault();
+          let r =
+          {
+            country: document.querySelector("#country").value,
+            countryGroup: document.querySelector("#countryGroup").value,
+            carline: document.querySelector("#carline").value,
+            vehicleBrand: document.querySelector("#vehicleBrand").value,
+            modelYear: document.querySelector("#modelYear").value
+          };
+    
+          fetch('../InputGeneralInformation', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(r)
+          })
+            .then(response => response.json())
+            .then(data => {
+                //input_general
+                $('#inputgeneral').DataTable().clear().draw();
+                $('#inputgeneral').DataTable().rows.add(data.input_general);
+                $('#inputgeneral').DataTable().columns.adjust().draw();
+                
+                //input_other
+                $('#inputother').DataTable().clear().draw();
+                $('#inputother').DataTable().rows.add(data.input_other);
+                $('#inputother').DataTable().columns.adjust().draw();
+ 
+            });
+        });
+      });
+  
+        let r =
+          {
+            country: document.querySelector("#country").value,
+            countryGroup: document.querySelector("#countryGroup").value,
+            carline: document.querySelector("#carline").value,
+            vehicleBrand: document.querySelector("#vehicleBrand").value,
+            modelYear: document.querySelector("#modelYear").value
+          };
+  
+        let tableData; // placeholder for ajax tables data
+          
+        $.ajax({
+          headers: { 
+            'Accept': 'application/json',
+            'Content-Type': 'application/json' 
+          },
+          'type': 'POST',
+          'url': "../InputGeneralInformation",
+          'data': JSON.stringify(r),
+          'dataType': 'json',
+          success: function (data) {
+            tableData = data,
+            console.log('tableData', data);
+            $("#inputgeneral").dataTable({
+              data: data.input_general,
+              select: true,
+              paging: false,
+              ordering: false,
+              bInfo: false,
+              autoWidth: false,
+              searching: false,
+              columns: [
+                { "data": "measureTypeSubcategory" },
+                { "data": "value" },
+              ],
+              rows: [{selected: true}],
+              error: function (error) {
+                alert("Data Tables ERROR: " + error)
+              }
+            });
+            $("#inputother").dataTable({
+              data: data.input_other,
+              paging: false,
+              ordering: false,
+              bInfo: false,
+              autoWidth: false,
+              searching: false,
+              columns: [
+                { "data": "measureTypeSubcategory" },
+                { "data": "value" },
+              ],
+              error: function (error) {
+                alert("Data Tables ERROR: " + error)
+              }
+            });
+  },
+
+          error: function (error) {
+            alert("AJAX ERROR: " + error)
+          },
+        });
+              
+    </script>
+
   </body>
 </html>

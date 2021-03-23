@@ -78,7 +78,6 @@
           <form action="">
             <div class="row">
               <div class="form-group col-12 col-sm-6 col-md-3">
-                <!-- TODO dodać value do wszystkich selectów -->
                 <label for="country">Country</label>
                 <select class="form-control" id="country">
                   <option>Switzerland</option>
@@ -86,6 +85,12 @@
                   <option>Scotland</option>
                   <option>Portugal</option>
                   <option>Poland</option>
+                </select>
+              </div>
+              <div class="form-group col-12 col-sm-6 col-md-3">
+                <label for="countryGroup">Country Group</label>
+                <select class="form-control" id="countryGroup">
+                  <option>CA</option>
                 </select>
               </div>
               <div class="form-group col-12 col-sm-6 col-md-3">
@@ -99,29 +104,29 @@
                 </select>
               </div>
               <div class="form-group col-12 col-sm-6 col-md-3">
-                <label for="carline">Vehicle Brand</label>
-                <select class="form-control" id="carline">
-                  <option>Opel</option>
+                <label for="vehicleBrand">Vehicle Brand</label>
+                <select class="form-control" id="vehicleBrand">
+                  <option>0: Opel</option>
                   <option>Vauxhall</option>
                 </select>
               </div>
               <div class="form-group col-12 col-sm-6 col-md-3">
-                <label for="carline">Model Year</label>
-                <select class="form-control" id="carline">
-                  <option>21.0</option>
+                <label for="modelYear">Model Year</label>
+                <select class="form-control" id="modelYear">
+                  <option>21.0A</option>
                   <option>20.0</option>
                   <option>19.0</option>
                 </select>
               </div>
             </div>
-            <button type="submit" class="btn btn-primary btn-submit">
+            <button id="submitButton" class="btn btn-primary">
               Submit
             </button>
           </form>
         </div>
       </div>
 
-      <div class="row">
+      <!-- <div class="row">
         <div class="col-auto">
           <span class="badge badge-primary bg-info">Switzerland</span>
         </div>
@@ -137,7 +142,7 @@
         <div class="col-auto">
           <span class="badge badge-primary">1,1 CHF = 1 EUR</span>
         </div>
-      </div>
+      </div> -->
 
       <div class="row">
         <div class="col">
@@ -152,25 +157,11 @@
                     class="custom-select my-1 mr-sm-2"
                     id="overviewTableFor"
                   >
-                    <!-- TODO poprawić value dla wszystkich option -->
+                    
                     <option value="0">Engines</option>
                     <option selected value="1">Trims</option>
                     <option value="2">Body style</option>
-                    <!-- <option selected value="0">
-                      Vehicle + options variance
-                    </option>
-                    <option value="1">Vehicle variance</option>
-                    <option value="2">Options variance</option>
-                    <option value="3">Vehicle + options submission</option>
-                    <option value="4">Vehicle submission</option>
-                    <option value="5">Options submission</option>
-                    <option value="6">
-                      Vehicle + options previous business case
-                    </option>
-                    <option value="7">Vehicle previous business case</option>
-                    <option value="8">Options previous business case</option> -->
                   </select>
-                  <!-- TODO dodać przycisk submit -->
                 </form>
 
                 <div class="row mt-5">
@@ -189,12 +180,12 @@
                           <div class="table-responsive">
                             <div class="col mt-4">
                               <p class="yellow">VEHICLE + OPTIONS</p>
-                              <table
+                              <table id= "trimlinevehicleoptionsvariancesubtab1"
                                 class="table table-sm table-striped table-bordered"
                               >
                                 <thead class="thead-light">
                                   <tr>
-                                    <th colspan="4"><div><span></span></div></th>
+                                    <th colspan="3"><div><span></span></div></th>
                                     <th colspan="3"><div><span>Mix in %</span></div></th>
                                     <th colspan="3"><div><span>List Price Incl. Taxes in LC</span></div></th>
                                     <th colspan="3"><div><span>List Price Excl. Taxes in LC</span></div></th>
@@ -204,99 +195,37 @@
                                   </tr>
                                   <tr>
                                     <th scope="col"><div><span>LCDV</span></div></th>
-                                    <th scope="col"><div><span>Code</span></div></th>
                                     <th scope="col"><div><span>RPO</span></div></th>
                                     <th scope="col"><div><span>Name</span></div></th>
                                     <th scope="col"><div><span>Prev. MY</span></div></th>
                                     <th scope="col"><div><span>Curr. MY</span></div></th>
-                                    <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16">
-                                      <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
-                                    </svg></span></div></th>
+                                    <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg></span></div></th>
                                     <th scope="col"><div><span>Prev. MY</span></div></th>
                                     <th scope="col"><div><span>Curr. MY</span></div></th>
-                                    <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16">
-                                      <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
-                                    </svg></span></div></th>
+                                    <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg></span></div></th>
                                     <th scope="col"><div><span>Prev. MY</span></div></th>
                                     <th scope="col"><div><span>Curr. MY</span></div></th>
-                                    <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16">
-                                      <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
-                                    </svg></span></div></th>
+                                    <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg></span></div></th>
                                     <th scope="col"><div><span>Prev. MY</span></div></th>
                                     <th scope="col"><div><span>Curr. MY</span></div></th>
-                                    <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16">
-                                      <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
-                                    </svg></span></div></th>
+                                    <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg></span></div></th>
                                     <th scope="col"><div><span>Prev. MY</span></div></th>
                                     <th scope="col"><div><span>Curr. MY</span></div></th>
-                                    <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16">
-                                      <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
-                                    </svg></span></div></th>
+                                    <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg></span></div></th>
                                     <th scope="col"><div><span>Prev. MY</span></div></th>
                                     <th scope="col"><div><span>Curr. MY</span></div></th>
-                                    <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16">
-                                      <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
-                                    </svg></span></div></th>
-                                  </tr>
+                                    <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg></span></div></th>
+                                    </tr>
                                 </thead>
-                                <tbody>
-                                  <tr>
-                                    <td scope="col" class="bold"><div><span>FA0</span></div></td>
-                                    <td scope="col" class="bold"><div><span>B</span></div></td>
-                                    <td scope="col" class="bold"><div><span></span></div></td>
-                                    <td scope="col" class="bold"><div><span>Base</span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span>0%</span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                  </tr>
-                                  <tr>
-                                    <td scope="col" class="bold"><div><span>GA0</span></div></td>
-                                    <td scope="col" class="bold"><div><span>C</span></div></td>
-                                    <td scope="col" class="bold"><div><span></span></div></td>
-                                    <td scope="col" class="bold"><div><span>Edition</span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span>5%</span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span>24.452</span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span>26.445</span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span>14.689</span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                  </tr>
-                                </tbody>
                               </table>
                               <p class="yellow">VEHICLE</p>
                               <table
                                 class="table table-sm table-striped table-bordered"
+                                id = "trimlinevehiclevariancesubtab1"
                               >
                                 <thead class="thead-light">
                                   <tr>
-                                    <th colspan="4"><div><span></span></div></th>
+                                    <th colspan="3"><div><span></span></div></th>
                                     <th colspan="3"><div><span>Mix in %</span></div></th>
                                     <th colspan="3"><div><span>List Price Incl. Taxes in LC</span></div></th>
                                     <th colspan="3"><div><span>List Price Excl. Taxes in LC</span></div></th>
@@ -306,99 +235,37 @@
                                   </tr>
                                   <tr>
                                     <th scope="col"><div><span>LCDV</span></div></th>
-                                    <th scope="col"><div><span>Code</span></div></th>
                                     <th scope="col"><div><span>RPO</span></div></th>
                                     <th scope="col"><div><span>Name</span></div></th>
                                     <th scope="col"><div><span>Prev. MY</span></div></th>
                                     <th scope="col"><div><span>Curr. MY</span></div></th>
-                                    <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16">
-                                      <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
-                                    </svg></span></div></th>
+                                    <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg></span></div></th>
                                     <th scope="col"><div><span>Prev. MY</span></div></th>
                                     <th scope="col"><div><span>Curr. MY</span></div></th>
-                                    <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16">
-                                      <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
-                                    </svg></span></div></th>
+                                    <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg></span></div></th>
                                     <th scope="col"><div><span>Prev. MY</span></div></th>
                                     <th scope="col"><div><span>Curr. MY</span></div></th>
-                                    <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16">
-                                      <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
-                                    </svg></span></div></th>
+                                    <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg></span></div></th>
                                     <th scope="col"><div><span>Prev. MY</span></div></th>
                                     <th scope="col"><div><span>Curr. MY</span></div></th>
-                                    <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16">
-                                      <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
-                                    </svg></span></div></th>
+                                    <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg></span></div></th>
                                     <th scope="col"><div><span>Prev. MY</span></div></th>
                                     <th scope="col"><div><span>Curr. MY</span></div></th>
-                                    <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16">
-                                      <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
-                                    </svg></span></div></th>
+                                    <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg></span></div></th>
                                     <th scope="col"><div><span>Prev. MY</span></div></th>
                                     <th scope="col"><div><span>Curr. MY</span></div></th>
-                                    <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16">
-                                      <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
-                                    </svg></span></div></th>
+                                    <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg></span></div></th>
                                   </tr>
                                 </thead>
-                                <tbody>
-                                  <tr>
-                                    <td scope="col" class="bold"><div><span>FA0</span></div></td>
-                                    <td scope="col" class="bold"><div><span>B</span></div></td>
-                                    <td scope="col" class="bold"><div><span></span></div></td>
-                                    <td scope="col" class="bold"><div><span>Base</span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span>0%</span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                  </tr>
-                                  <tr>
-                                    <td scope="col" class="bold"><div><span>GA0</span></div></td>
-                                    <td scope="col" class="bold"><div><span>C</span></div></td>
-                                    <td scope="col" class="bold"><div><span></span></div></td>
-                                    <td scope="col" class="bold"><div><span>Edition</span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span>5%</span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span>23.159</span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span>25.046</span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span>13.918</span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                  </tr>
-                                </tbody>
                               </table>
                               <p class="yellow">OPTIONS</p>
                               <table
                                 class="table table-sm table-striped table-bordered"
+                                id = "trimlineoptionsvariancesubtab1"
                               >
                                 <thead class="thead-light">
                                   <tr>
-                                    <th colspan="4"><div><span></span></div></th>
+                                    <th colspan="3"><div><span></span></div></th>
                                     <th colspan="3"><div><span>Mix in %</span></div></th>
                                     <th colspan="3"><div><span>List Price Incl. Taxes in LC</span></div></th>
                                     <th colspan="3"><div><span>List Price Excl. Taxes in LC</span></div></th>
@@ -408,91 +275,28 @@
                                   </tr>
                                   <tr>
                                     <th scope="col"><div><span>LCDV</span></div></th>
-                                    <th scope="col"><div><span>Code</span></div></th>
                                     <th scope="col"><div><span>RPO</span></div></th>
                                     <th scope="col"><div><span>Name</span></div></th>
                                     <th scope="col"><div><span>Prev. MY</span></div></th>
                                     <th scope="col"><div><span>Curr. MY</span></div></th>
-                                    <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16">
-                                      <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
-                                    </svg></span></div></th>
+                                    <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg></span></div></th>
                                     <th scope="col"><div><span>Prev. MY</span></div></th>
                                     <th scope="col"><div><span>Curr. MY</span></div></th>
-                                    <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16">
-                                      <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
-                                    </svg></span></div></th>
+                                    <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg></span></div></th>
                                     <th scope="col"><div><span>Prev. MY</span></div></th>
                                     <th scope="col"><div><span>Curr. MY</span></div></th>
-                                    <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16">
-                                      <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
-                                    </svg></span></div></th>
+                                    <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg></span></div></th>
                                     <th scope="col"><div><span>Prev. MY</span></div></th>
                                     <th scope="col"><div><span>Curr. MY</span></div></th>
-                                    <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16">
-                                      <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
-                                    </svg></span></div></th>
+                                    <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg></span></div></th>
                                     <th scope="col"><div><span>Prev. MY</span></div></th>
                                     <th scope="col"><div><span>Curr. MY</span></div></th>
-                                    <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16">
-                                      <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
-                                    </svg></span></div></th>
+                                    <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg></span></div></th>
                                     <th scope="col"><div><span>Prev. MY</span></div></th>
                                     <th scope="col"><div><span>Curr. MY</span></div></th>
-                                    <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16">
-                                      <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
-                                    </svg></span></div></th>
+                                    <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg></span></div></th>
                                   </tr>
                                 </thead>
-                                <tbody>
-                                  <tr>
-                                    <td scope="col" class="bold"><div><span>FA0</span></div></td>
-                                    <td scope="col" class="bold"><div><span>B</span></div></td>
-                                    <td scope="col" class="bold"><div><span></span></div></td>
-                                    <td scope="col" class="bold"><div><span>Base</span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span>0%</span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                  </tr>
-                                  <tr>
-                                    <td scope="col" class="bold"><div><span>GA0</span></div></td>
-                                    <td scope="col" class="bold"><div><span>C</span></div></td>
-                                    <td scope="col" class="bold"><div><span></span></div></td>
-                                    <td scope="col" class="bold"><div><span>Edition</span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span>5%</span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span>1.293</span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span>1.399</span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span>771</span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                    <td scope="col"><div><span></span></div></td>
-                                  </tr>
-                                </tbody>
                               </table>
                             </div>
                           </div>
@@ -507,10 +311,11 @@
                                 <p class="yellow">VEHICLE + OPTIONS</p>
                                 <table
                                   class="table table-sm table-striped table-bordered"
+                                  id = "trimlinevehicleoptionsvariancesubtab2"
                                 >
                                   <thead class="thead-light">
                                     <tr>
-                                      <th colspan="4"><div><span></span></div></th>
+                                      <th colspan="3"><div><span></span></div></th>
                                       <th colspan="3"><div><span>Importer Gross Margin EUR</span></div></th>
                                       <th colspan="3"><div><span>Importer Gross Margin %</span></div></th>
                                       <th colspan="3"><div><span>Importer Net Margin EUR</span></div></th>
@@ -521,110 +326,40 @@
                                     </tr>
                                     <tr>
                                       <th scope="col"><div><span>LCDV</span></div></th>
-                                      <th scope="col"><div><span>Code</span></div></th>
                                       <th scope="col"><div><span>RPO</span></div></th>
                                       <th scope="col"><div><span>Name</span></div></th>
                                       <th scope="col"><div><span>Prev. MY</span></div></th>
                                       <th scope="col"><div><span>Curr. MY</span></div></th>
-                                      <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16">
-                                        <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
-                                      </svg></span></div></th>
+                                      <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg></span></div></th>
                                       <th scope="col"><div><span>Prev. MY</span></div></th>
                                       <th scope="col"><div><span>Curr. MY</span></div></th>
-                                      <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16">
-                                        <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
-                                      </svg></span></div></th>
+                                      <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg></span></div></th>
                                       <th scope="col"><div><span>Prev. MY</span></div></th>
                                       <th scope="col"><div><span>Curr. MY</span></div></th>
-                                      <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16">
-                                        <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
-                                      </svg></span></div></th>
+                                      <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg></span></div></th>
                                       <th scope="col"><div><span>Prev. MY</span></div></th>
                                       <th scope="col"><div><span>Curr. MY</span></div></th>
-                                      <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16">
-                                        <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
-                                      </svg></span></div></th>
+                                      <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg></span></div></th>
                                       <th scope="col"><div><span>Prev. MY</span></div></th>
                                       <th scope="col"><div><span>Curr. MY</span></div></th>
-                                      <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16">
-                                        <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
-                                      </svg></span></div></th>
+                                      <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg></span></div></th>
                                       <th scope="col"><div><span>Prev. MY</span></div></th>
                                       <th scope="col"><div><span>Curr. MY</span></div></th>
-                                      <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16">
-                                        <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
-                                      </svg></span></div></th>
+                                      <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg></span></div></th>
                                       <th scope="col"><div><span>Prev. MY</span></div></th>
                                       <th scope="col"><div><span>Curr. MY</span></div></th>
-                                      <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16">
-                                        <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
-                                      </svg></span></div></th>
+                                      <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg></span></div></th>
                                     </tr>
                                   </thead>
-                                  <tbody>
-                                    <tr>
-                                      <td scope="col" class="bold"><div><span>FA0</span></div></td>
-                                      <td scope="col" class="bold"><div><span>B</span></div></td>
-                                      <td scope="col" class="bold"><div><span></span></div></td>
-                                      <td scope="col" class="bold"><div><span>Base</span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                    </tr>
-                                    <tr>
-                                      <td scope="col" class="bold"><div><span>GA0</span></div></td>
-                                      <td scope="col" class="bold"><div><span>C</span></div></td>
-                                      <td scope="col" class="bold"><div><span></span></div></td>
-                                      <td scope="col" class="bold"><div><span>Edition</span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span>1.000</span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span>1.000</span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span>1.000</span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span>1.000</span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span>1.000</span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span>1.000</span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span>1.000</span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                    </tr>
-                                  </tbody>
                                 </table>
                                 <p class="yellow">VEHICLE</p>
                                 <table
                                   class="table table-sm table-striped table-bordered"
+                                  id = "trimlinevehiclevariancesubtab2"
                                 >
                                   <thead class="thead-light">
                                     <tr>
-                                      <th colspan="4"><div><span></span></div></th>
+                                      <th colspan="3"><div><span></span></div></th>
                                       <th colspan="3"><div><span>Importer Gross Margin EUR</span></div></th>
                                       <th colspan="3"><div><span>Importer Gross Margin %</span></div></th>
                                       <th colspan="3"><div><span>Importer Net Margin EUR</span></div></th>
@@ -635,110 +370,40 @@
                                     </tr>
                                     <tr>
                                       <th scope="col"><div><span>LCDV</span></div></th>
-                                      <th scope="col"><div><span>Code</span></div></th>
                                       <th scope="col"><div><span>RPO</span></div></th>
                                       <th scope="col"><div><span>Name</span></div></th>
                                       <th scope="col"><div><span>Prev. MY</span></div></th>
                                       <th scope="col"><div><span>Curr. MY</span></div></th>
-                                      <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16">
-                                        <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
-                                      </svg></span></div></th>
+                                      <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg></span></div></th>
                                       <th scope="col"><div><span>Prev. MY</span></div></th>
                                       <th scope="col"><div><span>Curr. MY</span></div></th>
-                                      <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16">
-                                        <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
-                                      </svg></span></div></th>
+                                      <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg></span></div></th>
                                       <th scope="col"><div><span>Prev. MY</span></div></th>
                                       <th scope="col"><div><span>Curr. MY</span></div></th>
-                                      <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16">
-                                        <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
-                                      </svg></span></div></th>
+                                      <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg></span></div></th>
                                       <th scope="col"><div><span>Prev. MY</span></div></th>
                                       <th scope="col"><div><span>Curr. MY</span></div></th>
-                                      <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16">
-                                        <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
-                                      </svg></span></div></th>
+                                      <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg></span></div></th>
                                       <th scope="col"><div><span>Prev. MY</span></div></th>
                                       <th scope="col"><div><span>Curr. MY</span></div></th>
-                                      <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16">
-                                        <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
-                                      </svg></span></div></th>
+                                      <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg></span></div></th>
                                       <th scope="col"><div><span>Prev. MY</span></div></th>
                                       <th scope="col"><div><span>Curr. MY</span></div></th>
-                                      <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16">
-                                        <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
-                                      </svg></span></div></th>
+                                      <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg></span></div></th>
                                       <th scope="col"><div><span>Prev. MY</span></div></th>
                                       <th scope="col"><div><span>Curr. MY</span></div></th>
-                                      <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16">
-                                        <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
-                                      </svg></span></div></th>
+                                      <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg></span></div></th>
                                     </tr>
                                   </thead>
-                                  <tbody>
-                                    <tr>
-                                      <td scope="col" class="bold"><div><span>FA0</span></div></td>
-                                      <td scope="col" class="bold"><div><span>B</span></div></td>
-                                      <td scope="col" class="bold"><div><span></span></div></td>
-                                      <td scope="col" class="bold"><div><span>Base</span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span>0%</span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                    </tr>
-                                    <tr>
-                                      <td scope="col" class="bold"><div><span>GA0</span></div></td>
-                                      <td scope="col" class="bold"><div><span>C</span></div></td>
-                                      <td scope="col" class="bold"><div><span></span></div></td>
-                                      <td scope="col" class="bold"><div><span>Edition</span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span>1.000</span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span>1.000</span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span>1.000</span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span>1.000</span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span>1.000</span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span>1.000</span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span>1.000</span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                    </tr>
-                                  </tbody>
                                 </table>
-                                <p class="yellow">OPTIONS</p>
+                                <p class = "yellow">OPTIONS</p>
                                 <table
-                                  class="table table-sm table-striped table-bordered"
+                                  class = "table table-sm table-striped table-bordered"
+                                  id = "trimlineoptionsvariancesubtab2"
                                 >
                                   <thead class="thead-light">
                                     <tr>
-                                      <th colspan="4"><div><span></span></div></th>
+                                      <th colspan="3"><div><span></span></div></th>
                                       <th colspan="3"><div><span>Importer Gross Margin EUR</span></div></th>
                                       <th colspan="3"><div><span>Importer Gross Margin %</span></div></th>
                                       <th colspan="3"><div><span>Importer Net Margin EUR</span></div></th>
@@ -749,102 +414,31 @@
                                     </tr>
                                     <tr>
                                       <th scope="col"><div><span>LCDV</span></div></th>
-                                      <th scope="col"><div><span>Code</span></div></th>
                                       <th scope="col"><div><span>RPO</span></div></th>
                                       <th scope="col"><div><span>Name</span></div></th>
                                       <th scope="col"><div><span>Prev. MY</span></div></th>
                                       <th scope="col"><div><span>Curr. MY</span></div></th>
-                                      <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16">
-                                        <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
-                                      </svg></span></div></th>
+                                      <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg></span></div></th>
                                       <th scope="col"><div><span>Prev. MY</span></div></th>
                                       <th scope="col"><div><span>Curr. MY</span></div></th>
-                                      <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16">
-                                        <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
-                                      </svg></span></div></th>
+                                      <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg></span></div></th>
                                       <th scope="col"><div><span>Prev. MY</span></div></th>
                                       <th scope="col"><div><span>Curr. MY</span></div></th>
-                                      <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16">
-                                        <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
-                                      </svg></span></div></th>
+                                      <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg></span></div></th>
                                       <th scope="col"><div><span>Prev. MY</span></div></th>
                                       <th scope="col"><div><span>Curr. MY</span></div></th>
-                                      <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16">
-                                        <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
-                                      </svg></span></div></th>
+                                      <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg></span></div></th>
                                       <th scope="col"><div><span>Prev. MY</span></div></th>
                                       <th scope="col"><div><span>Curr. MY</span></div></th>
-                                      <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16">
-                                        <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
-                                      </svg></span></div></th>
+                                      <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg></span></div></th>
                                       <th scope="col"><div><span>Prev. MY</span></div></th>
                                       <th scope="col"><div><span>Curr. MY</span></div></th>
-                                      <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16">
-                                        <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
-                                      </svg></span></div></th>
+                                      <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg></span></div></th>
                                       <th scope="col"><div><span>Prev. MY</span></div></th>
                                       <th scope="col"><div><span>Curr. MY</span></div></th>
-                                      <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16">
-                                        <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
-                                      </svg></span></div></th>
+                                      <th scope="col"><div><span><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16"><path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/></svg></span></div></th>
                                     </tr>
                                   </thead>
-                                  <tbody>
-                                    <tr>
-                                      <td scope="col" class="bold"><div><span>FA0</span></div></td>
-                                      <td scope="col" class="bold"><div><span>B</span></div></td>
-                                      <td scope="col" class="bold"><div><span></span></div></td>
-                                      <td scope="col" class="bold"><div><span>Base</span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span>0%</span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                    </tr>
-                                    <tr>
-                                      <td scope="col" class="bold"><div><span>GA0</span></div></td>
-                                      <td scope="col" class="bold"><div><span>C</span></div></td>
-                                      <td scope="col" class="bold"><div><span></span></div></td>
-                                      <td scope="col" class="bold"><div><span>Edition</span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span>1.000</span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span>1.000</span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span>1.000</span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span>1.000</span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span>1.000</span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span>1.000</span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                      <td scope="col"><div><span>1.000</span></div></td>
-                                      <td scope="col"><div><span></span></div></td>
-                                    </tr>
-                                  </tbody>
                                 </table>
                               </div>
                             </div>
@@ -871,251 +465,338 @@
     <script src="../js/bootstrap.bundle.min.js"></script>
     <script src="../js/offcanvas.js"></script>
     <script src="../js/dataTable.jquery.js"></script>
+    <script src="../js/dataTables.responsive.min.js"></script>
     <script src="https://cdn.datatables.net/fixedcolumns/3.3.2/js/dataTables.fixedColumns.min.js"></script>
+    
     <script>
       $(document).ready(function () {
-
-        $("#vehicleoptionsvariance").DataTable({
-          // scrollX:        true,
-        // scrollCollapse: true,
-          // fixedColumns:   {
-          //   leftColumns: 2
-          // },
-          ajax: "../data/TODO_v_rPT_Overview_TRIMLINE_VEHICLE_OPTIONS_VARIANCE.json",
-          columns: [
-            { data: "LCDV" },
-            { data: "Name" },
-            { data: "Code" },
-            { data: "Previous Code" },
-            { data: "Mix" },
-            { data: "Mix_2" },
-            { data: "List Price Including Taxes LC" },
-            { data: "List Price Excluding Taxes LC" },
-            { data: "Dealer Margin €" },
-            { data: "Gross Sales / PDU (LC/EUR)" },
-            { data: "Importer Gross Margin €" },
-            { data: "Importer Gross Margin %" },
-            { data: "Country Gross Margin (i+d) %" },
-            { data: "Commercial Margin Opel EUR" },
-            { data: "Commercial Margin Opel %" },
-          ],
-          "columnDefs": [
-    { className: "bold", "targets": [ 0,1,2,3,4 ] },
-    { "render": $.fn.dataTable.render.number( '.', ','),
-                "targets":'_all'},
-  ]
+        document.querySelector("#submitButton").addEventListener("click", (e) => {
+          e.preventDefault();
+          let r =
+          {
+            country: document.querySelector("#country").value,
+            countryGroup: document.querySelector("#countryGroup").value,
+            carline: document.querySelector("#carline").value,
+            vehicleBrand: document.querySelector("#vehicleBrand").value,
+            modelYear: document.querySelector("#modelYear").value
+          };
+    
+          fetch('../DetailedVarianceAnalysis', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(r)
+          })
+            .then(response => response.json())
+            .then(data => {
+                //trimline vehicle options variance subtab1
+                $('#trimlinevehicleoptionsvariancesubtab1').DataTable().clear().draw();
+                $('#trimlinevehicleoptionsvariancesubtab1').DataTable().rows.add(data.trimline_vehicle_options_subtab1);
+                $('#trimlinevehicleoptionsvariancesubtab1').DataTable().columns.adjust().draw();
+  
+                // trimline vehicle variance subtab1
+                $('#trimlinevehiclevariancesubtab1').DataTable().clear().draw();
+                $('#trimlinevehiclevariancesubtab1').DataTable().rows.add(data.trimline_vehicle_subtab1); // Add new data
+                $('#trimlinevehiclevariancesubtab1').DataTable().columns.adjust().draw();
+  
+                // trimline options variance subtab1
+                $('#trimlineoptionsvariancesubtab1').DataTable().clear().draw();
+                $('#trimlineoptionsvariancesubtab1').DataTable().rows.add(data.trimline_options_subtab1); // Add new data
+                $('#trimlineoptionsvariancesubtab1').DataTable().columns.adjust().draw();
+                
+                //trimline vehicle options variance subtab2
+                $('#trimlinevehicleoptionsvariancesubtab2').DataTable().clear().draw();
+                $('#trimlinevehicleoptionsvariancesubtab2').DataTable().rows.add(data.trimline_vehicle_options_subtab2);
+                $('#trimlinevehicleoptionsvariancesubtab2').DataTable().columns.adjust().draw();
+  
+                // trimline vehicle variance subtab2
+                $('#trimlinevehiclevariancesubtab2').DataTable().clear().draw();
+                $('#trimlinevehiclevariancesubtab2').DataTable().rows.add(data.trimline_vehicle_subtab2); // Add new data
+                $('#trimlinevehiclevariancesubtab2').DataTable().columns.adjust().draw();
+  
+                // trimline options variance subtab2
+                $('#trimlineoptionsvariancesubtab2').DataTable().clear().draw();
+                $('#trimlineoptionsvariancesubtab2').DataTable().rows.add(data.trimline_options_subtab2); // Add new data
+                $('#trimlineoptionsvariancesubtab2').DataTable().columns.adjust().draw();
+            }
+            );
         });
-        
-        $("#vehiclevariance").DataTable({
-          ajax: "../data/TODO_v_rPT_Overview_TRIMLINE_VEHICLE_VARIANCE.json",
-          columns: [
-            { data: "LCDV" },
-            { data: "Name" },
-            { data: "Code" },
-            { data: "Previous Code" },
-            { data: "Mix" },
-            { data: "Mix_2" },
-            { data: "List Price Including Taxes LC" },
-            { data: "List Price Excluding Taxes LC" },
-            { data: "Dealer Margin €" },
-            { data: "Gross Sales / PDU (LC/EUR)" },
-            { data: "Importer Gross Margin €" },
-            { data: "Importer Gross Margin %" },
-            { data: "Country Gross Margin (i+d) %" },
-            { data: "Commercial Margin Opel EUR" },
-            { data: "Commercial Margin Opel %" },
-          ],
-          "columnDefs": [
-    { className: "bold", "targets": [ 0,1,2,3,4 ] },
-    { "render": $.fn.dataTable.render.number( '.', ','),
-                "targets":'_all'},
-  ]
-        });
-
-        $("#optionsvariance").DataTable({
-          ajax: "../data/TODO_v_rPT_Overview_TRIMLINE_OPTIONS_VARIANCE.json",
-          columns: [
-            { data: "LCDV" },
-            { data: "Name" },
-            { data: "Code" },
-            { data: "Previous Code" },
-            { data: "Mix" },
-            { data: "Mix_2" },
-            { data: "List Price Including Taxes LC" },
-            { data: "List Price Excluding Taxes LC" },
-            { data: "Dealer Margin €" },
-            { data: "Gross Sales / PDU (LC/EUR)" },
-            { data: "Importer Gross Margin €" },
-            { data: "Importer Gross Margin %" },
-            { data: "Country Gross Margin (i+d) %" },
-            { data: "Commercial Margin Opel EUR" },
-            { data: "Commercial Margin Opel %" },
-          ],
-          "columnDefs": [
-    { className: "bold", "targets": [ 0,1,2,3,4 ] },
-    { "render": $.fn.dataTable.render.number( '.', ','),
-                "targets":'_all'},
-  ]
-        });
-
-        $("#vehicleoptionssubmission").DataTable({
-          ajax: "../data/TODO_v_rPT_Overview_TRIMLINE_VEHICLE_OPTIONS_SUBMISSION.json",
-          columns: [
-            { data: "LCDV" },
-            { data: "Name" },
-            { data: "Code" },
-            { data: "Previous Code" },
-            { data: "Mix" },
-            { data: "Mix_2" },
-            { data: "List Price Including Taxes LC" },
-            { data: "List Price Excluding Taxes LC" },
-            { data: "Dealer Margin €" },
-            { data: "Gross Sales / PDU (LC/EUR)" },
-            { data: "Importer Gross Margin €" },
-            { data: "Importer Gross Margin %" },
-            { data: "Country Gross Margin (i+d) %" },
-            { data: "Commercial Margin Opel EUR" },
-            { data: "Commercial Margin Opel %" },
-          ],
-          "columnDefs": [
-    { className: "bold", "targets": [ 0,1,2,3,4 ] },
-    { "render": $.fn.dataTable.render.number( '.', ','),
-                "targets":'_all'},
-  ]
-        });
-
-        $("#vehiclesubmission").DataTable({
-          ajax: "../data/TODO_v_rPT_Overview_TRIMLINE_VEHICLE_SUBMISSION.json",
-          columns: [
-            { data: "LCDV" },
-            { data: "Name" },
-            { data: "Code" },
-            { data: "Previous Code" },
-            { data: "Mix" },
-            { data: "Mix_2" },
-            { data: "List Price Including Taxes LC" },
-            { data: "List Price Excluding Taxes LC" },
-            { data: "Dealer Margin €" },
-            { data: "Gross Sales / PDU (LC/EUR)" },
-            { data: "Importer Gross Margin €" },
-            { data: "Importer Gross Margin %" },
-            { data: "Country Gross Margin (i+d) %" },
-            { data: "Commercial Margin Opel EUR" },
-            { data: "Commercial Margin Opel %" },
-          ],
-          "columnDefs": [
-    { className: "bold", "targets": [ 0,1,2,3,4 ] },
-    { "render": $.fn.dataTable.render.number( '.', ','),
-                "targets":'_all'},
-  ]
-        });
-
-        $("#optionssubmission").DataTable({
-          ajax: "../data/TODO_v_rPT_Overview_TRIMLINE_OPTIONS_SUBMISSION.json",
-          columns: [
-            { data: "LCDV" },
-            { data: "Name" },
-            { data: "Code" },
-            { data: "Previous Code" },
-            { data: "Mix" },
-            { data: "Mix_2" },
-            { data: "List Price Including Taxes LC" },
-            { data: "List Price Excluding Taxes LC" },
-            { data: "Dealer Margin €" },
-            { data: "Gross Sales / PDU (LC/EUR)" },
-            { data: "Importer Gross Margin €" },
-            { data: "Importer Gross Margin %" },
-            { data: "Country Gross Margin (i+d) %" },
-            { data: "Commercial Margin Opel EUR" },
-            { data: "Commercial Margin Opel %" },
-          ],
-          "columnDefs": [
-    { className: "bold", "targets": [ 0,1,2,3,4 ] },
-    { "render": $.fn.dataTable.render.number( '.', ','),
-                "targets":'_all'},
-  ]
-        });
-
-        $("#vehicleoptionspbc").DataTable({
-          ajax: "../data/TODO_v_rPT_Overview_TRIMLINE_VEHICLE_OPTIONS_PREVIOUS_BUSINESS_CASE.json",
-          columns: [
-            { data: "LCDV" },
-            { data: "Name" },
-            { data: "Code" },
-            { data: "Previous Code" },
-            { data: "Mix" },
-            { data: "Mix_2" },
-            { data: "List Price Including Taxes LC" },
-            { data: "List Price Excluding Taxes LC" },
-            { data: "Dealer Margin €" },
-            { data: "Gross Sales / PDU (LC/EUR)" },
-            { data: "Importer Gross Margin €" },
-            { data: "Importer Gross Margin %" },
-            { data: "Country Gross Margin (i+d) %" },
-            { data: "Commercial Margin Opel EUR" },
-            { data: "Commercial Margin Opel %" },
-          ],
-          "columnDefs": [
-    { className: "bold", "targets": [ 0,1,2,3,4 ] },
-    { "render": $.fn.dataTable.render.number( '.', ','),
-                "targets":'_all'},
-  ]
-        });
-
-        $("#vehiclepbc").DataTable({
-          ajax: "../data/TODO_v_rPT_Overview_TRIMLINE_VEHICLE_PREVIOUS_BUSINESS_CASE.json",
-          columns: [
-            { data: "LCDV" },
-            { data: "Name" },
-            { data: "Code" },
-            { data: "Previous Code" },
-            { data: "Mix" },
-            { data: "Mix_2" },
-            { data: "List Price Including Taxes LC" },
-            { data: "List Price Excluding Taxes LC" },
-            { data: "Dealer Margin €" },
-            { data: "Gross Sales / PDU (LC/EUR)" },
-            { data: "Importer Gross Margin €" },
-            { data: "Importer Gross Margin %" },
-            { data: "Country Gross Margin (i+d) %" },
-            { data: "Commercial Margin Opel EUR" },
-            { data: "Commercial Margin Opel %" },
-          ],
-          "columnDefs": [
-    { className: "bold", "targets": [ 0,1,2,3,4 ] },
-    { "render": $.fn.dataTable.render.number( '.', ','),
-                "targets":'_all'},
-  ]
-        });
-
-        $("#optionspbc").DataTable({
-          ajax: "../data/TODO_v_rPT_Overview_TRIMLINE_OPTIONS_PREVIOUS_BUSINESS_CASE.json",
-          columns: [
-            { data: "LCDV" },
-            { data: "Name" },
-            { data: "Code" },
-            { data: "Previous Code" },
-            { data: "Mix" },
-            { data: "Mix_2" },
-            { data: "List Price Including Taxes LC" },
-            { data: "List Price Excluding Taxes LC" },
-            { data: "Dealer Margin €" },
-            { data: "Gross Sales / PDU (LC/EUR)" },
-            { data: "Importer Gross Margin €" },
-            { data: "Importer Gross Margin %" },
-            { data: "Country Gross Margin (i+d) %" },
-            { data: "Commercial Margin Opel EUR" },
-            { data: "Commercial Margin Opel %" },
-          ],
-          "columnDefs": [
-    { className: "bold", "targets": [ 0,1,2,3,4 ] },
-    { "render": $.fn.dataTable.render.number( '.', ','),
-                "targets":'_all'},
-  ]
-        });
-
       });
+  
+        let r =
+          {
+            country: document.querySelector("#country").value,
+            countryGroup: document.querySelector("#countryGroup").value,
+            carline: document.querySelector("#carline").value,
+            vehicleBrand: document.querySelector("#vehicleBrand").value,
+            modelYear: document.querySelector("#modelYear").value
+          };
+  
+        let tableData; // placeholder for ajax tables data
+          
+        $.ajax({
+          headers: { 
+            'Accept': 'application/json',
+            'Content-Type': 'application/json' 
+          },
+          'type': 'POST',
+          'url': "../DetailedVarianceAnalysis",
+          'data': JSON.stringify(r),
+          'dataType': 'json',
+          success: function (data) {
+            tableData = data,
+            console.log('tableData', data);
+            $("#trimlinevehicleoptionsvariancesubtab1").dataTable({
+              data: data.trimline_vehicle_options_subtab1,
+              // scrollX:        true,
+              // scrollCollapse: true,
+              // fixedColumns:   {
+              //   leftColumns: 2
+              // },
+              columns: [
+                { "data": "codeLCDV" },
+                { "data": "codeRPO" },
+                { "data": "name" },
+                { "data": "mixPreviousMY" },
+                { "data": "mixCurrentMY" },
+                { "data": "mixDelta" },
+                { "data": "listPriceInclTaxesInLCPreviousMY" },
+                { "data": "listPriceInclTaxesInLCCurrentMY" },
+                { "data": "listPriceInclTaxesInLCDelta" },
+                { "data": "listPriceExclTaxesInLCPreviousMY" },
+                { "data": "listPriceExclTaxesInLCCurrentMY" },
+                { "data": "listPriceExclTaxesInLCDelta" },
+                { "data": "grossSalesPDUinEuroPreviousMY" },
+                { "data": "grossSalesPDUinEuroCurrentMY" },
+                { "data": "grossSalesPDUinEuroDelta" },
+                { "data": "ppiInEuroPreviousMY" },
+                { "data": "ppiInEuroCurrentMY" },
+                { "data": "ppiInEuroDelta" },
+                { "data": "rbcvInEuroPreviousMY" },
+                { "data": "rbcvInEuroCurrentMY" },
+                { "data": "rbcvInEuroDelta" },
+              ],
+              // "columnDefs": [
+              //     { className: "bold", "targets": [ 0,1,2,3,4 ] },
+              //     { "render": $.fn.dataTable.render.number( '.', ','),
+              //         "targets":'_all'},
+              // ],
+              error: function (error) {
+                alert("Data Tables ERROR: " + error)
+              }
+            });
+            
+            $("#trimlinevehiclevariancesubtab1").dataTable({
+              data: data.trimline_vehicle_subtab1,
+              // scrollX:        true,
+              // scrollCollapse: true,
+              // fixedColumns:   {
+              //   leftColumns: 2
+              // },
+              columns: [
+                { "data": "codeLCDV" },
+                { "data": "codeRPO" },
+                { "data": "name" },
+                { "data": "mixPreviousMY" },
+                { "data": "mixCurrentMY" },
+                { "data": "mixDelta" },
+                { "data": "listPriceInclTaxesInLCPreviousMY" },
+                { "data": "listPriceInclTaxesInLCCurrentMY" },
+                { "data": "listPriceInclTaxesInLCDelta" },
+                { "data": "listPriceExclTaxesInLCPreviousMY" },
+                { "data": "listPriceExclTaxesInLCCurrentMY" },
+                { "data": "listPriceExclTaxesInLCDelta" },
+                { "data": "grossSalesPDUinEuroPreviousMY" },
+                { "data": "grossSalesPDUinEuroCurrentMY" },
+                { "data": "grossSalesPDUinEuroDelta" },
+                { "data": "ppiInEuroPreviousMY" },
+                { "data": "ppiInEuroCurrentMY" },
+                { "data": "ppiInEuroDelta" },
+                { "data": "rbcvInEuroPreviousMY" },
+                { "data": "rbcvInEuroCurrentMY" },
+                { "data": "rbcvInEuroDelta" },
+              ],
+              // "columnDefs": [
+              //     { className: "bold", "targets": [ 0,1,2,3,4 ] },
+              //     { "render": $.fn.dataTable.render.number( '.', ','),
+              //         "targets":'_all'},
+              // ],
+              error: function (error) {
+                alert("Data Tables ERROR: " + error)
+              }
+            });
+
+            $("#trimlineoptionsvariancesubtab1").dataTable({
+              data: data.trimline_options_subtab1,
+              // scrollX:        true,
+              // scrollCollapse: true,
+              // fixedColumns:   {
+              //   leftColumns: 2
+              // },
+              columns: [
+                { "data": "codeLCDV" },
+                { "data": "codeRPO" },
+                { "data": "name" },
+                { "data": "mixPreviousMY" },
+                { "data": "mixCurrentMY" },
+                { "data": "mixDelta" },
+                { "data": "listPriceInclTaxesInLCPreviousMY" },
+                { "data": "listPriceInclTaxesInLCCurrentMY" },
+                { "data": "listPriceInclTaxesInLCDelta" },
+                { "data": "listPriceExclTaxesInLCPreviousMY" },
+                { "data": "listPriceExclTaxesInLCCurrentMY" },
+                { "data": "listPriceExclTaxesInLCDelta" },
+                { "data": "grossSalesPDUinEuroPreviousMY" },
+                { "data": "grossSalesPDUinEuroCurrentMY" },
+                { "data": "grossSalesPDUinEuroDelta" },
+                { "data": "ppiInEuroPreviousMY" },
+                { "data": "ppiInEuroCurrentMY" },
+                { "data": "ppiInEuroDelta" },
+                { "data": "rbcvInEuroPreviousMY" },
+                { "data": "rbcvInEuroCurrentMY" },
+                { "data": "rbcvInEuroDelta" },
+              ],
+              // "columnDefs": [
+              //     { className: "bold", "targets": [ 0,1,2,3,4 ] },
+              //     { "render": $.fn.dataTable.render.number( '.', ','),
+              //         "targets":'_all'},
+              // ],
+              error: function (error) {
+                alert("Data Tables ERROR: " + error)
+              }
+            });
+
+            $("#trimlinevehicleoptionsvariancesubtab2").dataTable({
+              data: data.trimline_vehicle_options_subtab2,
+              // scrollX:        true,
+              // scrollCollapse: true,
+              // fixedColumns:   {
+              //   leftColumns: 2
+              // },
+              columns: [
+              { "data": "importerGrossMarginEurPreviousMY" },
+              { "data": "importerGrossMarginEurCurrentMY" },
+              { "data": "importerGrossMarginEurDelta" },
+              { "data": "importerGrossMarginPercentPreviousMY" },
+              { "data": "importerGrossMarginPercentCurrentMY" },
+              { "data": "importerGrossMarginPercentDelta" },
+              { "data": "importerNetMarginEurPreviousMY" },
+              { "data": "importerNetMarginEurCurrentMY" },
+              { "data": "importerNetMarginEurDelta" },
+              { "data": "importerNetMarginPercentPreviousMY" },
+              { "data": "importerNetMarginPercentCurrentMY" },
+              { "data": "importerNetMarginPercentDelta" },
+              { "data": "countryGrossMarginEurPreviousMY" },
+              { "data": "countryGrossMarginEurCurrentMY" },
+              { "data": "countryGrossMarginEurDelta" },
+              { "data": "countryGrossMarginPercentPreviousMY" },
+              { "data": "countryGrossMarginPercentCurrentMY" },
+              { "data": "countryGrossMarginPercentDelta" },
+              { "data": "dealerMarginEurPreviousMY" },
+              { "data": "dealerGrossMarginEurCurrentMY" },
+              { "data": "dealerGrossMarginEurDelta" },
+              ],
+              // "columnDefs": [
+              //     { className: "bold", "targets": [ 0,1,2,3,4 ] },
+              //     { "render": $.fn.dataTable.render.number( '.', ','),
+              //         "targets":'_all'},
+              // ],
+              error: function (error) {
+                alert("Data Tables ERROR: " + error)
+              }
+            });
+            
+            $("#trimlinevehiclevariancesubtab2").dataTable({
+              data: data.trimline_vehicle_subtab2,
+              // scrollX:        true,
+              // scrollCollapse: true,
+              // fixedColumns:   {
+              //   leftColumns: 2
+              // },
+              columns: [
+              { "data": "importerGrossMarginEurPreviousMY" },
+              { "data": "importerGrossMarginEurCurrentMY" },
+              { "data": "importerGrossMarginEurDelta" },
+              { "data": "importerGrossMarginPercentPreviousMY" },
+              { "data": "importerGrossMarginPercentCurrentMY" },
+              { "data": "importerGrossMarginPercentDelta" },
+              { "data": "importerNetMarginEurPreviousMY" },
+              { "data": "importerNetMarginEurCurrentMY" },
+              { "data": "importerNetMarginEurDelta" },
+              { "data": "importerNetMarginPercentPreviousMY" },
+              { "data": "importerNetMarginPercentCurrentMY" },
+              { "data": "importerNetMarginPercentDelta" },
+              { "data": "countryGrossMarginEurPreviousMY" },
+              { "data": "countryGrossMarginEurCurrentMY" },
+              { "data": "countryGrossMarginEurDelta" },
+              { "data": "countryGrossMarginPercentPreviousMY" },
+              { "data": "countryGrossMarginPercentCurrentMY" },
+              { "data": "countryGrossMarginPercentDelta" },
+              { "data": "dealerMarginEurPreviousMY" },
+              { "data": "dealerGrossMarginEurCurrentMY" },
+              { "data": "dealerGrossMarginEurDelta" },
+              ],
+              // "columnDefs": [
+              //     { className: "bold", "targets": [ 0,1,2,3,4 ] },
+              //     { "render": $.fn.dataTable.render.number( '.', ','),
+              //         "targets":'_all'},
+              // ],
+              error: function (error) {
+                alert("Data Tables ERROR: " + error)
+              }
+            });
+
+            $("#trimlineoptionsvariancesubtab2").dataTable({
+              data: data.trimline_options_subtab2,
+              // scrollX:        true,
+              // scrollCollapse: true,
+              // fixedColumns:   {
+              //   leftColumns: 2
+              // },
+              columns: [
+              { "data": "importerGrossMarginEurPreviousMY" },
+              { "data": "importerGrossMarginEurCurrentMY" },
+              { "data": "importerGrossMarginEurDelta" },
+              { "data": "importerGrossMarginPercentPreviousMY" },
+              { "data": "importerGrossMarginPercentCurrentMY" },
+              { "data": "importerGrossMarginPercentDelta" },
+              { "data": "importerNetMarginEurPreviousMY" },
+              { "data": "importerNetMarginEurCurrentMY" },
+              { "data": "importerNetMarginEurDelta" },
+              { "data": "importerNetMarginPercentPreviousMY" },
+              { "data": "importerNetMarginPercentCurrentMY" },
+              { "data": "importerNetMarginPercentDelta" },
+              { "data": "countryGrossMarginEurPreviousMY" },
+              { "data": "countryGrossMarginEurCurrentMY" },
+              { "data": "countryGrossMarginEurDelta" },
+              { "data": "countryGrossMarginPercentPreviousMY" },
+              { "data": "countryGrossMarginPercentCurrentMY" },
+              { "data": "countryGrossMarginPercentDelta" },
+              { "data": "dealerMarginEurPreviousMY" },
+              { "data": "dealerGrossMarginEurCurrentMY" },
+              { "data": "dealerGrossMarginEurDelta" },
+              ],
+              // "columnDefs": [
+              //     { className: "bold", "targets": [ 0,1,2,3,4 ] },
+              //     { "render": $.fn.dataTable.render.number( '.', ','),
+              //         "targets":'_all'},
+              // ],
+              error: function (error) {
+                alert("Data Tables ERROR: " + error)
+              }
+            });
+
+  
+          },
+  
+          error: function (error) {
+            alert("AJAX ERROR: " + error)
+          },
+        });
+              
     </script>
+
 
     <!-- Option 2: jQuery, Popper.js, and Bootstrap JS
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
